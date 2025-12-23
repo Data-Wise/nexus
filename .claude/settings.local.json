@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for file in QUICK-START.md CLAUDE.md PROJECT-HUB.md P2-TASKS.md PROPOSAL-TEMPLATE-VAULT.md PROPOSAL-MCP-INTEGRATION.md ARCHITECTURE-DECISION-MONOREPO.md)",
+      "Bash(do)",
+      "Bash(if [ -f \"$file\" ])",
+      "Bash(then)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for file in standards/vault/VAULT-STRUCTURE.md standards/vault/TEMPLATE-STANDARDS.md standards/documentation/ADHD-FRIENDLY-DOCS.md)",
+      "Bash(git init:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
