@@ -93,13 +93,16 @@ nexus/
 
 **Building the Desktop App?** See [DEVELOPMENT-PLAN.md](DEVELOPMENT-PLAN.md)
 
-**Current Sprint**: Sprint 1 - Hello World ([SPRINT-1.md](SPRINT-1.md))
+**Desktop App Status**:
+- ✅ **7 Sprints Complete** (Wiki Links, Tags, Search)
+- 📋 **Sprint 8 Planned** (Search Enhancements)
+- 🚀 **Version 0.3.0** - Production-ready PKM app
 
 ```bash
-# Desktop app is in development
-cd nexus-desktop/  # (to be created)
+# Desktop app is ready to use!
+cd nexus-desktop/
 npm install
-npm run dev
+npm run dev  # Start the app
 ```
 
 ---

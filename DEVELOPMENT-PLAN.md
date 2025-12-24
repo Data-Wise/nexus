@@ -43,12 +43,14 @@ Later Additions:
 | 2 | SQLite Database | 12h | ✅ Complete | [SPRINT-2.md](SPRINT-2.md) |
 | 3 | Rich Markdown Editor | 15h | ✅ Complete | [SPRINT-3.md](SPRINT-3.md) |
 | 4 | PARA Folder Structure | 12h | ✅ Complete | - |
-| 5 | Full-Text Search | 10h | ✅ Complete | [SPRINT-5.md](SPRINT-5.md) |
-| 6 | Internal Links & Backlinks | 12h | ⚪ Not Started | - |
-| 7 | Task Management | 15h | ⚪ Not Started | - |
-| 8 | Dashboards | 12h | ⚪ Not Started |
-| 9 | Templates | 10h | ⚪ Not Started |
-| 10 | Import/Export | 8h | ⚪ Not Started |
+| 5 | Full-Text Search (FTS5) | 10h | ✅ Complete | [SPRINT-5.md](SPRINT-5.md) |
+| 6 | Wiki Links & Backlinks | 12h | ✅ Complete | [nexus-desktop/SPRINT-6-COMPLETE.md](nexus-desktop/SPRINT-6-COMPLETE.md) |
+| 7 | Tags System | 10h | ✅ Complete | [nexus-desktop/SPRINT-7-COMPLETE.md](nexus-desktop/SPRINT-7-COMPLETE.md) |
+| 8 | Search & Filter Enhancements | 12h | 📋 Planned | [nexus-desktop/SPRINT-8-PLAN.md](nexus-desktop/SPRINT-8-PLAN.md) |
+| 9 | Task Management | 15h | ⚪ Not Started | - |
+| 10 | Dashboards | 12h | ⚪ Not Started |
+| 11 | Templates | 10h | ⚪ Not Started |
+| 12 | Import/Export | 8h | ⚪ Not Started |
 
 **Deliverables**:
 - ✅ Fast, responsive desktop app
@@ -304,9 +306,41 @@ nexus-desktop/
 - Empty state and loading state
 - Created GETTING-STARTED.md guide
 
+### Sprint 6 ✅
+- WikiLink Mark extension for rendering `[[links]]`
+- WikiLinkInputRule plugin for detecting `[[` pattern
+- WikiLinkAutocomplete component with keyboard navigation
+- BacklinksPanel showing incoming/outgoing links
+- Database links table for relationship tracking
+- Automatic note creation from broken links
+- Real-time link updates
+- 16 automated tests (8 passing unit tests)
+
+### Sprint 7 ✅
+- TagInputRule extension for detecting `#` pattern
+- TagMark extension for rendering colored tag badges
+- TagAutocomplete component (reused WikiLink pattern)
+- TagsPanel showing all tags with note counts
+- TagFilter component for multi-tag filtering (AND logic)
+- Database tags and note_tags tables (many-to-many)
+- Hash-based consistent tag colors
+- Auto-parsing tags from content
+- Case-insensitive tag matching
+- 52 automated tests (100% passing)
+
+### Sprint 8 📋
+- **Planned**: Search & Filter Enhancements
+- Search highlighting (titles + snippets)
+- Advanced filters (folder, date range, tags, sort)
+- Search history (persist across sessions)
+- Enhanced result cards with metadata
+- Keyboard navigation improvements
+- See [nexus-desktop/SPRINT-8-PLAN.md](nexus-desktop/SPRINT-8-PLAN.md)
+
 ---
 
-**Last Updated**: 2025-12-23
-**Current Sprint**: 5 (Full-Text Search) - ✅ Complete
-**Next Sprint**: 6 (Internal Links & Backlinks)
-**Progress**: Sprints 1-5/10 complete (50%)
+**Last Updated**: 2024-12-24
+**Current Sprint**: 8 (Search & Filter Enhancements) - 📋 Planned
+**Completed Sprints**: 7/12 complete (58%)
+**Next Sprint**: 9 (Task Management)
+**App Version**: 0.3.0
