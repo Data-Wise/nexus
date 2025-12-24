@@ -479,9 +479,26 @@ export class DatabaseService {
       return this.listNotes()
     }
 
+    // Validate inputs: ensure tagIds are non-empty strings
+    if (!Array.isArray(tagIds) || tagIds.some(id => typeof id !== 'string' || id.trim() === '')) {
+      throw new Error('Invalid tag IDs: must be non-empty strings')
+    }
+
+    // Limit number of tags for performance
+    if (tagIds.length > 100) {
+      throw new Error('Too many tags: maximum 100 tags allowed')
+    }
+
     if (matchAll) {
       // AND logic: notes must have ALL tags
-      const placeholders = tagIds.map(() => '?').join(',')
+      // Generate placeholders safely - only creates '?' characters
+      const placeholders = Array(tagIds.length).fill('?').join(',')
+
+      // Verify placeholders only contains safe characters (defense in depth)
+      if (!/^[?,\s]*$/.test(placeholders)) {
+        throw new Error('Invalid placeholder format detected')
+      }
+
       const stmt = this.db.prepare(`
         SELECT notes.* FROM notes
         WHERE notes.deleted_at IS NULL
@@ -495,7 +512,14 @@ export class DatabaseService {
       return stmt.all(...tagIds, tagIds.length) as Note[]
     } else {
       // OR logic: notes must have ANY tag
-      const placeholders = tagIds.map(() => '?').join(',')
+      // Generate placeholders safely - only creates '?' characters
+      const placeholders = Array(tagIds.length).fill('?').join(',')
+
+      // Verify placeholders only contains safe characters (defense in depth)
+      if (!/^[?,\s]*$/.test(placeholders)) {
+        throw new Error('Invalid placeholder format detected')
+      }
+
       const stmt = this.db.prepare(`
         SELECT DISTINCT notes.* FROM notes
         JOIN note_tags ON notes.id = note_tags.note_id
