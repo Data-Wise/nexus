@@ -228,35 +228,91 @@ export class DatabaseService {
 
   // CRUD Operations
 
+  /**
+   * Create a new note with input validation
+   */
   createNote(note: Partial<Note>): Note {
+    // Validate and sanitize title (max 500 characters)
+    const MAX_TITLE_LENGTH = 500
+    let title = (note.title || 'Untitled').trim()
+
+    if (title.length === 0) {
+      title = 'Untitled'
+    }
+
+    if (title.length > MAX_TITLE_LENGTH) {
+      throw new Error(`Title too long: maximum ${MAX_TITLE_LENGTH} characters allowed`)
+    }
+
+    // Validate and sanitize content (max 10MB)
+    const MAX_CONTENT_LENGTH = 10 * 1024 * 1024 // 10MB
+    const content = note.content || ''
+
+    if (content.length > MAX_CONTENT_LENGTH) {
+      throw new Error(`Content too large: maximum ${MAX_CONTENT_LENGTH / 1024 / 1024}MB allowed`)
+    }
+
+    // Validate folder
+    const validFolders = ['inbox', 'projects', 'areas', 'resources', 'archive']
+    const folder = note.folder && validFolders.includes(note.folder)
+      ? note.folder
+      : 'inbox'
+
     const stmt = this.db.prepare(`
       INSERT INTO notes (title, content, folder)
       VALUES (?, ?, ?)
       RETURNING *
     `)
 
-    const result = stmt.get(
-      note.title || 'Untitled',
-      note.content || '',
-      note.folder || 'inbox'
-    ) as Note
+    const result = stmt.get(title, content, folder) as Note
 
     return result
   }
 
+  /**
+   * Update a note with input validation
+   */
   updateNote(id: string, updates: Partial<Note>): Note | null {
     const fields: string[] = []
     const values: any[] = []
 
+    // Validate title if provided
     if (updates.title !== undefined) {
+      const MAX_TITLE_LENGTH = 500
+      const title = updates.title.trim()
+
+      if (title.length === 0) {
+        throw new Error('Title cannot be empty')
+      }
+
+      if (title.length > MAX_TITLE_LENGTH) {
+        throw new Error(`Title too long: maximum ${MAX_TITLE_LENGTH} characters allowed`)
+      }
+
       fields.push('title = ?')
-      values.push(updates.title)
+      values.push(title)
     }
+
+    // Validate content if provided
     if (updates.content !== undefined) {
+      const MAX_CONTENT_LENGTH = 10 * 1024 * 1024 // 10MB
+
+      if (updates.content.length > MAX_CONTENT_LENGTH) {
+        throw new Error(`Content too large: maximum ${MAX_CONTENT_LENGTH / 1024 / 1024}MB allowed`)
+      }
+
       fields.push('content = ?')
       values.push(updates.content)
     }
+
+    // Validate folder if provided
     if (updates.folder !== undefined) {
+      const validFolders = ['inbox', 'projects', 'areas', 'resources', 'archive']
+
+      if (!validFolders.includes(updates.folder)) {
+        throw new Error(`Invalid folder: must be one of ${validFolders.join(', ')}`)
+      }
+
       fields.push('folder = ?')
       values.push(updates.folder)
     }
@@ -533,31 +589,35 @@ export class DatabaseService {
 
   /**
    * Parse content for #tags and update note_tags relationships
+   * Wrapped in transaction for atomicity
    */
   updateNoteTags(noteId: string, content: string): void {
-    // Parse #tags from content
-    const tagRegex = /#([a-zA-Z0-9_-]+)/g
-    const matches = Array.from(content.matchAll(tagRegex))
-    const tagNames = [...new Set(matches.map(m => m[1].trim()).filter(Boolean))]
+    // Wrap in transaction to ensure all-or-nothing update
+    this.transaction(() => {
+      // Parse #tags from content
+      const tagRegex = /#([a-zA-Z0-9_-]+)/g
+      const matches = Array.from(content.matchAll(tagRegex))
+      const tagNames = [...new Set(matches.map(m => m[1].trim()).filter(Boolean))]
 
-    // Get current tags
-    const currentTags = this.getNoteTags(noteId)
-    const currentTagNames = new Set(currentTags.map(t => t.name.toLowerCase()))
+      // Get current tags
+      const currentTags = this.getNoteTags(noteId)
+      const currentTagNames = new Set(currentTags.map(t => t.name.toLowerCase()))
 
-    // Add new tags
-    for (const tagName of tagNames) {
-      if (!currentTagNames.has(tagName.toLowerCase())) {
-        this.addTagToNote(noteId, tagName)
+      // Add new tags
+      for (const tagName of tagNames) {
+        if (!currentTagNames.has(tagName.toLowerCase())) {
+          this.addTagToNote(noteId, tagName)
+        }
       }
-    }
 
-    // Remove tags no longer in content
-    const newTagNames = new Set(tagNames.map(t => t.toLowerCase()))
-    for (const tag of currentTags) {
-      if (!newTagNames.has(tag.name.toLowerCase())) {
-        this.removeTagFromNote(noteId, tag.id)
+      // Remove tags no longer in content
+      const newTagNames = new Set(tagNames.map(t => t.toLowerCase()))
+      for (const tag of currentTags) {
+        if (!newTagNames.has(tag.name.toLowerCase())) {
+          this.removeTagFromNote(noteId, tag.id)
+        }
       }
-    }
+    })
   }
 
   /**
@@ -581,32 +641,36 @@ export class DatabaseService {
 
   /**
    * Parse content for [[wiki links]] and update database relationships
+   * Wrapped in transaction for atomicity
    */
   updateNoteLinks(noteId: string, content: string): void {
-    // Parse [[links]] from content
-    const linkRegex = /\[\[([^\]]+)\]\]/g
-    const matches = Array.from(content.matchAll(linkRegex))
-    const linkedTitles = matches.map(m => m[1].trim()).filter(Boolean)
+    // Wrap in transaction to ensure all-or-nothing update
+    this.transaction(() => {
+      // Parse [[links]] from content
+      const linkRegex = /\[\[([^\]]+)\]\]/g
+      const matches = Array.from(content.matchAll(linkRegex))
+      const linkedTitles = matches.map(m => m[1].trim()).filter(Boolean)
 
-    // Delete existing links from this note
-    this.db.prepare('DELETE FROM links WHERE source_note_id = ?').run(noteId)
+      // Delete existing links from this note
+      this.db.prepare('DELETE FROM links WHERE source_note_id = ?').run(noteId)
 
-    // Find notes by title and create links
-    for (const title of linkedTitles) {
-      const targetNote = this.db
-        .prepare('SELECT id FROM notes WHERE title = ? AND deleted_at IS NULL')
-        .get(title) as { id: string } | undefined
+      // Find notes by title and create links
+      for (const title of linkedTitles) {
+        const targetNote = this.db
+          .prepare('SELECT id FROM notes WHERE title = ? AND deleted_at IS NULL')
+          .get(title) as { id: string } | undefined
 
-      if (targetNote) {
-        try {
-          this.db
-            .prepare('INSERT OR IGNORE INTO links (source_note_id, target_note_id) VALUES (?, ?)')
-            .run(noteId, targetNote.id)
-        } catch (error) {
-          console.error(`Failed to create link from ${noteId} to ${targetNote.id}:`, error)
+        if (targetNote) {
+          try {
+            this.db
+              .prepare('INSERT OR IGNORE INTO links (source_note_id, target_note_id) VALUES (?, ?)')
+              .run(noteId, targetNote.id)
+          } catch (error) {
+            console.error(`Failed to create link from ${noteId} to ${targetNote.id}:`, error)
+          }
         }
       }
-    }
+    })
   }
 
   /**

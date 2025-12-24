@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { Note } from '../types'
+import { sanitizeHTML, sanitizeText } from '../utils/sanitize'
 
 interface NotesState {
   notes: Note[]
@@ -35,7 +36,14 @@ export const useNotesStore = create<NotesState>((set, get) => ({
   createNote: async (note: Partial<Note>) => {
     set({ isLoading: true, error: null })
     try {
-      const newNote = await window.api.createNote(note)
+      // Sanitize inputs before sending to backend
+      const sanitizedNote = {
+        ...note,
+        title: note.title ? sanitizeText(note.title) : undefined,
+        content: note.content ? sanitizeHTML(note.content) : undefined
+      }
+
+      const newNote = await window.api.createNote(sanitizedNote)
       set((state) => ({
         notes: [newNote, ...state.notes],
         selectedNoteId: newNote.id,
@@ -49,7 +57,14 @@ export const useNotesStore = create<NotesState>((set, get) => ({
   updateNote: async (id: string, updates: Partial<Note>) => {
     set({ isLoading: true, error: null })
     try {
-      const updatedNote = await window.api.updateNote(id, updates)
+      // Sanitize inputs before sending to backend
+      const sanitizedUpdates = {
+        ...updates,
+        title: updates.title ? sanitizeText(updates.title) : undefined,
+        content: updates.content ? sanitizeHTML(updates.content) : undefined
+      }
+
+      const updatedNote = await window.api.updateNote(id, sanitizedUpdates)
       if (updatedNote) {
         set((state) => ({
           notes: state.notes.map((note) =>
