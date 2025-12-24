@@ -43,7 +43,7 @@ Later Additions:
 | 2 | SQLite Database | 12h | ✅ Complete | [SPRINT-2.md](SPRINT-2.md) |
 | 3 | Rich Markdown Editor | 15h | ✅ Complete | [SPRINT-3.md](SPRINT-3.md) |
 | 4 | PARA Folder Structure | 12h | ✅ Complete | - |
-| 5 | Full-Text Search | 10h | ⚪ Not Started | - |
+| 5 | Full-Text Search | 10h | ✅ Complete | [SPRINT-5.md](SPRINT-5.md) |
 | 6 | Internal Links & Backlinks | 12h | ⚪ Not Started | - |
 | 7 | Task Management | 15h | ⚪ Not Started | - |
 | 8 | Dashboards | 12h | ⚪ Not Started |
@@ -293,9 +293,20 @@ nexus-desktop/
 - "All Notes" view
 - Folder badges and note counts
 
+### Sprint 5 ✅
+- SearchBar component with Cmd+K keyboard shortcut
+- SearchResults component with context snippets
+- HighlightedText component for yellow term highlighting
+- Search utility functions (snippet extraction, HTML stripping)
+- Integrated FTS5 search into UI
+- Real-time search as you type
+- Case-insensitive multi-term matching
+- Empty state and loading state
+- Created GETTING-STARTED.md guide
+
 ---
 
 **Last Updated**: 2025-12-23
-**Current Sprint**: 4 (PARA Folders) - ✅ Complete
-**Next Sprint**: 5 (Full-Text Search)
-**Progress**: Sprints 1-4/10 complete (40%)
+**Current Sprint**: 5 (Full-Text Search) - ✅ Complete
+**Next Sprint**: 6 (Internal Links & Backlinks)
+**Progress**: Sprints 1-5/10 complete (50%)
