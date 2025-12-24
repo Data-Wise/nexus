@@ -1,0 +1,273 @@
+# Nexus Development Plan
+
+> **Gradual, Desktop-First Implementation**
+> Build a powerful local knowledge management app, one feature at a time
+
+---
+
+## Vision
+
+A sophisticated desktop application for personal knowledge management that:
+- Works entirely locally (no cloud dependency)
+- Provides ADHD-optimized workflows
+- Integrates AI features (added later)
+- Maintains data sovereignty
+
+---
+
+## Architecture (Phase 1)
+
+```
+Desktop App (Electron + React + TypeScript)
+  ├─ Frontend: React 18 + TipTap Editor + Tailwind CSS
+  ├─ Database: SQLite (better-sqlite3)
+  └─ Storage: Local filesystem (~/.nexus/)
+
+Later Additions:
+  - AI Features (Claude API)
+  - Cloud Sync
+  - Mobile Apps
+```
+
+---
+
+## Implementation Phases
+
+### Phase 1: Core Desktop App (10 Sprints, ~116 hours)
+
+**Goal**: Fully functional local knowledge management app
+
+| Sprint | Feature | Hours | Status |
+|--------|---------|-------|--------|
+| 1 | Hello World UI | 10h | 🟡 In Progress |
+| 2 | SQLite Database | 12h | ⚪ Not Started |
+| 3 | Rich Markdown Editor | 15h | ⚪ Not Started |
+| 4 | PARA Folder Structure | 12h | ⚪ Not Started |
+| 5 | Full-Text Search | 10h | ⚪ Not Started |
+| 6 | Internal Links & Backlinks | 12h | ⚪ Not Started |
+| 7 | Task Management | 15h | ⚪ Not Started |
+| 8 | Dashboards | 12h | ⚪ Not Started |
+| 9 | Templates | 10h | ⚪ Not Started |
+| 10 | Import/Export | 8h | ⚪ Not Started |
+
+**Deliverables**:
+- ✅ Fast, responsive desktop app
+- ✅ WYSIWYG markdown editing
+- ✅ PARA folder organization
+- ✅ Full-text search
+- ✅ Wiki-style linking
+- ✅ ADHD-friendly task management
+- ✅ Visual dashboards
+- ✅ Template system
+- ✅ Obsidian import/export
+
+---
+
+### Phase 2: AI Features (~43 hours)
+
+**Goal**: Add intelligent assistance
+
+| Sprint | Feature | Hours | Status |
+|--------|---------|-------|--------|
+| 11 | Claude API Integration | 25h | ⚪ Not Started |
+| 12 | Semantic Search | 18h | ⚪ Not Started |
+
+**Features**:
+- Smart tagging
+- Task extraction from notes
+- Related notes suggestions
+- Writing assistance
+- Daily AI briefing
+- Semantic search
+
+---
+
+### Phase 3: Sync & Multi-Device (Future)
+
+**Goal**: Access from anywhere
+
+| Sprint | Feature | Hours | Status |
+|--------|---------|-------|--------|
+| 13-14 | Cloud Sync | 40-50h | ⚪ Not Started |
+
+**Features**:
+- Backend API
+- Delta sync
+- Conflict resolution
+- End-to-end encryption
+- Web app
+- Mobile apps
+
+---
+
+## Sprint 1: Hello World (Current)
+
+**Goal**: Get something running you can click around in
+
+**Time**: 10 hours
+
+### Tasks
+
+1. **Set up Electron + React + TypeScript project** (2h)
+   - Use electron-vite template
+   - Configure TypeScript
+   - Set up hot reload
+
+2. **Create basic window layout** (2h)
+   - Sidebar + main content area
+   - Basic styling with Tailwind CSS
+   - Responsive layout
+
+3. **Hard-code example notes in UI** (1h)
+   - Mock data structure
+   - Display in sidebar
+
+4. **Add routing between notes** (2h)
+   - Click note → show content
+   - URL-based routing
+   - Navigation history
+
+5. **Polish with Tailwind** (2h)
+   - Professional appearance
+   - Dark mode support
+   - Smooth transitions
+
+6. **Package as launchable app** (1h)
+   - Build scripts
+   - Test on macOS
+   - Create app icon
+
+### Deliverables
+
+- ✅ App launches successfully
+- ✅ Shows list of notes in sidebar
+- ✅ Click note → displays content
+- ✅ Professional appearance
+- ✅ Ready for Sprint 2 (database)
+
+---
+
+## Tech Stack
+
+### Core
+- **Framework**: Electron 28+
+- **UI**: React 18 + TypeScript
+- **State**: Zustand
+- **Editor**: TipTap (added Sprint 3)
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Database**: SQLite via better-sqlite3 (added Sprint 2)
+
+### Development
+- **Build**: electron-vite
+- **Package**: electron-builder
+- **Linting**: ESLint + Prettier
+- **Testing**: Vitest (later)
+
+---
+
+## Project Structure
+
+```
+nexus-desktop/
+├── src/
+│   ├── main/                 # Electron main process
+│   │   ├── main.ts
+│   │   ├── database.ts       (Sprint 2)
+│   │   └── ipc-handlers.ts
+│   │
+│   ├── renderer/             # React app
+│   │   ├── components/
+│   │   │   ├── Sidebar/
+│   │   │   ├── Editor/       (Sprint 3)
+│   │   │   ├── Dashboard/    (Sprint 8)
+│   │   │   └── Tasks/        (Sprint 7)
+│   │   │
+│   │   ├── hooks/
+│   │   ├── store/
+│   │   └── App.tsx
+│   │
+│   └── preload.ts
+│
+├── package.json
+├── electron-builder.json
+└── tsconfig.json
+```
+
+---
+
+## Development Workflow
+
+### Daily Work Cycle
+1. Pick next task from current sprint
+2. Implement feature
+3. Test locally
+4. Commit to git
+5. Update this plan with progress
+
+### Sprint Completion
+1. All tasks ✅ checked
+2. App tested end-to-end
+3. Git tag: `sprint-N`
+4. Document learnings
+5. Plan next sprint
+
+### Quality Gates
+- Code compiles without errors
+- App launches and runs
+- Feature works as designed
+- No console errors
+- Git committed
+
+---
+
+## Success Metrics
+
+### After Phase 1 (Core App)
+- [ ] Can capture thoughts in < 5 seconds
+- [ ] Can find any note in < 3 seconds
+- [ ] App feels faster than Obsidian
+- [ ] Using daily for actual work
+- [ ] No data loss (robust SQLite)
+
+### After Phase 2 (AI)
+- [ ] AI suggestions actually useful
+- [ ] Tasks auto-extracted accurately
+- [ ] Semantic search finds right notes
+- [ ] Daily briefing saves time
+
+---
+
+## Timeline Estimate
+
+**At 10 hours/week**:
+- Phase 1: 12 weeks (3 months)
+- Phase 2: 5 weeks (1 month)
+- Total to AI-powered app: **4 months**
+
+**At 20 hours/week**:
+- Phase 1: 6 weeks
+- Phase 2: 2-3 weeks
+- Total: **2 months**
+
+---
+
+## Principles
+
+1. **One feature at a time** - Complete each sprint fully
+2. **Use it yourself** - Dog-food after each sprint
+3. **Iterate on pain** - Add features when needed
+4. **Keep it simple** - Local-first, no premature optimization
+5. **Ship quality** - Every sprint = working software
+
+---
+
+## Notes & Learnings
+
+### Sprint 1
+- [To be filled during development]
+
+---
+
+**Last Updated**: 2025-12-23
+**Current Sprint**: 1 (Hello World)
+**Next Sprint**: 2 (SQLite Database)

@@ -89,6 +89,21 @@ nexus/
 
 ---
 
+## ⚡ Quick Start (For Developers)
+
+**Building the Desktop App?** See [DEVELOPMENT-PLAN.md](DEVELOPMENT-PLAN.md)
+
+**Current Sprint**: Sprint 1 - Hello World ([SPRINT-1.md](SPRINT-1.md))
+
+```bash
+# Desktop app is in development
+cd nexus-desktop/  # (to be created)
+npm install
+npm run dev
+```
+
+---
+
 ## What is Nexus?
 
 Nexus is a complete knowledge management architecture that turns **Obsidian** into your external memory and **Claude** into your cognitive interface. Designed for academic researchers with ADHD-optimized workflows.
