@@ -1,8 +1,9 @@
 status: active
 priority: 2
 progress: 50
-next: Begin Sprint 6 - Internal Links & Backlinks
+next: Sprint 6 - Continue UI Layer (TipTap WikiLink extension)
 type: dev
+checkpoint: Database layer complete, UI pending
 
 # ═══════════════════════════════════════════════════════════════════
 # Below is the original .STATUS content (preserved for reference)
@@ -79,7 +80,14 @@ Sprint 5: Full-Text Search UI      ███████████████
   ├─ Term highlighting (yellow)    ████████████████████ 100% ✅
   └─ FTS5 integration              ████████████████████ 100% ✅
 
-Sprint 6-10: Remaining Features    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Sprint 6: Internal Links (WIP)     ███░░░░░░░░░░░░░░░░░  17% 🟡
+  ├─ Database layer & migration    ████████████████████ 100% ✅
+  ├─ WikiLink TipTap extension     ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+  ├─ Autocomplete dropdown         ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+  ├─ BacklinksPanel component      ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+  └─ App integration               ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+
+Sprint 7-10: Remaining Features    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
 
 ────────────────────────────────────────────────
 
@@ -245,12 +253,13 @@ Sprint 6-10: Remaining Features    ░░░░░░░░░░░░░░░
 
 **Next Session - Start Here:**
 
-A) Begin Sprint 6: Internal Links & Backlinks 🟢 [12 hours] ⭐ START HERE
-   - Implement wiki-style [[note-name]] linking
-   - Add link autocomplete dropdown
-   - Create backlinks panel showing incoming links
-   - Display graph view (optional visualization)
-   - Expected outcome: Connected notes with bidirectional links
+A) Continue Sprint 6: Internal Links UI 🟡 [10 hours remaining] ⭐ START HERE
+   - ✅ Database layer complete (migration 002, link tracking)
+   - 🔄 Build WikiLink TipTap extension for [[note]] syntax
+   - 🔄 Add autocomplete dropdown while typing [[
+   - 🔄 Create BacklinksPanel component
+   - 🔄 Wire up link clicking and navigation
+   - See: TESTING-SPRINT-6.md for verification steps
 
 B) Consider Sprint 7: Task Management [15 hours]
    - Task syntax (- [ ] checkbox)
