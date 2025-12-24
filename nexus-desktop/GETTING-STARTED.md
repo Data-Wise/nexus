@@ -9,6 +9,9 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the App](#running-the-app)
+- [Features Guide](#features-guide)
+  - [Wiki Links](#wiki-links)
+  - [Tags](#tags)
 - [Testing](#testing)
 - [Database Location](#database-location)
 - [Development Workflow](#development-workflow)
@@ -109,6 +112,196 @@ The packaged app will be in `dist/`.
 
 ---
 
+## Features Guide
+
+### Wiki Links
+
+**Sprint 6 Feature** - Connect your notes with `[[wiki-style]]` links.
+
+#### Creating Links
+
+1. **Type `[[` in the editor**
+   - Autocomplete dropdown appears instantly
+   - Shows all existing notes with titles
+
+2. **Select a note**
+   - Use arrow keys (↑↓) to navigate
+   - Press Enter to select
+   - Or click with mouse
+
+3. **Create new notes from links**
+   - Type `[[New Note Name]]`
+   - Click the link to create the note
+   - New note opens automatically
+
+#### Link Rendering
+
+- Links appear in blue: `[[Note Title]]`
+- Hover for visual feedback
+- Click to navigate to linked note
+- Broken links (non-existent notes) still clickable
+
+#### Backlinks Panel
+
+Located in the right sidebar:
+
+**Incoming Links (Backlinks):**
+- Shows which notes link TO the current note
+- "What references this?"
+
+**Outgoing Links:**
+- Shows which notes this note links TO
+- "What does this reference?"
+
+**Usage:**
+- Click any link in the panel to navigate
+- Links update in real-time as you edit
+
+#### Example Workflow
+
+```markdown
+Writing about [[Causal Inference]] in my [[Research Notes]].
+See also [[Sensitivity Analysis]] and [[Mediation Analysis]].
+
+Related projects:
+- [[rmediation Package]]
+- [[Simulation Study 2024]]
+```
+
+All `[[links]]` become clickable, navigable connections.
+
+---
+
+### Tags
+
+**Sprint 7 Feature** - Organize notes with `#tags` and powerful filtering.
+
+#### Creating Tags
+
+1. **Type `#` in the editor**
+   - Tag autocomplete appears instantly
+   - Shows existing tags with colors and note counts
+   - Example: `#research (12 notes)`
+
+2. **Select or create a tag**
+   - Arrow keys to navigate
+   - Enter to select existing tag
+   - Select "Create new tag" for new tags
+   - Autocomplete closes on space/newline
+
+3. **Tag naming rules**
+   - Format: `#tag`, `#my-tag`, `#tag123`
+   - Supports: letters, numbers, hyphens (`-`), underscores (`_`)
+   - Case-insensitive: `#Research` = `#research`
+   - Cannot start with number
+
+#### Tag Rendering
+
+- **Colored badges**: Each tag gets a unique color
+- **Consistent colors**: Same tag = same color across all notes
+- **Interactive**: Click any tag badge to filter notes
+- **Visual hierarchy**: Tags stand out in editor
+
+Example:
+```
+Research ideas for #causal-inference and #mediation-analysis.
+TODO: Review #sensitivity-analysis literature.
+```
+
+Tags appear as colorful, clickable badges.
+
+#### Tags Panel
+
+Located in the right sidebar (below Backlinks):
+
+**All Tags Section:**
+- Lists all tags in your vault
+- Shows note count for each tag
+- Click any tag to filter notes
+
+**Current Note Tags:**
+- Shows tags in the active note
+- Quick visual reference
+
+**Visual Indicators:**
+- Active filters highlighted
+- Tag colors match editor badges
+- Note counts update in real-time
+
+#### Tag Filtering
+
+**Single Tag Filtering:**
+1. Click any tag (in editor, panel, or TagsPanel)
+2. Note list filters to show only notes with that tag
+3. TagFilter bar appears at top showing active filter
+
+**Multi-Tag Filtering (AND logic):**
+1. Click multiple tags to add them to filter
+2. Only notes with ALL selected tags appear
+3. Example: `#research` + `#mediation` shows notes with BOTH tags
+
+**Clear Filters:**
+- Click tag again to remove from filter
+- Click "Clear all filters" button
+- Click "All Notes" in sidebar
+
+#### Tag Management
+
+**Auto-parsing:**
+- Tags automatically extracted from content
+- No manual "apply tag" needed
+- Delete `#tag` text → removes tag
+
+**Case-insensitive:**
+- `#Research`, `#research`, `#RESEARCH` all treated as same tag
+- First occurrence wins for display
+
+**Hash-based colors:**
+- Colors generated from tag name
+- Deterministic (same tag = same color always)
+- No manual color assignment needed
+
+#### Example Workflows
+
+**Organize research:**
+```markdown
+# Literature Review
+
+Reading about #causal-inference in #epidemiology.
+Key papers on #mediation-analysis and #sensitivity-analysis.
+
+Status: #to-read #high-priority
+```
+
+**Filter by context:**
+- Click `#to-read` → See all reading queue
+- Add `#high-priority` → Narrow to urgent items
+- Add `#mediation-analysis` → Find specific topic to-reads
+
+**Combine with wiki links:**
+```markdown
+See [[Sensitivity Analysis Paper]] for #sensitivity-analysis methods.
+Related to [[VanderWeele 2010]] - #foundational #must-read.
+```
+
+#### Tags vs Links
+
+| Feature | Tags | Wiki Links |
+|---------|------|------------|
+| **Syntax** | `#tag` | `[[link]]` |
+| **Purpose** | Categorize, filter | Connect, navigate |
+| **Colors** | Unique per tag | All blue |
+| **Filtering** | Multi-tag AND/OR | Backlinks panel |
+| **Best for** | Topics, status, priority | Related notes, references |
+
+**Use both together:**
+```markdown
+Working on [[Mediation Package]] #development #R
+Need to review [[Literature/VanderWeele]] #foundational
+```
+
+---
+
 ## Testing
 
 ### Manual Testing Checklist
@@ -142,7 +335,20 @@ The packaged app will be in `dist/`.
    - Type code with syntax highlighting
    - Verify VS Code dark theme colors
 
-6. **Close and Reopen:**
+6. **Test Wiki Links:** (Sprint 6)
+   - Type `[[` in editor to trigger autocomplete
+   - Select a note from the list or type to create new
+   - Click wiki link to navigate to that note
+   - Check BacklinksPanel shows incoming/outgoing links
+
+7. **Test Tags:** (Sprint 7)
+   - Type `#` in editor to trigger tag autocomplete
+   - Select existing tag or create new one
+   - Tags appear as colored badges in editor
+   - Click tag in TagsPanel to filter notes
+   - Click multiple tags for multi-tag filtering (AND logic)
+
+8. **Close and Reopen:**
    - Quit the app (Cmd+Q)
    - Restart with `npm run dev`
    - Verify notes persist
@@ -398,6 +604,7 @@ After running and testing:
 
 ---
 
-**Last Updated**: 2025-12-23
-**App Version**: 0.1.0 (Sprint 4 - PARA Folders)
-**Next Sprint**: Sprint 5 - Full-Text Search UI
+**Last Updated**: 2024-12-24
+**App Version**: 0.3.0 (Sprint 7 - Tags System)
+**Features**: PARA Folders, Wiki Links, Tags with Filtering
+**Next Sprint**: Sprint 8 - Search & Filter Enhancements
