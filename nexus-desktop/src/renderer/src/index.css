@@ -154,3 +154,15 @@ mark {
 .hljs-strong {
   font-weight: bold;
 }
+
+/* Wiki Link Styles */
+.wiki-link-decoration {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.wiki-link-decoration:hover {
+  background-color: rgba(96, 165, 250, 0.2);
+}

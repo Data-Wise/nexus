@@ -5,7 +5,11 @@ import Image from '@tiptap/extension-image'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import Placeholder from '@tiptap/extension-placeholder'
 import { common, createLowlight } from 'lowlight'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { WikiLink } from '../extensions/WikiLink'
+import { WikiLinkInputRule } from '../extensions/WikiLinkInputRule'
+import { WikiLinkAutocomplete } from './WikiLinkAutocomplete'
+import { Note } from '../../../main/database/DatabaseService'
 
 const lowlight = createLowlight(common)
 
@@ -13,13 +17,24 @@ interface EditorProps {
   content: string
   onChange: (content: string) => void
   editable?: boolean
+  onLinkClick?: (title: string) => void
+  onSearchNotes?: (query: string) => Promise<Note[]>
 }
 
-export function Editor({ content, onChange, editable = true }: EditorProps) {
+export function Editor({
+  content,
+  onChange,
+  editable = true,
+  onLinkClick = () => {},
+  onSearchNotes = async () => []
+}: EditorProps) {
+  const [autocompletePosition, setAutocompletePosition] = useState<number | null>(null)
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
-        codeBlock: false // We'll use CodeBlockLowlight instead
+        codeBlock: false, // We'll use CodeBlockLowlight instead
+        link: false // We'll configure Link extension separately
       }),
       Link.configure({
         openOnClick: false,
@@ -38,6 +53,15 @@ export function Editor({ content, onChange, editable = true }: EditorProps) {
       }),
       Placeholder.configure({
         placeholder: 'Start writing...'
+      }),
+      WikiLink.configure({
+        onLinkClick
+      }),
+      WikiLinkInputRule.configure({
+        onTrigger: (position) => {
+          console.log('[Editor] WikiLink autocomplete triggered at position:', position)
+          setAutocompletePosition(position)
+        }
       })
     ],
     content,
@@ -69,6 +93,12 @@ export function Editor({ content, onChange, editable = true }: EditorProps) {
       <div className="flex-1 overflow-y-auto">
         <EditorContent editor={editor} />
       </div>
+      <WikiLinkAutocomplete
+        editor={editor}
+        triggerPosition={autocompletePosition}
+        onClose={() => setAutocompletePosition(null)}
+        onSearchNotes={onSearchNotes}
+      />
     </div>
   )
 }

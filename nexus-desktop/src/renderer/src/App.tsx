@@ -3,6 +3,7 @@ import { useNotesStore } from './store/useNotesStore'
 import { Editor } from './components/Editor'
 import { SearchBar } from './components/SearchBar'
 import { SearchResults } from './components/SearchResults'
+import { BacklinksPanel } from './components/BacklinksPanel'
 import { Note } from './types'
 
 const FOLDERS = [
@@ -74,6 +75,54 @@ function App() {
     setIsSearching(false)
     setSearchLoading(false)
   }
+
+  // Wiki link handlers
+  const handleLinkClick = async (title: string) => {
+    // Find note by title
+    const allNotes = await window.api.listNotes()
+    const targetNote = allNotes.find((n) => n.title === title)
+
+    if (targetNote) {
+      selectNote(targetNote.id)
+    } else {
+      // Note doesn't exist yet, create it
+      const newNote = await window.api.createNote({
+        title,
+        content: '<p></p>',
+        folder: selectedNote?.folder || 'inbox'
+      })
+
+      // Update links in the current note now that the target exists
+      if (selectedNote) {
+        await window.api.updateNoteLinks(selectedNote.id, selectedNote.content)
+      }
+
+      selectNote(newNote.id)
+      loadNotes(currentFolder)
+    }
+  }
+
+  const handleSearchNotesForAutocomplete = async (query: string): Promise<Note[]> => {
+    // Get all notes
+    const allNotes = await window.api.listNotes()
+
+    if (query.trim() === '') {
+      // Return all notes when no query
+      return allNotes
+    }
+
+    // Filter by title on client side to avoid FTS5 special character issues
+    const lowerQuery = query.toLowerCase()
+    return allNotes.filter((note) => note.title.toLowerCase().includes(lowerQuery))
+  }
+
+  // Update links when content changes
+  useEffect(() => {
+    if (selectedNote) {
+      // Update note links in database when content changes
+      window.api.updateNoteLinks(selectedNote.id, selectedNote.content)
+    }
+  }, [selectedNote?.content])
 
   return (
     <div className="w-full h-full bg-nexus-bg-primary text-nexus-text-primary flex">
@@ -216,12 +265,19 @@ function App() {
                 </span>
               </div>
             </div>
-            <div className="flex-1 overflow-hidden">
-              <Editor
-                content={selectedNote.content}
-                onChange={handleContentChange}
-                editable={true}
-              />
+            <div className="flex-1 overflow-hidden flex">
+              <div className="flex-1">
+                <Editor
+                  content={selectedNote.content}
+                  onChange={handleContentChange}
+                  editable={true}
+                  onLinkClick={handleLinkClick}
+                  onSearchNotes={handleSearchNotesForAutocomplete}
+                />
+              </div>
+              <div className="w-80">
+                <BacklinksPanel noteId={selectedNoteId} onSelectNote={selectNote} />
+              </div>
             </div>
           </>
         ) : (
