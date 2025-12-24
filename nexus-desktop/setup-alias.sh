@@ -7,10 +7,23 @@ set -e
 NEXUS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SHELL_RC=""
 
-# Detect shell
-if [ -n "$ZSH_VERSION" ]; then
-    SHELL_RC="$HOME/.zshrc"
+# Detect shell and config location
+if [ -n "$ZSH_VERSION" ] || [ -n "$ZDOTDIR" ]; then
+    # ZSH - check for custom ZDOTDIR first
+    if [ -n "$ZDOTDIR" ] && [ -f "$ZDOTDIR/.zshrc" ]; then
+        SHELL_RC="$ZDOTDIR/.zshrc"
+    elif [ -f "$HOME/.config/zsh/.zshrc" ]; then
+        SHELL_RC="$HOME/.config/zsh/.zshrc"
+    elif [ -f "$HOME/.zshrc" ]; then
+        SHELL_RC="$HOME/.zshrc"
+    else
+        echo "⚠️  Could not find .zshrc"
+        echo "   Please manually add this alias to your shell config:"
+        echo "   alias nexus='cd $NEXUS_DIR && npm start'"
+        exit 1
+    fi
 elif [ -n "$BASH_VERSION" ]; then
+    # Bash
     SHELL_RC="$HOME/.bashrc"
 else
     echo "⚠️  Unable to detect shell type"
