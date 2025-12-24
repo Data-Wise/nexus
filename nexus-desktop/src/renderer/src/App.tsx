@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useNotesStore } from './store/useNotesStore'
 import { Editor } from './components/Editor'
+import { SearchBar } from './components/SearchBar'
+import { SearchResults } from './components/SearchResults'
+import { Note } from './types'
 
 const FOLDERS = [
   { path: 'inbox', name: '📥 Inbox', color: '#8b5cf6' },
@@ -14,6 +17,12 @@ function App() {
   const { notes, isLoading, error, loadNotes, createNote, updateNote, selectedNoteId, selectNote } = useNotesStore()
   const [currentFolder, setCurrentFolder] = useState<string | undefined>(undefined)
   const [editingTitle, setEditingTitle] = useState(false)
+
+  // Search state
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState<Note[]>([])
+  const [isSearching, setIsSearching] = useState(false)
+  const [searchLoading, setSearchLoading] = useState(false)
 
   useEffect(() => {
     loadNotes(currentFolder)
@@ -42,12 +51,41 @@ function App() {
     }
   }
 
+  // Search handlers
+  const handleSearch = async (query: string) => {
+    setSearchQuery(query)
+    setIsSearching(true)
+    setSearchLoading(true)
+
+    try {
+      const results = await window.api.searchNotes(query)
+      setSearchResults(results)
+    } catch (error) {
+      console.error('Search failed:', error)
+      setSearchResults([])
+    } finally {
+      setSearchLoading(false)
+    }
+  }
+
+  const handleClearSearch = () => {
+    setSearchQuery('')
+    setSearchResults([])
+    setIsSearching(false)
+    setSearchLoading(false)
+  }
+
   return (
     <div className="w-full h-full bg-nexus-bg-primary text-nexus-text-primary flex">
       {/* Sidebar */}
       <div className="w-64 bg-nexus-bg-secondary border-r border-gray-700 flex flex-col">
         <div className="p-4 border-b border-gray-700">
           <h1 className="text-2xl font-bold mb-3">Nexus</h1>
+
+          {/* Search Bar */}
+          <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
+
+          {/* New Note Button */}
           <button
             onClick={handleCreateNote}
             className="w-full bg-nexus-accent hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors flex items-center justify-center gap-2"
@@ -89,39 +127,57 @@ function App() {
           ))}
         </div>
 
-        {/* Notes List */}
-        <div className="flex-1 overflow-y-auto">
-          {isLoading && (
-            <div className="p-4 text-gray-400 text-sm">Loading notes...</div>
-          )}
-          {error && (
-            <div className="p-4 text-red-400 text-sm">Error: {error}</div>
-          )}
-          {notes.map((note) => (
-            <div
-              key={note.id}
-              onClick={() => selectNote(note.id)}
-              className={`p-4 border-b border-gray-700 cursor-pointer hover:bg-nexus-bg-primary transition-colors ${
-                selectedNoteId === note.id ? 'bg-nexus-accent/20 border-l-4 border-l-nexus-accent' : ''
-              }`}
-            >
-              <div className="font-medium truncate">{note.title}</div>
-              <div className="text-xs text-gray-400 mt-1">
-                {new Date(note.updated_at * 1000).toLocaleDateString()}
+        {/* Notes List or Search Results */}
+        {isSearching ? (
+          <SearchResults
+            results={searchResults}
+            query={searchQuery}
+            onSelectNote={selectNote}
+            selectedNoteId={selectedNoteId}
+            isLoading={searchLoading}
+          />
+        ) : (
+          <div className="flex-1 overflow-y-auto">
+            {isLoading && (
+              <div className="p-4 text-gray-400 text-sm">Loading notes...</div>
+            )}
+            {error && (
+              <div className="p-4 text-red-400 text-sm">Error: {error}</div>
+            )}
+            {notes.map((note) => (
+              <div
+                key={note.id}
+                onClick={() => selectNote(note.id)}
+                className={`p-4 border-b border-gray-700 cursor-pointer hover:bg-nexus-bg-primary transition-colors ${
+                  selectedNoteId === note.id ? 'bg-nexus-accent/20 border-l-4 border-l-nexus-accent' : ''
+                }`}
+              >
+                <div className="font-medium truncate">{note.title}</div>
+                <div className="text-xs text-gray-400 mt-1">
+                  {new Date(note.updated_at * 1000).toLocaleDateString()}
+                </div>
               </div>
-            </div>
-          ))}
-          {!isLoading && notes.length === 0 && (
-            <div className="p-4 text-gray-400 text-sm text-center">
-              No notes yet. Create your first note!
-            </div>
-          )}
-        </div>
+            ))}
+            {!isLoading && notes.length === 0 && (
+              <div className="p-4 text-gray-400 text-sm text-center">
+                No notes yet. Create your first note!
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Footer */}
         <div className="p-4 border-t border-gray-700 text-xs text-gray-400">
-          {notes.length} {notes.length === 1 ? 'note' : 'notes'}
-          {currentFolder && ` in ${FOLDERS.find(f => f.path === currentFolder)?.name || currentFolder}`}
+          {isSearching ? (
+            <>
+              {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'}
+            </>
+          ) : (
+            <>
+              {notes.length} {notes.length === 1 ? 'note' : 'notes'}
+              {currentFolder && ` in ${FOLDERS.find(f => f.path === currentFolder)?.name || currentFolder}`}
+            </>
+          )}
         </div>
       </div>
 
