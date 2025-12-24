@@ -79,6 +79,19 @@ function setupDatabaseHandlers(): void {
   ipcMain.handle('folders:list', async () => {
     return db.getFolders()
   })
+
+  // Link handlers
+  ipcMain.handle('links:update', async (_, noteId: string, content: string) => {
+    return db.updateNoteLinks(noteId, content)
+  })
+
+  ipcMain.handle('links:backlinks', async (_, noteId: string) => {
+    return db.getBacklinks(noteId)
+  })
+
+  ipcMain.handle('links:outgoing', async (_, noteId: string) => {
+    return db.getOutgoingLinks(noteId)
+  })
 }
 
 // This method will be called when Electron has finished initialization

@@ -70,6 +70,12 @@ export class DatabaseService {
       this.runMigration001()
       this.db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(1)
     }
+
+    // Run migration 002 if not applied
+    if (currentVersion < 2) {
+      this.runMigration002()
+      this.db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(2)
+    }
   }
 
   private getCurrentSchemaVersion(): number {
@@ -151,6 +157,26 @@ export class DatabaseService {
         ('areas', 3),
         ('resources', 4),
         ('archive', 5);
+    `)
+  }
+
+  private runMigration002(): void {
+    console.log('Running migration 002: Links table')
+
+    this.db.exec(`
+      -- Links between notes
+      CREATE TABLE IF NOT EXISTS links (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        source_note_id TEXT NOT NULL,
+        target_note_id TEXT NOT NULL,
+        created_at INTEGER DEFAULT (strftime('%s', 'now')),
+        FOREIGN KEY (source_note_id) REFERENCES notes(id) ON DELETE CASCADE,
+        FOREIGN KEY (target_note_id) REFERENCES notes(id) ON DELETE CASCADE,
+        UNIQUE(source_note_id, target_note_id)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_links_source ON links(source_note_id);
+      CREATE INDEX IF NOT EXISTS idx_links_target ON links(target_note_id);
     `)
   }
 
@@ -303,6 +329,64 @@ export class DatabaseService {
   getFolders(): Folder[] {
     const stmt = this.db.prepare('SELECT * FROM folders ORDER BY sort_order')
     return stmt.all() as Folder[]
+  }
+
+  // Link operations
+
+  /**
+   * Parse content for [[wiki links]] and update database relationships
+   */
+  updateNoteLinks(noteId: string, content: string): void {
+    // Parse [[links]] from content
+    const linkRegex = /\[\[([^\]]+)\]\]/g
+    const matches = Array.from(content.matchAll(linkRegex))
+    const linkedTitles = matches.map(m => m[1].trim()).filter(Boolean)
+
+    // Delete existing links from this note
+    this.db.prepare('DELETE FROM links WHERE source_note_id = ?').run(noteId)
+
+    // Find notes by title and create links
+    for (const title of linkedTitles) {
+      const targetNote = this.db
+        .prepare('SELECT id FROM notes WHERE title = ? AND deleted_at IS NULL')
+        .get(title) as { id: string } | undefined
+
+      if (targetNote) {
+        try {
+          this.db
+            .prepare('INSERT OR IGNORE INTO links (source_note_id, target_note_id) VALUES (?, ?)')
+            .run(noteId, targetNote.id)
+        } catch (error) {
+          console.error(`Failed to create link from ${noteId} to ${targetNote.id}:`, error)
+        }
+      }
+    }
+  }
+
+  /**
+   * Get notes that link to this note (backlinks)
+   */
+  getBacklinks(noteId: string): Note[] {
+    const stmt = this.db.prepare(`
+      SELECT notes.* FROM notes
+      JOIN links ON notes.id = links.source_note_id
+      WHERE links.target_note_id = ? AND notes.deleted_at IS NULL
+      ORDER BY notes.updated_at DESC
+    `)
+    return stmt.all(noteId) as Note[]
+  }
+
+  /**
+   * Get notes that this note links to (outgoing links)
+   */
+  getOutgoingLinks(noteId: string): Note[] {
+    const stmt = this.db.prepare(`
+      SELECT notes.* FROM notes
+      JOIN links ON notes.id = links.target_note_id
+      WHERE links.source_note_id = ? AND notes.deleted_at IS NULL
+      ORDER BY notes.updated_at DESC
+    `)
+    return stmt.all(noteId) as Note[]
   }
 
   // Transaction support

@@ -35,7 +35,12 @@ const api = {
   getNoteTags: (noteId: string) => ipcRenderer.invoke('tags:get', noteId),
 
   // Folder operations
-  getFolders: () => ipcRenderer.invoke('folders:list')
+  getFolders: () => ipcRenderer.invoke('folders:list'),
+
+  // Link operations
+  updateNoteLinks: (noteId: string, content: string) => ipcRenderer.invoke('links:update', noteId, content),
+  getBacklinks: (noteId: string) => ipcRenderer.invoke('links:backlinks', noteId),
+  getOutgoingLinks: (noteId: string) => ipcRenderer.invoke('links:outgoing', noteId)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
