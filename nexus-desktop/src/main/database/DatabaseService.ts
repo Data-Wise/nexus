@@ -102,27 +102,27 @@ export class DatabaseService {
         deleted_at INTEGER NULL
       );
 
-      -- Full-text search
+      -- Full-text search (simplified - no external content to avoid corruption)
       CREATE VIRTUAL TABLE notes_fts USING fts5(
+        note_id UNINDEXED,
         title,
-        content,
-        content=notes,
-        content_rowid=rowid
+        content
       );
 
       -- Triggers to keep FTS index in sync
       CREATE TRIGGER notes_ai AFTER INSERT ON notes BEGIN
-        INSERT INTO notes_fts(rowid, title, content)
-        VALUES (new.rowid, new.title, new.content);
+        INSERT INTO notes_fts(note_id, title, content)
+        VALUES (new.id, new.title, new.content);
       END;
 
       CREATE TRIGGER notes_ad AFTER DELETE ON notes BEGIN
-        DELETE FROM notes_fts WHERE rowid = old.rowid;
+        DELETE FROM notes_fts WHERE note_id = old.id;
       END;
 
       CREATE TRIGGER notes_au AFTER UPDATE ON notes BEGIN
-        UPDATE notes_fts SET title = new.title, content = new.content
-        WHERE rowid = new.rowid;
+        DELETE FROM notes_fts WHERE note_id = old.id;
+        INSERT INTO notes_fts(note_id, title, content)
+        VALUES (new.id, new.title, new.content);
       END;
 
       -- Indexes
@@ -291,7 +291,7 @@ export class DatabaseService {
     const stmt = this.db.prepare(`
       SELECT notes.*
       FROM notes
-      JOIN notes_fts ON notes.rowid = notes_fts.rowid
+      JOIN notes_fts ON notes.id = notes_fts.note_id
       WHERE notes_fts MATCH ? AND notes.deleted_at IS NULL
       ORDER BY rank
       LIMIT 50
