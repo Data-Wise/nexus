@@ -99,11 +99,18 @@ nexus/
 - 🚀 **Version 0.3.0** - Production-ready PKM app
 
 ```bash
-# Desktop app is ready to use!
+# Desktop app - Super easy setup!
 cd nexus-desktop/
-npm install
-npm run dev  # Start the app
+./install.sh        # One-time: Install dependencies
+npm start           # Launch Nexus
+
+# OR set up alias for launch from anywhere:
+./setup-alias.sh    # One-time setup
+source ~/.zshrc     # Activate
+nexus               # Launch from anywhere!
 ```
+
+See [nexus-desktop/QUICKSTART.md](nexus-desktop/QUICKSTART.md) for the 2-minute guide.
 
 ---
 

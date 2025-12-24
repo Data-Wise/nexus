@@ -26,21 +26,29 @@ Desktop application for personal knowledge management - built with Electron, Rea
 
 ## Quick Start
 
+### 🚀 Easy Installation & Launch
+
+**First time? Run the install script:**
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Run tests
-npm test
-
-# Build for production
-npm run build
+./install.sh        # One command - installs everything
 ```
 
-See **[GETTING-STARTED.md](GETTING-STARTED.md)** for detailed setup, features guide, and troubleshooting.
+**Launch Nexus:**
+```bash
+npm start           # From project directory
+# OR
+./nexus             # Using launcher script
+# OR
+nexus               # From anywhere (after running ./setup-alias.sh)
+```
+
+**See [QUICKSTART.md](QUICKSTART.md)** for 2-minute setup guide.
+
+### 📚 Full Documentation
+
+- **[QUICKSTART.md](QUICKSTART.md)** - 2-minute setup (start here!)
+- **[GETTING-STARTED.md](GETTING-STARTED.md)** - Complete user guide
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history
 
 ## Documentation
 
