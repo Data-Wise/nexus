@@ -215,10 +215,10 @@ console.log('Backlinks to Another Note:', backlinks2)
 - [x] Counts accurate: ✅ Working
 
 ### Link API Test
-- [ ] updateNoteLinks() works: Testing in progress
-- [ ] getBacklinks() works: Testing in progress
-- [ ] getOutgoingLinks() works: Testing in progress
-- [ ] Relationships correct: Testing in progress
+- [x] updateNoteLinks() works: ✅ Parsed [[links]] correctly
+- [x] getBacklinks() works: ✅ Found 1 backlink to 'Target Note'
+- [x] getOutgoingLinks() works: ✅ Found 2 outgoing links from 'Main Note'
+- [x] Relationships correct: ✅ Bidirectional tracking working
 
 ---
 
