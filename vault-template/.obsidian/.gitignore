@@ -1,0 +1,10 @@
+# Obsidian workspace files (user-specific)
+workspace*.json
+workspace
+
+# Cache and temporary files
+.trash/
+cache/
+
+# Keep plugin configurations
+!plugins/

@@ -1,0 +1,130 @@
+{
+  "choices": {
+    "capture-thought": {
+      "id": "capture-thought",
+      "name": "💭 Capture Thought",
+      "type": "Capture",
+      "command": true,
+      "appendLink": false,
+      "captureTo": "00-INBOX/fleeting-notes/{{DATE:YYYY-MM-DD}}-fleeting.md",
+      "captureToActiveFile": false,
+      "createFileIfItDoesntExist": {
+        "enabled": true,
+        "createWithTemplate": false,
+        "template": ""
+      },
+      "format": {
+        "enabled": true,
+        "format": "- {{VALUE}} #fleeting"
+      },
+      "insertAfter": {
+        "enabled": true,
+        "after": "## Thoughts",
+        "insertAtEnd": false,
+        "considerSubheadings": false,
+        "createIfNotFound": true,
+        "createIfNotFoundLocation": "top"
+      },
+      "prepend": false,
+      "task": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": false,
+      "openFileInMode": "default"
+    },
+    "add-task": {
+      "id": "add-task",
+      "name": "✅ Add Task",
+      "type": "Template",
+      "command": true,
+      "templatePath": "30-RESOURCES/templates/task.md",
+      "fileNameFormat": "{{VALUE}}",
+      "folder": {
+        "enabled": true,
+        "folders": ["60-TASKS"],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": true,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "source"
+    },
+    "new-paper": {
+      "id": "new-paper",
+      "name": "📄 New Paper Note",
+      "type": "Template",
+      "command": true,
+      "templatePath": "30-RESOURCES/templates/paper-note.md",
+      "fileNameFormat": "{{VALUE}}",
+      "folder": {
+        "enabled": true,
+        "folders": ["30-RESOURCES/literature"],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": true,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "source"
+    },
+    "new-project": {
+      "id": "new-project",
+      "name": "📊 New Project",
+      "type": "Multi",
+      "command": true,
+      "choices": [
+        {
+          "id": "new-research-project",
+          "name": "Research Project",
+          "type": "Template",
+          "command": false,
+          "templatePath": "30-RESOURCES/templates/project.md",
+          "fileNameFormat": "{{VALUE}}",
+          "folder": {
+            "enabled": true,
+            "folders": ["10-PROJECTS/research"],
+            "chooseWhenCreatingNote": false,
+            "createInSameFolderAsActiveFile": false,
+            "chooseFromSubfolders": false
+          }
+        },
+        {
+          "id": "new-lecture",
+          "name": "Lecture",
+          "type": "Template",
+          "command": false,
+          "templatePath": "30-RESOURCES/templates/lecture.md",
+          "fileNameFormat": "Week-{{VALUE}}",
+          "folder": {
+            "enabled": true,
+            "folders": ["10-PROJECTS/teaching"],
+            "chooseWhenCreatingNote": true,
+            "createInSameFolderAsActiveFile": false,
+            "chooseFromSubfolders": true
+          }
+        }
+      ]
+    }
+  },
+  "macros": [],
+  "inputPrompt": "single-line",
+  "devMode": false,
+  "templateFolderPath": "30-RESOURCES/templates",
+  "announceUpdates": true,
+  "version": "0.0.0",
+  "disableOnlineFeatures": true
+}

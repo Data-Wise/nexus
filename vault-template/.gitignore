@@ -1,0 +1,17 @@
+# Obsidian workspace files
+.obsidian/workspace*.json
+.obsidian/workspace
+.obsidian/.trash/
+.obsidian/cache/
+
+# macOS
+.DS_Store
+
+# User-specific content (when using as template)
+# Uncomment these if distributing as a clean template:
+# 00-INBOX/**
+# !00-INBOX/.gitkeep
+# 50-DAILY/**
+# !50-DAILY/.gitkeep
+# 60-TASKS/**
+# !60-TASKS/.gitkeep
