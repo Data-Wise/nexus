@@ -1,6 +1,6 @@
 {
   "name": "nexus-desktop",
-  "version": "1.0.0",
+  "version": "0.3.0",
   "description": "Nexus - Desktop knowledge management application",
   "main": "dist-electron/main/index.js",
   "author": "Stat-Wise",
