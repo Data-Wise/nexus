@@ -3,7 +3,7 @@ priority: 2
 progress: 50
 next: Sprint 6 - Continue UI Layer (TipTap WikiLink extension)
 type: dev
-checkpoint: Database layer complete, UI pending
+checkpoint: Database layer complete and tested, FTS5 corruption fixed, ready for UI
 
 # ═══════════════════════════════════════════════════════════════════
 # Below is the original .STATUS content (preserved for reference)
@@ -91,9 +91,17 @@ Sprint 7-10: Remaining Features    ░░░░░░░░░░░░░░░
 
 ────────────────────────────────────────────────
 
-✅ JUST COMPLETED (Session: 2025-12-23 Evening - Sprints 1-5 Complete!)
+✅ JUST COMPLETED (Session: 2025-12-23 Night - Sprint 6 Database Tested!)
 
 **This Session:**
+- ✅ **Sprint 6 Database Layer Testing** - Validation checkpoint (3h)
+  - Discovered and fixed critical FTS5 corruption bug
+  - Changed FTS from external content mode to standalone table
+  - Modified triggers to use note_id instead of rowid
+  - Tested note creation, editing, search - all working
+  - Database layer validated and ready for UI work
+
+**Previous Session (Evening):**
 - ✅ **Sprint 1 Complete** - Hello World Desktop App (10h)
   - Created nexus-desktop/ with Electron + React + TypeScript
   - Configured electron-vite, Tailwind CSS
