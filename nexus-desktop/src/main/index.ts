@@ -3,6 +3,11 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { DatabaseService, Note } from './database/DatabaseService'
 
+// Suppress macOS spell server warnings
+if (process.platform === 'darwin') {
+  app.commandLine.appendSwitch('disable-features', 'SpellcheckService')
+}
+
 // Initialize database
 let db: DatabaseService
 

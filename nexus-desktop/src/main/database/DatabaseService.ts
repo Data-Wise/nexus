@@ -101,7 +101,7 @@ export class DatabaseService {
   }
 
   private runMigration001(): void {
-    console.log('Running migration 001: Initial schema')
+    console.log('✅ Database initialized (schema version 1)')
 
     this.db.exec(`
       -- Notes table
@@ -174,7 +174,7 @@ export class DatabaseService {
   }
 
   private runMigration002(): void {
-    console.log('Running migration 002: Links table')
+    console.log('✅ Database updated (schema version 2)')
 
     this.db.exec(`
       -- Links between notes
@@ -194,7 +194,7 @@ export class DatabaseService {
   }
 
   private runMigration003(): void {
-    console.log('Running migration 003: Tags system (new schema)')
+    console.log('✅ Database updated (schema version 3)')
 
     this.db.exec(`
       -- Drop old tags table if it exists
