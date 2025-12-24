@@ -21,3 +21,119 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #6b7280;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Code block syntax highlighting */
+.ProseMirror pre {
+  background: #1e1e1e;
+  border-radius: 0.5rem;
+  color: #e8e8e8;
+  font-family: 'JetBrainsMono', 'Courier New', monospace;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.ProseMirror code {
+  background: #2d2d2d;
+  border-radius: 0.25rem;
+  color: #e8e8e8;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.ProseMirror pre code {
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+/* Syntax highlighting colors */
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #569cd6;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #b5cea8;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ce9178;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #dcdcaa;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #4ec9b0;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #9cdcfe;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #d16969;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #d7ba7d;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #dcdcaa;
+}
+
+.hljs-meta {
+  color: #808080;
+}
+
+.hljs-deletion {
+  background: #3f0000;
+}
+
+.hljs-addition {
+  background: #003f00;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

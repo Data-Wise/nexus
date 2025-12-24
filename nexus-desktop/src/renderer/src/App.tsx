@@ -1,37 +1,95 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNotesStore } from './store/useNotesStore'
+import { Editor } from './components/Editor'
+
+const FOLDERS = [
+  { path: 'inbox', name: '📥 Inbox', color: '#8b5cf6' },
+  { path: 'projects', name: '📁 Projects', color: '#3b82f6' },
+  { path: 'areas', name: '🎯 Areas', color: '#10b981' },
+  { path: 'resources', name: '📚 Resources', color: '#f59e0b' },
+  { path: 'archive', name: '📦 Archive', color: '#6b7280' }
+]
 
 function App() {
-  const { notes, isLoading, error, loadNotes, createNote, selectedNoteId, selectNote } = useNotesStore()
+  const { notes, isLoading, error, loadNotes, createNote, updateNote, selectedNoteId, selectNote } = useNotesStore()
+  const [currentFolder, setCurrentFolder] = useState<string | undefined>(undefined)
+  const [editingTitle, setEditingTitle] = useState(false)
 
   useEffect(() => {
-    loadNotes()
-  }, [loadNotes])
+    loadNotes(currentFolder)
+  }, [loadNotes, currentFolder])
 
   const handleCreateNote = async () => {
     await createNote({
-      title: `New Note ${new Date().toLocaleTimeString()}`,
-      content: '# Start writing...',
-      folder: 'inbox'
+      title: `New Note`,
+      content: '<p>Start writing...</p>',
+      folder: currentFolder || 'inbox'
     })
   }
 
   const selectedNote = notes.find(n => n.id === selectedNoteId)
+
+  const handleContentChange = (content: string) => {
+    if (selectedNote) {
+      updateNote(selectedNote.id, { content })
+    }
+  }
+
+  const handleTitleChange = (title: string) => {
+    if (selectedNote && title.trim()) {
+      updateNote(selectedNote.id, { title: title.trim() })
+      setEditingTitle(false)
+    }
+  }
 
   return (
     <div className="w-full h-full bg-nexus-bg-primary text-nexus-text-primary flex">
       {/* Sidebar */}
       <div className="w-64 bg-nexus-bg-secondary border-r border-gray-700 flex flex-col">
         <div className="p-4 border-b border-gray-700">
-          <h1 className="text-2xl font-bold mb-2">Nexus</h1>
+          <h1 className="text-2xl font-bold mb-3">Nexus</h1>
           <button
             onClick={handleCreateNote}
-            className="w-full bg-nexus-accent hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"
+            className="w-full bg-nexus-accent hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors flex items-center justify-center gap-2"
           >
-            + New Note
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd"/>
+            </svg>
+            New Note
           </button>
         </div>
 
+        {/* Folder Navigation */}
+        <div className="border-b border-gray-700">
+          <div className="p-2">
+            <button
+              onClick={() => setCurrentFolder(undefined)}
+              className={`w-full text-left px-3 py-2 rounded transition-colors ${
+                currentFolder === undefined
+                  ? 'bg-nexus-bg-primary text-white'
+                  : 'text-gray-300 hover:bg-nexus-bg-primary hover:text-white'
+              }`}
+            >
+              📝 All Notes
+            </button>
+          </div>
+          {FOLDERS.map((folder) => (
+            <div key={folder.path} className="px-2 pb-2">
+              <button
+                onClick={() => setCurrentFolder(folder.path)}
+                className={`w-full text-left px-3 py-2 rounded transition-colors ${
+                  currentFolder === folder.path
+                    ? 'bg-nexus-bg-primary text-white'
+                    : 'text-gray-300 hover:bg-nexus-bg-primary hover:text-white'
+                }`}
+              >
+                {folder.name}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Notes List */}
         <div className="flex-1 overflow-y-auto">
           {isLoading && (
             <div className="p-4 text-gray-400 text-sm">Loading notes...</div>
@@ -44,7 +102,7 @@ function App() {
               key={note.id}
               onClick={() => selectNote(note.id)}
               className={`p-4 border-b border-gray-700 cursor-pointer hover:bg-nexus-bg-primary transition-colors ${
-                selectedNoteId === note.id ? 'bg-nexus-bg-primary' : ''
+                selectedNoteId === note.id ? 'bg-nexus-accent/20 border-l-4 border-l-nexus-accent' : ''
               }`}
             >
               <div className="font-medium truncate">{note.title}</div>
@@ -60,8 +118,10 @@ function App() {
           )}
         </div>
 
+        {/* Footer */}
         <div className="p-4 border-t border-gray-700 text-xs text-gray-400">
-          {notes.length} notes
+          {notes.length} {notes.length === 1 ? 'note' : 'notes'}
+          {currentFolder && ` in ${FOLDERS.find(f => f.path === currentFolder)?.name || currentFolder}`}
         </div>
       </div>
 
@@ -70,22 +130,51 @@ function App() {
         {selectedNote ? (
           <>
             <div className="p-6 border-b border-gray-700">
-              <h2 className="text-3xl font-bold">{selectedNote.title}</h2>
-              <div className="text-sm text-gray-400 mt-2">
-                Last updated: {new Date(selectedNote.updated_at * 1000).toLocaleString()}
+              {editingTitle ? (
+                <input
+                  type="text"
+                  defaultValue={selectedNote.title}
+                  onBlur={(e) => handleTitleChange(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleTitleChange(e.currentTarget.value)
+                    } else if (e.key === 'Escape') {
+                      setEditingTitle(false)
+                    }
+                  }}
+                  autoFocus
+                  className="text-3xl font-bold bg-transparent border-b-2 border-nexus-accent outline-none w-full"
+                />
+              ) : (
+                <h2
+                  onClick={() => setEditingTitle(true)}
+                  className="text-3xl font-bold cursor-pointer hover:text-gray-300"
+                >
+                  {selectedNote.title}
+                </h2>
+              )}
+              <div className="text-sm text-gray-400 mt-2 flex items-center gap-4">
+                <span>Last updated: {new Date(selectedNote.updated_at * 1000).toLocaleString()}</span>
+                <span className="px-2 py-1 bg-gray-700 rounded text-xs">
+                  {FOLDERS.find(f => f.path === selectedNote.folder)?.name.split(' ')[1] || selectedNote.folder}
+                </span>
               </div>
             </div>
-            <div className="flex-1 p-6 overflow-y-auto">
-              <div className="prose prose-invert max-w-none">
-                <pre className="whitespace-pre-wrap font-mono text-sm">
-                  {selectedNote.content}
-                </pre>
-              </div>
+            <div className="flex-1 overflow-hidden">
+              <Editor
+                content={selectedNote.content}
+                onChange={handleContentChange}
+                editable={true}
+              />
             </div>
           </>
         ) : (
           <div className="flex-1 flex items-center justify-center text-gray-400">
             <div className="text-center">
+              <svg className="w-24 h-24 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd"/>
+              </svg>
               <p className="text-xl mb-2">Select a note to view</p>
               <p className="text-sm">or create a new one to get started</p>
             </div>
