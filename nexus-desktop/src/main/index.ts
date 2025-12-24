@@ -1,6 +1,10 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { DatabaseService, Note } from './database/DatabaseService'
+
+// Initialize database
+let db: DatabaseService
 
 function createWindow(): void {
   // Create the browser window
@@ -34,10 +38,57 @@ function createWindow(): void {
   }
 }
 
+// Set up IPC handlers for database operations
+function setupDatabaseHandlers(): void {
+  ipcMain.handle('notes:create', async (_, note: Partial<Note>) => {
+    return db.createNote(note)
+  })
+
+  ipcMain.handle('notes:update', async (_, id: string, updates: Partial<Note>) => {
+    return db.updateNote(id, updates)
+  })
+
+  ipcMain.handle('notes:delete', async (_, id: string) => {
+    return db.deleteNote(id)
+  })
+
+  ipcMain.handle('notes:get', async (_, id: string) => {
+    return db.getNote(id)
+  })
+
+  ipcMain.handle('notes:list', async (_, folder?: string) => {
+    return db.listNotes(folder)
+  })
+
+  ipcMain.handle('notes:search', async (_, query: string) => {
+    return db.searchNotes(query)
+  })
+
+  ipcMain.handle('tags:add', async (_, noteId: string, tag: string) => {
+    return db.addTag(noteId, tag)
+  })
+
+  ipcMain.handle('tags:remove', async (_, noteId: string, tag: string) => {
+    return db.removeTag(noteId, tag)
+  })
+
+  ipcMain.handle('tags:get', async (_, noteId: string) => {
+    return db.getNoteTags(noteId)
+  })
+
+  ipcMain.handle('folders:list', async () => {
+    return db.getFolders()
+  })
+}
+
 // This method will be called when Electron has finished initialization
 app.whenReady().then(() => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.nexus')
+
+  // Initialize database and IPC handlers
+  db = new DatabaseService()
+  setupDatabaseHandlers()
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production
@@ -58,5 +109,12 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
+  }
+})
+
+// Clean up database connection before quitting
+app.on('before-quit', () => {
+  if (db) {
+    db.close()
   }
 })
