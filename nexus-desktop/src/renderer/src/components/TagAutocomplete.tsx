@@ -1,22 +1,22 @@
 import { useEffect, useState, useRef } from 'react'
 import { Editor } from '@tiptap/react'
-import { Note } from '../types'
+import { Tag } from '../types'
 
-export interface WikiLinkAutocompleteProps {
+export interface TagAutocompleteProps {
   editor: Editor | null
   triggerPosition: number | null
   onClose: () => void
-  onSearchNotes: (query: string) => Promise<Note[]>
+  onSearchTags: (query: string) => Promise<Tag[]>
 }
 
-export function WikiLinkAutocomplete({
+export function TagAutocomplete({
   editor,
   triggerPosition,
   onClose,
-  onSearchNotes
-}: WikiLinkAutocompleteProps) {
+  onSearchTags
+}: TagAutocompleteProps) {
   const [query, setQuery] = useState('')
-  const [notes, setNotes] = useState<Note[]>([])
+  const [tags, setTags] = useState<Tag[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [loading, setLoading] = useState(false)
   const [position, setPosition] = useState<{ top: number; left: number } | null>(null)
@@ -24,28 +24,28 @@ export function WikiLinkAutocomplete({
 
   const isOpen = triggerPosition !== null && editor !== null
 
-  // Load notes when query changes
+  // Load tags when query changes
   useEffect(() => {
     if (!isOpen) return
 
-    const loadNotes = async () => {
+    const loadTags = async () => {
       setLoading(true)
       try {
-        const results = await onSearchNotes(query)
-        setNotes(results)
+        const results = await onSearchTags(query)
+        setTags(results)
         setSelectedIndex(0)
       } catch (error) {
-        console.error('[WikiLinkAutocomplete] Error loading notes:', error)
-        setNotes([])
+        console.error('[TagAutocomplete] Error loading tags:', error)
+        setTags([])
       } finally {
         setLoading(false)
       }
     }
 
-    loadNotes()
-  }, [query, isOpen, onSearchNotes])
+    loadTags()
+  }, [query, isOpen, onSearchTags])
 
-  // Track text after [[ to update query
+  // Track text after # to update query
   useEffect(() => {
     if (!isOpen || !editor || triggerPosition === null) return undefined
 
@@ -54,22 +54,22 @@ export function WikiLinkAutocomplete({
       const { doc, selection } = state
       const cursorPos = selection.from
 
-      // Get text between [[ and cursor
+      // Get text between # and cursor
       const textAfter = doc.textBetween(triggerPosition, cursorPos, '\n')
 
-      console.log('[WikiLinkAutocomplete] Text after [[:', JSON.stringify(textAfter))
+      console.log('[TagAutocomplete] Text after #:', JSON.stringify(textAfter))
 
-      // Check if user deleted the [[
-      const textBefore = doc.textBetween(Math.max(0, triggerPosition - 2), triggerPosition, '\n')
-      if (!textBefore.endsWith('[[')) {
-        console.log('[WikiLinkAutocomplete] [[ deleted, closing')
+      // Check if user deleted the #
+      const textBefore = doc.textBetween(Math.max(0, triggerPosition - 1), triggerPosition, '\n')
+      if (!textBefore.endsWith('#')) {
+        console.log('[TagAutocomplete] # deleted, closing')
         onClose()
         return
       }
 
-      // Check if user typed ]] to close
-      if (textAfter.includes(']]')) {
-        console.log('[WikiLinkAutocomplete] ]] detected, closing')
+      // Check if user typed space or special character to close
+      if (textAfter.includes(' ') || textAfter.includes('\n')) {
+        console.log('[TagAutocomplete] Space/newline detected, closing')
         onClose()
         return
       }
@@ -81,11 +81,11 @@ export function WikiLinkAutocomplete({
     return () => editor.off('update', updateHandler)
   }, [isOpen, editor, triggerPosition, onClose])
 
-  // Insert selected note title
-  const insertWikiLink = (title: string) => {
-    console.log('[WikiLinkAutocomplete] Inserting wiki link:', title)
+  // Insert selected tag
+  const insertTag = (tagName: string) => {
+    console.log('[TagAutocomplete] Inserting tag:', tagName)
     if (!editor || triggerPosition === null) {
-      console.log('[WikiLinkAutocomplete] Cannot insert - editor or triggerPosition is null')
+      console.log('[TagAutocomplete] Cannot insert - editor or triggerPosition is null')
       return
     }
 
@@ -93,20 +93,20 @@ export function WikiLinkAutocomplete({
       const { state } = editor
       const cursorPos = state.selection.from
 
-      console.log('[WikiLinkAutocomplete] Current cursor:', cursorPos, 'Trigger position:', triggerPosition)
+      console.log('[TagAutocomplete] Current cursor:', cursorPos, 'Trigger position:', triggerPosition)
 
-      // Replace text from [[ to cursor with [[Title]]
+      // Replace text from # to cursor with #tagname
       editor
         .chain()
         .focus()
-        .deleteRange({ from: triggerPosition - 2, to: cursorPos })
-        .insertContent(`[[${title}]]`)
+        .deleteRange({ from: triggerPosition - 1, to: cursorPos })
+        .insertContent(`#${tagName} `)
         .run()
 
-      console.log('[WikiLinkAutocomplete] Wiki link inserted successfully')
-      // Don't call onClose() here - the ]] detection will auto-close
+      console.log('[TagAutocomplete] Tag inserted successfully')
+      onClose()
     } catch (error) {
-      console.error('[WikiLinkAutocomplete] Error inserting wiki link:', error)
+      console.error('[TagAutocomplete] Error inserting tag:', error)
     }
   }
 
@@ -115,16 +115,22 @@ export function WikiLinkAutocomplete({
     if (!isOpen) return
 
     const keyHandler = (e: KeyboardEvent) => {
+      // Create new tag option is always at the end if query is not empty
+      const totalOptions = query.trim() ? tags.length + 1 : tags.length
+
       if (e.key === 'ArrowDown') {
         e.preventDefault()
-        setSelectedIndex((i) => Math.min(i + 1, notes.length - 1))
+        setSelectedIndex((i) => Math.min(i + 1, totalOptions - 1))
       } else if (e.key === 'ArrowUp') {
         e.preventDefault()
         setSelectedIndex((i) => Math.max(i - 1, 0))
       } else if (e.key === 'Enter') {
         e.preventDefault()
-        if (notes[selectedIndex]) {
-          insertWikiLink(notes[selectedIndex].title)
+        // Check if "Create new" option is selected
+        if (query.trim() && selectedIndex === tags.length) {
+          insertTag(query)
+        } else if (tags[selectedIndex]) {
+          insertTag(tags[selectedIndex].name)
         }
       } else if (e.key === 'Escape') {
         e.preventDefault()
@@ -134,7 +140,7 @@ export function WikiLinkAutocomplete({
 
     document.addEventListener('keydown', keyHandler, { capture: true })
     return () => document.removeEventListener('keydown', keyHandler, { capture: true })
-  }, [isOpen, selectedIndex, notes, onClose, insertWikiLink])
+  }, [isOpen, selectedIndex, tags, query, onClose])
 
   // Calculate position for dropdown
   useEffect(() => {
@@ -158,7 +164,7 @@ export function WikiLinkAutocomplete({
   return (
     <div
       ref={listRef}
-      className="wiki-link-autocomplete fixed z-50"
+      className="tag-autocomplete fixed z-50"
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
@@ -167,51 +173,59 @@ export function WikiLinkAutocomplete({
     >
       {loading ? (
         <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-xl p-3 text-gray-400 text-sm">
-          Loading notes...
+          Loading tags...
         </div>
-      ) : notes.length === 0 ? (
+      ) : tags.length === 0 && !query.trim() ? (
         <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-xl p-3 text-gray-400 text-sm">
-          {query ? `No notes found for "${query}"` : 'No notes available'}
+          No tags available
         </div>
       ) : (
         <div className="bg-gray-800 border border-gray-700 rounded-lg shadow-xl overflow-hidden max-h-80 overflow-y-auto">
-          {notes.map((note, index) => (
+          {tags.map((tag, index) => (
             <button
-              key={note.id}
+              key={tag.id}
               className={`
-                w-full text-left px-4 py-2.5 border-b border-gray-700 last:border-b-0
+                w-full text-left px-4 py-2.5 border-b border-gray-700
                 hover:bg-gray-700 transition-colors
                 ${index === selectedIndex ? 'bg-gray-700' : 'bg-gray-800'}
               `}
-              onClick={() => insertWikiLink(note.title)}
+              onClick={() => insertTag(tag.name)}
               onMouseEnter={() => setSelectedIndex(index)}
             >
               <div className="flex items-center justify-between">
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium text-white truncate">{note.title}</div>
-                  {note.content && (
-                    <div className="text-xs text-gray-400 truncate mt-0.5">
-                      {stripHtml(note.content).slice(0, 60)}...
-                    </div>
-                  )}
+                <div className="flex items-center gap-2 flex-1 min-w-0">
+                  <span
+                    className="inline-block w-3 h-3 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: tag.color || '#999' }}
+                  />
+                  <span className="text-sm font-medium text-white truncate">#{tag.name}</span>
                 </div>
                 <div className="ml-3 flex-shrink-0">
                   <span className="inline-block px-2 py-0.5 text-xs rounded bg-gray-700 text-gray-300">
-                    {note.folder}
+                    {(tag as any).note_count || 0} notes
                   </span>
                 </div>
               </div>
             </button>
           ))}
+          {query.trim() && (
+            <button
+              className={`
+                w-full text-left px-4 py-2.5
+                hover:bg-gray-700 transition-colors
+                ${selectedIndex === tags.length ? 'bg-gray-700' : 'bg-gray-800'}
+              `}
+              onClick={() => insertTag(query)}
+              onMouseEnter={() => setSelectedIndex(tags.length)}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-400">Create new tag:</span>
+                <span className="text-sm font-medium text-blue-400">#{query}</span>
+              </div>
+            </button>
+          )}
         </div>
       )}
     </div>
   )
-}
-
-// Helper to strip HTML tags
-function stripHtml(html: string): string {
-  const div = document.createElement('div')
-  div.innerHTML = html
-  return div.textContent || div.innerText || ''
 }

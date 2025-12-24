@@ -14,9 +14,16 @@ export interface Note {
 }
 
 export interface Tag {
-  id: number
+  id: string
+  name: string
+  color: string | null
+  created_at: number
+}
+
+export interface NoteTag {
   note_id: string
-  tag: string
+  tag_id: string
+  created_at: number
 }
 
 export interface Folder {
@@ -75,6 +82,12 @@ export class DatabaseService {
     if (currentVersion < 2) {
       this.runMigration002()
       this.db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(2)
+    }
+
+    // Run migration 003 if not applied
+    if (currentVersion < 3) {
+      this.runMigration003()
+      this.db.prepare('INSERT INTO schema_version (version) VALUES (?)').run(3)
     }
   }
 
@@ -177,6 +190,39 @@ export class DatabaseService {
 
       CREATE INDEX IF NOT EXISTS idx_links_source ON links(source_note_id);
       CREATE INDEX IF NOT EXISTS idx_links_target ON links(target_note_id);
+    `)
+  }
+
+  private runMigration003(): void {
+    console.log('Running migration 003: Tags system (new schema)')
+
+    this.db.exec(`
+      -- Drop old tags table if it exists
+      DROP TABLE IF EXISTS tags;
+
+      -- New tags table with proper structure
+      CREATE TABLE IF NOT EXISTS tags (
+        id TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+        name TEXT NOT NULL UNIQUE COLLATE NOCASE,
+        color TEXT,
+        created_at INTEGER DEFAULT (strftime('%s', 'now')),
+        UNIQUE(name COLLATE NOCASE)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_tags_name ON tags(name COLLATE NOCASE);
+
+      -- Note-Tags junction table
+      CREATE TABLE IF NOT EXISTS note_tags (
+        note_id TEXT NOT NULL,
+        tag_id TEXT NOT NULL,
+        created_at INTEGER DEFAULT (strftime('%s', 'now')),
+        PRIMARY KEY (note_id, tag_id),
+        FOREIGN KEY (note_id) REFERENCES notes(id) ON DELETE CASCADE,
+        FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_note_tags_note ON note_tags(note_id);
+      CREATE INDEX IF NOT EXISTS idx_note_tags_tag ON note_tags(tag_id);
     `)
   }
 
@@ -300,28 +346,204 @@ export class DatabaseService {
     return stmt.all(query) as Note[]
   }
 
-  // Tag operations
+  // Tag CRUD operations
 
-  addTag(noteId: string, tag: string): boolean {
+  /**
+   * Create a new tag
+   */
+  createTag(name: string, color?: string): Tag {
+    const stmt = this.db.prepare(`
+      INSERT INTO tags (name, color)
+      VALUES (?, ?)
+      RETURNING *
+    `)
+    return stmt.get(name, color || null) as Tag
+  }
+
+  /**
+   * Get tag by ID
+   */
+  getTag(id: string): Tag | null {
+    const stmt = this.db.prepare('SELECT * FROM tags WHERE id = ?')
+    const result = stmt.get(id) as Tag | undefined
+    return result || null
+  }
+
+  /**
+   * Get tag by name (case-insensitive)
+   */
+  getTagByName(name: string): Tag | null {
+    const stmt = this.db.prepare('SELECT * FROM tags WHERE name = ? COLLATE NOCASE')
+    const result = stmt.get(name) as Tag | undefined
+    return result || null
+  }
+
+  /**
+   * Get all tags with note counts
+   */
+  getAllTags(): Array<Tag & { note_count: number }> {
+    const stmt = this.db.prepare(`
+      SELECT tags.*, COUNT(note_tags.note_id) as note_count
+      FROM tags
+      LEFT JOIN note_tags ON tags.id = note_tags.tag_id
+      GROUP BY tags.id
+      ORDER BY tags.name COLLATE NOCASE
+    `)
+    return stmt.all() as Array<Tag & { note_count: number }>
+  }
+
+  /**
+   * Rename a tag
+   */
+  renameTag(id: string, newName: string): boolean {
     try {
-      const stmt = this.db.prepare('INSERT INTO tags (note_id, tag) VALUES (?, ?)')
-      stmt.run(noteId, tag)
-      return true
+      const stmt = this.db.prepare('UPDATE tags SET name = ? WHERE id = ?')
+      const result = stmt.run(newName, id)
+      return result.changes > 0
     } catch {
-      return false // Tag already exists
+      return false // Name conflict
     }
   }
 
-  removeTag(noteId: string, tag: string): boolean {
-    const stmt = this.db.prepare('DELETE FROM tags WHERE note_id = ? AND tag = ?')
-    const result = stmt.run(noteId, tag)
+  /**
+   * Delete a tag (cascades to note_tags)
+   */
+  deleteTag(id: string): boolean {
+    const stmt = this.db.prepare('DELETE FROM tags WHERE id = ?')
+    const result = stmt.run(id)
     return result.changes > 0
   }
 
-  getNoteTags(noteId: string): string[] {
-    const stmt = this.db.prepare('SELECT tag FROM tags WHERE note_id = ? ORDER BY tag')
-    const results = stmt.all(noteId) as { tag: string }[]
-    return results.map(r => r.tag)
+  // Note-Tag relationship operations
+
+  /**
+   * Add tag to note (creates tag if it doesn't exist)
+   */
+  addTagToNote(noteId: string, tagName: string): void {
+    // Check if tag exists
+    let tag = this.getTagByName(tagName)
+
+    // Create tag if it doesn't exist
+    if (!tag) {
+      // Generate color from tag name
+      const color = this.generateTagColor(tagName)
+      tag = this.createTag(tagName, color)
+    }
+
+    // Link tag to note
+    try {
+      this.db.prepare('INSERT OR IGNORE INTO note_tags (note_id, tag_id) VALUES (?, ?)').run(noteId, tag.id)
+    } catch (error) {
+      console.error('Failed to add tag to note:', error)
+    }
+  }
+
+  /**
+   * Remove tag from note
+   */
+  removeTagFromNote(noteId: string, tagId: string): void {
+    this.db.prepare('DELETE FROM note_tags WHERE note_id = ? AND tag_id = ?').run(noteId, tagId)
+  }
+
+  /**
+   * Get all tags for a note
+   */
+  getNoteTags(noteId: string): Tag[] {
+    const stmt = this.db.prepare(`
+      SELECT tags.* FROM tags
+      JOIN note_tags ON tags.id = note_tags.tag_id
+      WHERE note_tags.note_id = ?
+      ORDER BY tags.name COLLATE NOCASE
+    `)
+    return stmt.all(noteId) as Tag[]
+  }
+
+  /**
+   * Get all notes that have a specific tag
+   */
+  getNotesByTag(tagId: string): Note[] {
+    const stmt = this.db.prepare(`
+      SELECT notes.* FROM notes
+      JOIN note_tags ON notes.id = note_tags.note_id
+      WHERE note_tags.tag_id = ? AND notes.deleted_at IS NULL
+      ORDER BY notes.updated_at DESC
+    `)
+    return stmt.all(tagId) as Note[]
+  }
+
+  /**
+   * Filter notes by multiple tags (AND or OR)
+   */
+  filterNotesByTags(tagIds: string[], matchAll: boolean = true): Note[] {
+    if (tagIds.length === 0) {
+      return this.listNotes()
+    }
+
+    if (matchAll) {
+      // AND logic: notes must have ALL tags
+      const placeholders = tagIds.map(() => '?').join(',')
+      const stmt = this.db.prepare(`
+        SELECT notes.* FROM notes
+        WHERE notes.deleted_at IS NULL
+        AND (
+          SELECT COUNT(DISTINCT tag_id) FROM note_tags
+          WHERE note_tags.note_id = notes.id
+          AND note_tags.tag_id IN (${placeholders})
+        ) = ?
+        ORDER BY notes.updated_at DESC
+      `)
+      return stmt.all(...tagIds, tagIds.length) as Note[]
+    } else {
+      // OR logic: notes must have ANY tag
+      const placeholders = tagIds.map(() => '?').join(',')
+      const stmt = this.db.prepare(`
+        SELECT DISTINCT notes.* FROM notes
+        JOIN note_tags ON notes.id = note_tags.note_id
+        WHERE notes.deleted_at IS NULL
+        AND note_tags.tag_id IN (${placeholders})
+        ORDER BY notes.updated_at DESC
+      `)
+      return stmt.all(...tagIds) as Note[]
+    }
+  }
+
+  /**
+   * Parse content for #tags and update note_tags relationships
+   */
+  updateNoteTags(noteId: string, content: string): void {
+    // Parse #tags from content
+    const tagRegex = /#([a-zA-Z0-9_-]+)/g
+    const matches = Array.from(content.matchAll(tagRegex))
+    const tagNames = [...new Set(matches.map(m => m[1].trim()).filter(Boolean))]
+
+    // Get current tags
+    const currentTags = this.getNoteTags(noteId)
+    const currentTagNames = new Set(currentTags.map(t => t.name.toLowerCase()))
+
+    // Add new tags
+    for (const tagName of tagNames) {
+      if (!currentTagNames.has(tagName.toLowerCase())) {
+        this.addTagToNote(noteId, tagName)
+      }
+    }
+
+    // Remove tags no longer in content
+    const newTagNames = new Set(tagNames.map(t => t.toLowerCase()))
+    for (const tag of currentTags) {
+      if (!newTagNames.has(tag.name.toLowerCase())) {
+        this.removeTagFromNote(noteId, tag.id)
+      }
+    }
+  }
+
+  /**
+   * Generate consistent color from tag name
+   */
+  private generateTagColor(name: string): string {
+    const hash = name.split('').reduce((acc, char) =>
+      char.charCodeAt(0) + ((acc << 5) - acc), 0)
+    const hue = Math.abs(hash) % 360
+    return `hsl(${hue}, 70%, 50%)`
   }
 
   // Folder operations

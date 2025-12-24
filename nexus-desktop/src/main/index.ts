@@ -64,16 +64,54 @@ function setupDatabaseHandlers(): void {
     return db.searchNotes(query)
   })
 
-  ipcMain.handle('tags:add', async (_, noteId: string, tag: string) => {
-    return db.addTag(noteId, tag)
+  // Tag CRUD
+  ipcMain.handle('tags:create', async (_, name: string, color?: string) => {
+    return db.createTag(name, color)
   })
 
-  ipcMain.handle('tags:remove', async (_, noteId: string, tag: string) => {
-    return db.removeTag(noteId, tag)
+  ipcMain.handle('tags:get', async (_, id: string) => {
+    return db.getTag(id)
   })
 
-  ipcMain.handle('tags:get', async (_, noteId: string) => {
+  ipcMain.handle('tags:getByName', async (_, name: string) => {
+    return db.getTagByName(name)
+  })
+
+  ipcMain.handle('tags:getAll', async () => {
+    return db.getAllTags()
+  })
+
+  ipcMain.handle('tags:rename', async (_, id: string, newName: string) => {
+    return db.renameTag(id, newName)
+  })
+
+  ipcMain.handle('tags:delete', async (_, id: string) => {
+    return db.deleteTag(id)
+  })
+
+  // Note-Tag relationships
+  ipcMain.handle('tags:addToNote', async (_, noteId: string, tagName: string) => {
+    return db.addTagToNote(noteId, tagName)
+  })
+
+  ipcMain.handle('tags:removeFromNote', async (_, noteId: string, tagId: string) => {
+    return db.removeTagFromNote(noteId, tagId)
+  })
+
+  ipcMain.handle('tags:getNoteTags', async (_, noteId: string) => {
     return db.getNoteTags(noteId)
+  })
+
+  ipcMain.handle('tags:getNotesByTag', async (_, tagId: string) => {
+    return db.getNotesByTag(tagId)
+  })
+
+  ipcMain.handle('tags:filterNotes', async (_, tagIds: string[], matchAll: boolean) => {
+    return db.filterNotesByTags(tagIds, matchAll)
+  })
+
+  ipcMain.handle('tags:updateNoteTags', async (_, noteId: string, content: string) => {
+    return db.updateNoteTags(noteId, content)
   })
 
   ipcMain.handle('folders:list', async () => {

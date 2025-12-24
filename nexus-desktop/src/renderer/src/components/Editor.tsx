@@ -8,8 +8,11 @@ import { common, createLowlight } from 'lowlight'
 import { useEffect, useState } from 'react'
 import { WikiLink } from '../extensions/WikiLink'
 import { WikiLinkInputRule } from '../extensions/WikiLinkInputRule'
+import { TagMark } from '../extensions/TagMark'
+import { TagInputRule } from '../extensions/TagInputRule'
 import { WikiLinkAutocomplete } from './WikiLinkAutocomplete'
-import { Note } from '../../../main/database/DatabaseService'
+import { TagAutocomplete } from './TagAutocomplete'
+import { Note, Tag } from '../types'
 
 const lowlight = createLowlight(common)
 
@@ -19,6 +22,8 @@ interface EditorProps {
   editable?: boolean
   onLinkClick?: (title: string) => void
   onSearchNotes?: (query: string) => Promise<Note[]>
+  onSearchTags?: (query: string) => Promise<Tag[]>
+  onTagClick?: (tagName: string) => void
 }
 
 export function Editor({
@@ -26,9 +31,12 @@ export function Editor({
   onChange,
   editable = true,
   onLinkClick = () => {},
-  onSearchNotes = async () => []
+  onSearchNotes = async () => [],
+  onSearchTags = async () => [],
+  onTagClick = () => {}
 }: EditorProps) {
-  const [autocompletePosition, setAutocompletePosition] = useState<number | null>(null)
+  const [wikiLinkAutocompletePosition, setWikiLinkAutocompletePosition] = useState<number | null>(null)
+  const [tagAutocompletePosition, setTagAutocompletePosition] = useState<number | null>(null)
 
   const editor = useEditor({
     extensions: [
@@ -60,7 +68,16 @@ export function Editor({
       WikiLinkInputRule.configure({
         onTrigger: (position) => {
           console.log('[Editor] WikiLink autocomplete triggered at position:', position)
-          setAutocompletePosition(position)
+          setWikiLinkAutocompletePosition(position)
+        }
+      }),
+      TagMark.configure({
+        onTagClick
+      }),
+      TagInputRule.configure({
+        onTrigger: (position) => {
+          console.log('[Editor] Tag autocomplete triggered at position:', position)
+          setTagAutocompletePosition(position)
         }
       })
     ],
@@ -95,9 +112,15 @@ export function Editor({
       </div>
       <WikiLinkAutocomplete
         editor={editor}
-        triggerPosition={autocompletePosition}
-        onClose={() => setAutocompletePosition(null)}
+        triggerPosition={wikiLinkAutocompletePosition}
+        onClose={() => setWikiLinkAutocompletePosition(null)}
         onSearchNotes={onSearchNotes}
+      />
+      <TagAutocomplete
+        editor={editor}
+        triggerPosition={tagAutocompletePosition}
+        onClose={() => setTagAutocompletePosition(null)}
+        onSearchTags={onSearchTags}
       />
     </div>
   )

@@ -4,7 +4,9 @@ import { Editor } from './components/Editor'
 import { SearchBar } from './components/SearchBar'
 import { SearchResults } from './components/SearchResults'
 import { BacklinksPanel } from './components/BacklinksPanel'
-import { Note } from './types'
+import { TagsPanel } from './components/TagsPanel'
+import { TagFilter } from './components/TagFilter'
+import { Note, Tag } from './types'
 
 const FOLDERS = [
   { path: 'inbox', name: '📥 Inbox', color: '#8b5cf6' },
@@ -24,6 +26,12 @@ function App() {
   const [searchResults, setSearchResults] = useState<Note[]>([])
   const [isSearching, setIsSearching] = useState(false)
   const [searchLoading, setSearchLoading] = useState(false)
+
+  // Tag filtering state
+  const [selectedTagIds, setSelectedTagIds] = useState<string[]>([])
+  const [selectedTags, setSelectedTags] = useState<Tag[]>([])
+  const [filteredNotes, setFilteredNotes] = useState<Note[]>([])
+  const [isFiltering, setIsFiltering] = useState(false)
 
   useEffect(() => {
     loadNotes(currentFolder)
@@ -124,6 +132,76 @@ function App() {
     }
   }, [selectedNote?.content])
 
+  // Update tags when content changes
+  useEffect(() => {
+    if (selectedNote) {
+      // Update note tags in database when content changes
+      window.api.updateNoteTags(selectedNote.id, selectedNote.content)
+    }
+  }, [selectedNote?.content])
+
+  // Tag filtering handlers
+  const handleTagClick = async (tagId: string) => {
+    const newSelectedIds = selectedTagIds.includes(tagId)
+      ? selectedTagIds.filter(id => id !== tagId)
+      : [...selectedTagIds, tagId]
+
+    setSelectedTagIds(newSelectedIds)
+
+    if (newSelectedIds.length === 0) {
+      // No tags selected, clear filter
+      setIsFiltering(false)
+      setFilteredNotes([])
+      setSelectedTags([])
+    } else {
+      // Load filtered notes
+      setIsFiltering(true)
+      try {
+        const filtered = await window.api.filterNotesByTags(newSelectedIds, true) // AND logic
+        setFilteredNotes(filtered)
+
+        // Load tag details
+        const tags = await Promise.all(newSelectedIds.map(id => window.api.getTag(id)))
+        setSelectedTags(tags.filter((t): t is Tag => t !== null))
+      } catch (error) {
+        console.error('Error filtering by tags:', error)
+        setFilteredNotes([])
+      }
+    }
+  }
+
+  const handleClearTagFilters = () => {
+    setSelectedTagIds([])
+    setSelectedTags([])
+    setIsFiltering(false)
+    setFilteredNotes([])
+  }
+
+  const handleSearchTagsForAutocomplete = async (query: string): Promise<Tag[]> => {
+    // Get all tags
+    const allTags = await window.api.getAllTags()
+
+    if (query.trim() === '') {
+      // Return all tags when no query
+      return allTags
+    }
+
+    // Filter by name on client side
+    const lowerQuery = query.toLowerCase()
+    return allTags.filter((tag) => tag.name.toLowerCase().includes(lowerQuery))
+  }
+
+  const handleTagClickInEditor = async (tagName: string) => {
+    // Find tag by name
+    const tag = await window.api.getTagByName(tagName)
+    if (tag) {
+      handleTagClick(tag.id)
+    }
+  }
+
+  // Determine which notes to display
+  const displayNotes = isSearching ? searchResults : isFiltering ? filteredNotes : notes
+
   return (
     <div className="w-full h-full bg-nexus-bg-primary text-nexus-text-primary flex">
       {/* Sidebar */}
@@ -176,7 +254,7 @@ function App() {
           ))}
         </div>
 
-        {/* Notes List or Search Results */}
+        {/* Notes List or Search Results or Filtered Results */}
         {isSearching ? (
           <SearchResults
             results={searchResults}
@@ -193,7 +271,7 @@ function App() {
             {error && (
               <div className="p-4 text-red-400 text-sm">Error: {error}</div>
             )}
-            {notes.map((note) => (
+            {displayNotes.map((note) => (
               <div
                 key={note.id}
                 onClick={() => selectNote(note.id)}
@@ -207,9 +285,9 @@ function App() {
                 </div>
               </div>
             ))}
-            {!isLoading && notes.length === 0 && (
+            {!isLoading && displayNotes.length === 0 && (
               <div className="p-4 text-gray-400 text-sm text-center">
-                No notes yet. Create your first note!
+                {isFiltering ? 'No notes with selected tags' : 'No notes yet. Create your first note!'}
               </div>
             )}
           </div>
@@ -220,6 +298,10 @@ function App() {
           {isSearching ? (
             <>
               {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'}
+            </>
+          ) : isFiltering ? (
+            <>
+              {filteredNotes.length} {filteredNotes.length === 1 ? 'note' : 'notes'} with selected tags
             </>
           ) : (
             <>
@@ -232,6 +314,13 @@ function App() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
+        {/* Tag Filter Bar */}
+        <TagFilter
+          selectedTags={selectedTags}
+          onRemoveTag={handleTagClick}
+          onClearAll={handleClearTagFilters}
+        />
+
         {selectedNote ? (
           <>
             <div className="p-6 border-b border-gray-700">
@@ -273,10 +362,21 @@ function App() {
                   editable={true}
                   onLinkClick={handleLinkClick}
                   onSearchNotes={handleSearchNotesForAutocomplete}
+                  onSearchTags={handleSearchTagsForAutocomplete}
+                  onTagClick={handleTagClickInEditor}
                 />
               </div>
-              <div className="w-80">
-                <BacklinksPanel noteId={selectedNoteId} onSelectNote={selectNote} />
+              <div className="w-80 flex flex-col">
+                <div className="flex-1 overflow-y-auto">
+                  <BacklinksPanel noteId={selectedNoteId} onSelectNote={selectNote} />
+                </div>
+                <div className="flex-1 overflow-y-auto border-t border-gray-700">
+                  <TagsPanel
+                    noteId={selectedNoteId}
+                    selectedTagIds={selectedTagIds}
+                    onTagClick={handleTagClick}
+                  />
+                </div>
               </div>
             </div>
           </>

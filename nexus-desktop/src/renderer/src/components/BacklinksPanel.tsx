@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Note } from '../../../main/database/DatabaseService'
+import { useEffect, useState } from 'react'
+import { Note } from '../types'
 
 export interface BacklinksPanelProps {
   noteId: string | null

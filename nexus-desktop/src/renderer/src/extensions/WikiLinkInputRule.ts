@@ -23,7 +23,7 @@ export const WikiLinkInputRule = Extension.create<WikiLinkInputRuleOptions>({
 
         props: {
           // Handle keyboard input
-          handleTextInput(view, from, to, text) {
+          handleTextInput(view, from, _to, text) {
             // Check if user just typed the second [
             if (text === '[') {
               const { state } = view

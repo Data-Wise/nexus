@@ -19,6 +19,17 @@ export interface Folder {
   sort_order: number
 }
 
+export interface Tag {
+  id: string
+  name: string
+  color: string | null
+  created_at: number
+}
+
+export interface TagWithCount extends Tag {
+  note_count: number
+}
+
 // Custom APIs for renderer
 const api = {
   // Note operations
@@ -29,10 +40,21 @@ const api = {
   listNotes: (folder?: string) => ipcRenderer.invoke('notes:list', folder),
   searchNotes: (query: string) => ipcRenderer.invoke('notes:search', query),
 
-  // Tag operations
-  addTag: (noteId: string, tag: string) => ipcRenderer.invoke('tags:add', noteId, tag),
-  removeTag: (noteId: string, tag: string) => ipcRenderer.invoke('tags:remove', noteId, tag),
-  getNoteTags: (noteId: string) => ipcRenderer.invoke('tags:get', noteId),
+  // Tag CRUD
+  createTag: (name: string, color?: string) => ipcRenderer.invoke('tags:create', name, color),
+  getTag: (id: string) => ipcRenderer.invoke('tags:get', id),
+  getTagByName: (name: string) => ipcRenderer.invoke('tags:getByName', name),
+  getAllTags: () => ipcRenderer.invoke('tags:getAll'),
+  renameTag: (id: string, newName: string) => ipcRenderer.invoke('tags:rename', id, newName),
+  deleteTag: (id: string) => ipcRenderer.invoke('tags:delete', id),
+
+  // Note-Tag relationships
+  addTagToNote: (noteId: string, tagName: string) => ipcRenderer.invoke('tags:addToNote', noteId, tagName),
+  removeTagFromNote: (noteId: string, tagId: string) => ipcRenderer.invoke('tags:removeFromNote', noteId, tagId),
+  getNoteTags: (noteId: string) => ipcRenderer.invoke('tags:getNoteTags', noteId),
+  getNotesByTag: (tagId: string) => ipcRenderer.invoke('tags:getNotesByTag', tagId),
+  filterNotesByTags: (tagIds: string[], matchAll: boolean) => ipcRenderer.invoke('tags:filterNotes', tagIds, matchAll),
+  updateNoteTags: (noteId: string, content: string) => ipcRenderer.invoke('tags:updateNoteTags', noteId, content),
 
   // Folder operations
   getFolders: () => ipcRenderer.invoke('folders:list'),

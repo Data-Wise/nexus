@@ -90,7 +90,7 @@ export const WikiLink = Mark.create<WikiLinkOptions>({
           },
 
           // Handle clicks on wiki links
-          handleClick(view, pos, event) {
+          handleClick(_view, _pos, event) {
             const target = event.target as HTMLElement
 
             // Check if clicked on a wiki link decoration
