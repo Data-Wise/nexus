@@ -21,14 +21,14 @@ Get a working Electron app that displays notes and looks professional.
 
 ## Tasks
 
-### 1. Set up Electron + React + TypeScript (2h)
+### 1. Set up Electron + React + TypeScript (2h) ✅
 
 **Subtasks**:
-- [ ] Create project with electron-vite
-- [ ] Verify hot reload works
-- [ ] Configure TypeScript strict mode
-- [ ] Add Tailwind CSS
-- [ ] Test app launches
+- [x] Create project with electron-vite
+- [x] Verify hot reload works
+- [x] Configure TypeScript strict mode
+- [x] Add Tailwind CSS
+- [x] Test app launches
 
 **Commands**:
 ```bash
