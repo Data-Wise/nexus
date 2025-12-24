@@ -219,7 +219,7 @@ export class DatabaseService {
       return this.getNote(id)
     }
 
-    fields.push('updated_at = strftime("%s", "now")')
+    fields.push("updated_at = strftime('%s', 'now')")
     values.push(id)
 
     const stmt = this.db.prepare(`
