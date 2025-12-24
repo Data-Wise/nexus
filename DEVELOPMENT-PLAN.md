@@ -40,12 +40,12 @@ Later Additions:
 | Sprint | Feature | Hours | Status | Details |
 |--------|---------|-------|--------|---------|
 | 1 | Hello World UI | 10h | ✅ Complete | [SPRINT-1.md](SPRINT-1.md) |
-| 2 | SQLite Database | 12h | 📋 Planned | [SPRINT-2.md](SPRINT-2.md) |
-| 3 | Rich Markdown Editor | 15h | 📋 Planned | [SPRINT-3.md](SPRINT-3.md) |
-| 4 | PARA Folder Structure | 12h | ⚪ Not Started |
-| 5 | Full-Text Search | 10h | ⚪ Not Started |
-| 6 | Internal Links & Backlinks | 12h | ⚪ Not Started |
-| 7 | Task Management | 15h | ⚪ Not Started |
+| 2 | SQLite Database | 12h | ✅ Complete | [SPRINT-2.md](SPRINT-2.md) |
+| 3 | Rich Markdown Editor | 15h | ✅ Complete | [SPRINT-3.md](SPRINT-3.md) |
+| 4 | PARA Folder Structure | 12h | ✅ Complete | - |
+| 5 | Full-Text Search | 10h | ⚪ Not Started | - |
+| 6 | Internal Links & Backlinks | 12h | ⚪ Not Started | - |
+| 7 | Task Management | 15h | ⚪ Not Started | - |
 | 8 | Dashboards | 12h | ⚪ Not Started |
 | 9 | Templates | 10h | ⚪ Not Started |
 | 10 | Import/Export | 8h | ⚪ Not Started |
@@ -270,9 +270,32 @@ nexus-desktop/
 - Hot reload working perfectly
 - App launches successfully with professional appearance
 
+### Sprint 2 ✅
+- Integrated better-sqlite3 with electron-rebuild
+- Created DatabaseService with FTS5 full-text search
+- Implemented CRUD operations via IPC handlers
+- Connected Zustand store to database
+- Migration system with schema_version tracking
+- WAL mode enabled for performance
+
+### Sprint 3 ✅
+- Integrated TipTap editor with ProseMirror
+- Created Editor component with formatting toolbar
+- 10+ formatting options (bold, italic, headings, lists, code blocks)
+- Syntax highlighting with lowlight (VS Code dark theme)
+- Real-time auto-save to database
+- Editable note titles
+
+### Sprint 4 ✅
+- Implemented 5 PARA folders (Inbox, Projects, Areas, Resources, Archive)
+- Folder navigation sidebar with emoji icons
+- Folder filtering functionality
+- "All Notes" view
+- Folder badges and note counts
+
 ---
 
 **Last Updated**: 2025-12-23
-**Current Sprint**: 1 (Hello World) - ✅ Complete
-**Next Sprint**: 2 (SQLite Database)
-**Progress**: Sprint 1/10 complete (10%)
+**Current Sprint**: 4 (PARA Folders) - ✅ Complete
+**Next Sprint**: 5 (Full-Text Search)
+**Progress**: Sprints 1-4/10 complete (40%)
