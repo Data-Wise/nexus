@@ -26,19 +26,18 @@
 | Document | Purpose | Read Time |
 |----------|---------|-----------|
 | **[QUICK-START.md](QUICK-START.md)** | 30-second overview + 2-hour setup | 5 min |
-| **[docs/getting-started/quickstart.md](docs/getting-started/quickstart.md)** | Detailed setup guide with explanations | 30 min |
 | **[docs/architecture/overview.md](docs/architecture/overview.md)** | Complete system architecture | 15 min |
 | **[docs/claude-integration/system-prompt.md](docs/claude-integration/system-prompt.md)** | Claude integration prompt | 5 min |
+| **[IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md](IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md)** | Knowledge integration plan | 10 min |
 | **[.STATUS](.STATUS)** | Current project status | 2 min |
-| **[PROJECT-HUB.md](PROJECT-HUB.md)** | Strategic roadmap & milestones | 10 min |
+
+**Architecture Proposals:**
+- [PROPOSAL-NEXUS-ARCHITECTURE.md](PROPOSAL-NEXUS-ARCHITECTURE.md) - Architecture options analysis
+- [PROPOSAL-CLAUDE-RESEARCH-BRAIN.md](PROPOSAL-CLAUDE-RESEARCH-BRAIN.md) - Research-focused integration
 
 **For Contributors:**
 - [CLAUDE.md](CLAUDE.md) - Guidance for Claude Code instances
-- [docs/reference/architecture-commands.md](docs/reference/architecture-commands.md) - Reusable patterns & commands
-- [ARCHITECTURE-DECISION-MONOREPO.md](ARCHITECTURE-DECISION-MONOREPO.md) - Why monorepo architecture
 - [standards/](standards/) - Universal standards (vault structure, templates, docs)
-- [PROPOSAL-TEMPLATE-VAULT.md](PROPOSAL-TEMPLATE-VAULT.md) - Template vault proposal
-- [PROPOSAL-MCP-INTEGRATION.md](PROPOSAL-MCP-INTEGRATION.md) - MCP server proposal
 
 ---
 
@@ -89,28 +88,12 @@ nexus/
 
 ---
 
-## ⚡ Quick Start (For Developers)
+## 🔗 Related Projects
 
-**Building the Desktop App?** See [DEVELOPMENT-PLAN.md](DEVELOPMENT-PLAN.md)
-
-**Desktop App Status**:
-- ✅ **7 Sprints Complete** (Wiki Links, Tags, Search)
-- 📋 **Sprint 8 Planned** (Search Enhancements)
-- 🚀 **Version 0.3.0** - Production-ready PKM app
-
-```bash
-# Desktop app - Super easy setup!
-cd nexus-desktop/
-./install.sh        # One-time: Install dependencies
-npm start           # Launch Nexus
-
-# OR set up alias for launch from anywhere:
-./setup-alias.sh    # One-time setup
-source ~/.zshrc     # Activate
-nexus               # Launch from anywhere!
-```
-
-See [nexus-desktop/QUICKSTART.md](nexus-desktop/QUICKSTART.md) for the 2-minute guide.
+| Project | Purpose |
+|---------|---------|
+| **[Scribe](../scribe/)** | Desktop note capture app (split from Nexus) |
+| **[Statistical Research Plugin](../claude-plugins/local/statistical-research/)** | Claude Code plugin with research skills |
 
 ---
 
@@ -418,10 +401,11 @@ The complete, ready-to-use Obsidian vault is in **`vault-template/`**
 
 ## 📊 Current Status
 
-**Phase:** P1 - Standards Implementation (100% complete)
-**Next:** P2 - Template Vault Creation (planned)
+**Focus:** Claude + Obsidian Knowledge Integration
+**Phase:** Strategic refocus (P2 vault template ✅ complete)
+**Next:** Extend statistical-research plugin with Zotero/PDF/Vault integration
 
-See [.STATUS](.STATUS) for detailed progress or [PROJECT-HUB.md](PROJECT-HUB.md) for strategic overview.
+See [.STATUS](.STATUS) for detailed progress or [IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md](IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md) for roadmap.
 
 ---
 

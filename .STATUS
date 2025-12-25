@@ -1,271 +1,176 @@
 status: active
 priority: 1
-progress: 58
-next: Sprint 8 - Search & Filter Enhancements (or continue Sprint 8 implementation)
+progress: 75
+next: Phase 1 - Zotero Integration (extend statistical-research plugin)
 type: dev
-checkpoint: Sprint 7 COMPLETE! Tags system with filtering, autocomplete, colored badges. Installation simplified with install.sh and shell alias. Version 0.3.0 ready.
+checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now focuses on Claude + Obsidian knowledge integration. Implementation plan ready (16 hours total).
 
 # ═══════════════════════════════════════════════════════════════════
-# Nexus Desktop - Knowledge Management App Status
+# Nexus - Claude + Obsidian Knowledge Management
 # ═══════════════════════════════════════════════════════════════════
 
-🚀 Nexus - Obsidian + Claude Second Brain Status
-────────────────────────────────────────────────
+🧠 Nexus - Knowledge Integration Status
+────────────────────────────────────────
 
 📍 LOCATION
 ~/projects/dev-tools/nexus/
 
 ⏰ LAST UPDATED
-2024-12-24 Evening (Session: ~4 hours)
+2024-12-24 - Strategic refocus complete
 
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 🎯 CURRENT STATUS
-**DESKTOP APP DEVELOPMENT**: Building Nexus Desktop (Electron + React + SQLite)
-- Template vault (P0-P4) COMPLETE ✅
-- Desktop app Sprints 1-7 COMPLETE ✅ (7/12 = 58%)
-- **Sprint 7 COMPLETE**: Tags System with filtering ✅
-- Sprint 8 PLANNED: Search & Filter Enhancements 📋
-- Version 0.3.0 - Production-ready PKM app 🚀
+**✅ STRATEGIC REFOCUS COMPLETE**
 
-────────────────────────────────────────────────
+The vision is clear:
+- Use Claude as the primary brain for research, teaching, and package development
+- Integrate Zotero (2,728 items), PDFs (~1,800 files), and Obsidian vault
+- Extend existing statistical-research plugin (not build from scratch)
+- Desktop app → Scribe (split to separate repo)
+
+**What's Ready:**
+- ✅ Vault template (PARA structure, templates, dashboards)
+- ✅ Architecture proposals and implementation plan
+- ✅ Statistical-research plugin foundation (17 skills, 9 tools)
+- ✅ Desktop app preserved as Scribe
+
+────────────────────────────────────────
 
 📊 PROGRESS
 
-Desktop App Development:
-Sprint 1: Hello World (Electron)   ████████████████████ 100% ✅
-  ├─ Electron + React + TS setup   ████████████████████ 100% ✅
-  ├─ Vite build configuration      ████████████████████ 100% ✅
-  ├─ Tailwind CSS integration      ████████████████████ 100% ✅
-  └─ App launches successfully     ████████████████████ 100% ✅
+Knowledge Architecture:
+Vault Template              ████████████████████ 100% ✅
+Documentation               ████████████████████ 100% ✅
+Architecture Proposals      ████████████████████ 100% ✅
+Implementation Plan         ████████████████████ 100% ✅
 
-Sprint 2: SQLite Database          ████████████████████ 100% ✅
-  ├─ better-sqlite3 integration    ████████████████████ 100% ✅
-  ├─ FTS5 full-text search         ████████████████████ 100% ✅
-  ├─ CRUD operations & IPC         ████████████████████ 100% ✅
-  └─ Zustand store integration     ████████████████████ 100% ✅
+Plugin Integration (Next):
+Phase 1: Zotero             ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Phase 2: PDF Extraction     ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 3: Vault Operations   ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 4: Knowledge Query    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 5: Integration        ░░░░░░░░░░░░░░░░░░░░   0% ⚪
 
-Sprint 3: Rich Markdown Editor     ████████████████████ 100% ✅
-  ├─ TipTap editor integration     ████████████████████ 100% ✅
-  ├─ Formatting toolbar            ████████████████████ 100% ✅
-  ├─ Syntax highlighting           ████████████████████ 100% ✅
-  └─ Real-time persistence         ████████████████████ 100% ✅
+**Overall Progress**: 75% (architecture complete, implementation next)
 
-Sprint 4: PARA Folder Structure    ████████████████████ 100% ✅
-  ├─ 5 PARA folders with icons     ████████████████████ 100% ✅
-  ├─ Folder navigation sidebar     ████████████████████ 100% ✅
-  ├─ Folder filtering              ████████████████████ 100% ✅
-  └─ Editable note titles          ████████████████████ 100% ✅
+────────────────────────────────────────
 
-Sprint 5: Full-Text Search UI      ████████████████████ 100% ✅
-  ├─ SearchBar with Cmd+K          ████████████████████ 100% ✅
-  ├─ Search results display        ████████████████████ 100% ✅
-  ├─ Term highlighting (yellow)    ████████████████████ 100% ✅
-  └─ FTS5 integration              ████████████████████ 100% ✅
+📋 IMPLEMENTATION PLAN
 
-Sprint 6: Wiki Links & Backlinks   ████████████████████ 100% ✅
-  ├─ Database layer & migration    ████████████████████ 100% ✅
-  ├─ WikiLink TipTap extension     ████████████████████ 100% ✅
-  ├─ Autocomplete dropdown         ████████████████████ 100% ✅
-  ├─ BacklinksPanel component      ████████████████████ 100% ✅
-  └─ App integration               ████████████████████ 100% ✅
+See: IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
 
-Sprint 7: Tags System              ████████████████████ 100% ✅
-  ├─ Database schema (tags table)  ████████████████████ 100% ✅
-  ├─ Tag autocomplete with #       ████████████████████ 100% ✅
-  ├─ Colored tag badges            ████████████████████ 100% ✅
-  ├─ Tags panel with counts        ████████████████████ 100% ✅
-  ├─ Multi-tag filtering (AND)     ████████████████████ 100% ✅
-  └─ 52 automated tests passing    ████████████████████ 100% ✅
+**Phase 1: Zotero Integration** (4 hours)
+- lib/zotero.sh - SQLite queries against ~/Zotero/zotero.sqlite
+- commands/zotero/* - Search, cite, annotate
+- 2,728 library items accessible via Claude
 
-Sprint 8: Search Enhancements      ░░░░░░░░░░░░░░░░░░░░   0% 📋
-  ├─ Search highlighting           ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-  ├─ Advanced filters (tags+FTS)   ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-  ├─ Search history                ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-  ├─ Enhanced search UI            ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-  └─ Testing & documentation       ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+**Phase 2: PDF Integration** (3 hours)
+- lib/pdf-extract.sh - pdftotext extraction
+- commands/pdf/* - Extract, search, summarize
+- ~1,800 PDFs (research + teaching)
 
-Sprint 9-12: Future Features       ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+**Phase 3: Vault Operations** (4 hours)
+- lib/obsidian.sh - Read/write/search vault
+- commands/vault/* - Read, write, search, link
+- Full Obsidian vault access
 
-**Overall Progress**: 7/12 sprints (58%)
+**Phase 4: Knowledge Query** (3 hours)
+- skills/knowledge/* - Unified search
+- commands/knowledge/* - Cross-source queries
+- "Ask anything" across all sources
 
-────────────────────────────────────────────────
+**Phase 5: Integration & Testing** (2 hours)
+- End-to-end workflows
+- Error handling
+- Documentation
 
-✅ JUST COMPLETED (Session: 2024-12-24 Evening - Sprint 7 & Polish!)
+**Total: 16 hours over 4-5 days**
 
-**🎉 MAJOR MILESTONE: Sprint 7 Complete! (4 hours)**
+────────────────────────────────────────
 
-**✅ Sprint 7: Tags System** (COMPLETE)
-  - Implemented #tag autocomplete with dropdown
-  - Colored tag badges using hash-based color generation
-  - Tags panel showing all tags with note counts
-  - Multi-tag filtering with AND logic
-  - All 52 automated tests passing (100%)
-  - Complete documentation in SPRINT-7-COMPLETE.md
+✅ JUST COMPLETED (2024-12-24)
 
-**📚 Documentation & Planning**
-  - Created comprehensive Sprint 7 completion docs
-  - Updated GETTING-STARTED.md with Tags & Wiki Links features
-  - Created Sprint 8 plan (Search & Filter Enhancements, 788 lines)
-  - Fixed version consistency across all files (0.3.0)
-  - Updated README.md (parent directory)
-  - Updated DEVELOPMENT-PLAN.md with progress
-  - Created comprehensive CHANGELOG.md
+**🎯 Strategic Refocus Session**
+- Identified product drift (two products, unclear relationship)
+- Created comprehensive architecture proposals
+- Inventoried existing infrastructure (8 MCP servers, 28 skills)
+- Created detailed implementation plan (16 hours)
+- Split desktop app to Scribe repo
 
-**🚀 Installation & UX Improvements**
-  - Created install.sh - one-command installation script
-  - Created nexus launcher script
-  - Created setup-alias.sh with ZDOTDIR detection
-  - Fixed shell alias for custom zsh config (~/.config/zsh/)
-  - Created QUICKSTART.md - 2-minute setup guide
-  - Updated README files with easy launch methods
+**📁 Key Documents Created:**
+- PROPOSAL-NEXUS-ARCHITECTURE.md (55KB)
+- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md (69KB)
+- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md (25KB)
 
-**🐛 Bug Fixes & Polish**
-  - Suppressed macOS spell server warnings
-  - Improved migration logging (positive ✅ messages)
-  - Fixed shell alias detection for custom ZDOTDIR
-  - Created PROPOSAL-ERROR-FIXES.md analysis
+**🔀 Repo Reorganization:**
+- Created ~/projects/dev-tools/scribe/ (new repo)
+- Moved nexus-desktop content to Scribe
+- Updated documentation for both repos
+- Clean separation of concerns
 
-**📁 Files Changed**:
-  - 10 git commits pushed to remote
-  - src/main/index.ts - Spell-check suppression
-  - src/main/database/DatabaseService.ts - Migration logging
-  - install.sh, nexus, setup-alias.sh - Installation system
-  - GETTING-STARTED.md - Feature documentation (+211 lines)
-  - README.md, CHANGELOG.md - Version updates
-  - Multiple planning docs (SPRINT-7-COMPLETE, SPRINT-8-PLAN)
-
-────────────────────────────────────────────────
-
-📋 NEXT ACTIONS
-
-**Next Session - Start Here:**
-
-A) 🎯 Sprint 8: Search & Filter Enhancements [12 hours] ⭐ RECOMMENDED
-   Status: Plan created (SPRINT-8-PLAN.md), ready to implement
-   Phases:
-   - Phase 1: Search highlighting (migrate to Mark nodes)
-   - Phase 2: Advanced filtering (combine tags + FTS)
-   - Phase 3: Search history (recent searches)
-   - Phase 4: Enhanced search UI (filters, sorting)
-   - Phase 5: Testing & documentation
-
-   See: nexus-desktop/SPRINT-8-PLAN.md for complete spec
-
-B) Alternative: Polish & Testing [4-6 hours]
-   - Test installation flow (install.sh → alias setup)
-   - Add more automated tests (increase coverage)
-   - Performance testing (large vaults)
-   - Create demo content for screenshots
-   - User testing with real notes
-
-C) Alternative: Begin Sprint 9 Planning
-   - Design daily notes with templates
-   - Calendar integration
-   - Quick capture workflows
-
-**Medium-Term (Next Week):**
-- [ ] Complete Sprints 8-12 (5 sprints remaining)
-- [ ] Reach MVP feature complete (all 12 sprints)
-- [ ] Package for distribution (macOS .app, Linux AppImage)
-- [ ] Create demo video/screenshots
-- [ ] Beta testing with real users
-
-**Long-Term (Future Phases):**
-- [ ] Windows support
-- [ ] Plugin system for extensibility
-- [ ] Sync across devices
-- [ ] Mobile companion app
-- [ ] Integration with Statistical Research MCP
-
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 📁 KEY FILES
 
-Desktop App:
-- nexus-desktop/README.md            - App overview & features
-- nexus-desktop/QUICKSTART.md        - 2-minute setup guide
-- nexus-desktop/GETTING-STARTED.md   - Complete user guide
-- nexus-desktop/CHANGELOG.md         - Version history
-- nexus-desktop/SPRINT-7-COMPLETE.md - Sprint 7 retrospective
-- nexus-desktop/SPRINT-8-PLAN.md     - Sprint 8 implementation plan
-- nexus-desktop/DEVELOPMENT-PLAN.md  - Overall sprint roadmap
-- nexus-desktop/install.sh           - One-command installation
-- nexus-desktop/setup-alias.sh       - Shell alias setup
+Architecture:
+- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options
+- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research focus
+- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Roadmap
 
-Documentation Core:
-- README.md                          - Project overview
-- CLAUDE.md                          - Guidance for Claude Code
-- .STATUS                            - Daily tracking (THIS FILE)
-- PROJECT-HUB.md                     - Strategic roadmap
+Vault Template:
+- vault-template/README.md            - Setup instructions
+- vault-template/_master-dashboard.md - Main control panel
+- vault-template/_vault-guide.md      - Complete reference
 
-────────────────────────────────────────────────
+Documentation:
+- README.md                           - Project overview
+- CLAUDE.md                           - Claude Code guidance
+- docs/architecture/overview.md       - Full architecture
+
+────────────────────────────────────────
+
+🔗 RELATED PROJECTS
+
+| Project | Location | Purpose |
+|---------|----------|---------|
+| Scribe | ~/projects/dev-tools/scribe/ | Desktop capture app |
+| Statistical Research | ~/projects/dev-tools/claude-plugins/local/statistical-research/ | Claude plugin |
+| MCP Servers | ~/projects/dev-tools/mcp-servers/ | MCP infrastructure |
+
+────────────────────────────────────────
 
 🎯 PROJECT CONTEXT
 
 **What is Nexus?**
-A knowledge management architecture that provides:
-1. **Template Vault** - Complete Obsidian vault structure (COMPLETE)
-2. **Desktop App** - Electron-based PKM app (IN PROGRESS - 58%)
-3. **MCP Integration** - Claude AI integration (FUTURE)
+Knowledge management architecture that connects:
+1. **Obsidian** - External memory (vault, notes, links)
+2. **Claude** - Cognitive interface (skills, tools, queries)
+3. **Code** - R packages, Quarto, LaTeX
 
-**Current Focus:**
-Building production-ready desktop app with:
-- Rich markdown editing (TipTap)
-- Full-text search (SQLite FTS5)
-- Wiki-style linking ([[links]])
-- Tags with filtering (#tags)
-- PARA folder organization
-- ADHD-friendly workflows
+**Three Modes:**
+- 🔖 Librarian - Knowledge capture, organization, retrieval
+- 🔧 Builder - Code development, package maintenance
+- 📚 Teacher - Lecture creation, pedagogical materials
 
-**Target Users:**
-- Academic researchers
-- Knowledge workers
-- Anyone needing structured note-taking
+**Target Integration:**
+- Zotero (2,728 items)
+- Research PDFs (~110 files)
+- Teaching PDFs (~1,682 files)
+- Obsidian vault (PARA structure)
 
-────────────────────────────────────────────────
-
-🎉 WINS
-
-**🏆 Sprint 7 Complete - Major Feature Milestone!**
-
-- 🎯 **Tags System Working** - Full #tag support with autocomplete
-- 🌈 **Colored Badges** - Hash-based consistent colors
-- 🔍 **Multi-Tag Filtering** - AND logic for precise filtering
-- ✅ **100% Test Coverage** - All 52 tags tests passing
-- 📊 **Tags Panel** - Visual overview with note counts
-- 📚 **Complete Documentation** - User guide, API reference, testing
-- 🚀 **Easy Installation** - One-command setup with install.sh
-- 🔧 **Shell Integration** - Launch from anywhere with 'nexus' alias
-- 🐛 **Polished UX** - Clean console output, positive messages
-- 📈 **58% Complete** - 7 of 12 sprints done!
-
-**Progress Acceleration:**
-- Sprint 6 (12h) + Sprint 7 (10h) = 22 hours in ~2 days
-- All documentation current and comprehensive
-- Installation streamlined (1 command vs 5+ steps)
-- Professional CHANGELOG tracking all versions
-- ZDOTDIR-aware shell alias (works with custom zsh configs)
-
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 💡 NOTES
 
-**Why This Matters:**
-Nexus Desktop brings the power of:
-- Obsidian's linking and organization
-- SQLite's speed and reliability
-- Claude's AI assistance
-- Into a single, focused desktop app
+**Strategic Decision Made:**
+Nexus refocused from "build two products" to "integrate Claude with existing tools."
 
-**Session Wins:**
-- Fixed critical UX issues (installation, alias setup)
-- Completed full tags feature with testing
-- Planned next sprint comprehensively
-- All code committed and pushed to remote
-- Ready to start Sprint 8 implementation
+**Key Insight:**
+Statistical-research plugin already has literature tools - just needs
+Zotero/PDF/Vault extensions. Build on existing infrastructure.
 
-**Next Session Strategy:**
-Start Sprint 8 implementation following SPRINT-8-PLAN.md.
-Estimated 12 hours total, broken into 5 manageable phases.
-After Sprint 8, we'll be 67% complete (8/12 sprints).
+**Next Session:**
+Start Phase 1 - Zotero Integration (4 hours)
+Follow IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
+
