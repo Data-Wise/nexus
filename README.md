@@ -28,12 +28,14 @@
 | **[QUICK-START.md](QUICK-START.md)** | 30-second overview + 2-hour setup | 5 min |
 | **[docs/architecture/overview.md](docs/architecture/overview.md)** | Complete system architecture | 15 min |
 | **[docs/claude-integration/system-prompt.md](docs/claude-integration/system-prompt.md)** | Claude integration prompt | 5 min |
-| **[IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md](IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md)** | Knowledge integration plan | 10 min |
-| **[.STATUS](.STATUS)** | Current project status | 2 min |
+| **[STRATEGIC-DIRECTION.md](STRATEGIC-DIRECTION.md)** | Current strategy & roadmap | 10 min |
+| **[IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md](IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md)** | Detailed technical plan | 10 min |
+| **[.STATUS](.STATUS)** | Daily progress tracking | 2 min |
 
-**Architecture Proposals:**
+**Architecture (Reference):**
 - [PROPOSAL-NEXUS-ARCHITECTURE.md](PROPOSAL-NEXUS-ARCHITECTURE.md) - Architecture options analysis
-- [PROPOSAL-CLAUDE-RESEARCH-BRAIN.md](PROPOSAL-CLAUDE-RESEARCH-BRAIN.md) - Research-focused integration
+- [PROPOSAL-CLAUDE-RESEARCH-BRAIN.md](PROPOSAL-CLAUDE-RESEARCH-BRAIN.md) - Research-focused deep dive
+- [docs/proposals/archive/](docs/proposals/archive/) - Exploration phase documents (archived)
 
 **For Contributors:**
 - [CLAUDE.md](CLAUDE.md) - Guidance for Claude Code instances
