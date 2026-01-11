@@ -5,8 +5,15 @@ next: Phase 1 - Zotero Integration (extend statistical-research plugin)
 type: dev
 checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now focuses on Claude + Obsidian knowledge integration. Implementation plan ready (16 hours total).
 
+status: active
+priority: 1
+progress: 75
+next: Phase 1 - Zotero Integration (extend statistical-research plugin)
+type: dev
+checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now focuses on Claude + Obsidian knowledge integration. Implementation plan ready (16 hours total). PROJECT-HUB.md updated to reflect current direction.
+
 # ═══════════════════════════════════════════════════════════════════
-# Nexus - Claude + Obsidian Knowledge Management
+# Nexus - Claude + Obsidian Knowledge Management (via MCP)
 # ═══════════════════════════════════════════════════════════════════
 
 🧠 Nexus - Knowledge Integration Status
@@ -16,7 +23,7 @@ checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now f
 ~/projects/dev-tools/nexus/
 
 ⏰ LAST UPDATED
-2024-12-24 - Strategic refocus complete
+2025-01-11 - PROJECT-HUB.md synced with strategic refocus direction
 
 ────────────────────────────────────────
 
