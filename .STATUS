@@ -1,347 +1,228 @@
 status: active
-priority: 2
-progress: 40
-next: Begin Sprint 5 - Full-Text Search UI
+priority: 1
+progress: 75
+next: Integration Phase 1 - Atlas ↔ Nexus MCP (1 hour) → Then Zotero Phase 1 (4 hours)
 type: dev
+checkpoint: Integration analysis complete. 4 dev-tools reviewed (atlas, flow-cli, scribe, nexus). Major finding: Scribe + Nexus vault redundancy. 4-phase integration plan created. Atlas integration now top priority for immediate cross-tool intelligence.
 
 # ═══════════════════════════════════════════════════════════════════
-# Below is the original .STATUS content (preserved for reference)
+# Nexus - Claude + Obsidian Knowledge Management (via MCP)
 # ═══════════════════════════════════════════════════════════════════
 
-🚀 Nexus - Obsidian + Claude Second Brain Status
-────────────────────────────────────────────────
+🧠 Nexus - Knowledge Integration Status
+────────────────────────────────────────
 
 📍 LOCATION
 ~/projects/dev-tools/nexus/
 
 ⏰ LAST UPDATED
-2025-12-23 Evening
+2025-01-11 - Integration analysis complete, planning updated
 
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 🎯 CURRENT STATUS
-**DESKTOP APP DEVELOPMENT**: Building Nexus Desktop (Electron + React + SQLite)
-- Template vault (P0-P4) COMPLETE ✅
-- Desktop app Sprint 1 COMPLETE ✅
-- Sprint 2 & 3 planning documents created 📋
-- Ready to begin Sprint 2 implementation 🚀
+**🔗 INTEGRATION PLANNING COMPLETE**
 
-────────────────────────────────────────────────
+Major shift in priorities based on integration analysis:
+- ✅ Analyzed 4 dev-tools projects (atlas, flow-cli, scribe, nexus)
+- ✅ Identified significant overlap (Scribe + Nexus vault = redundant)
+- ✅ Created 4-phase integration plan (docs/INTEGRATION-ANALYSIS-2025-01-11.md)
+- 🎯 NEW PRIORITY: Atlas ↔ Nexus integration (1h) before Zotero
+
+**What's Ready:**
+- ✅ Vault template (PARA structure, templates, dashboards)
+- ✅ Architecture proposals and strategic direction
+- ✅ Integration analysis (655 lines, comprehensive)
+- ✅ Phase 1 Zotero plan (529 lines, ready to implement)
+- ✅ Statistical-research MCP foundation (17 skills, 9 tools)
+
+────────────────────────────────────────
 
 📊 PROGRESS
 
-Phase P0: Documentation Foundation ████████████████████ 100% ✅
-  ├─ README.md                     ████████████████████ 100% ✅
-  ├─ architecture.md               ████████████████████ 100% ✅
-  ├─ quickstart.md                 ████████████████████ 100% ✅
-  └─ claude-system-prompt.md       ████████████████████ 100% ✅
+Knowledge Architecture:
+Vault Template              ████████████████████ 100% ✅
+Documentation               ████████████████████ 100% ✅
+Strategic Direction         ████████████████████ 100% ✅
+Integration Analysis        ████████████████████ 100% ✅
+Zotero Implementation Plan  ████████████████████ 100% ✅
 
-Phase P1: Standards Implementation ████████████████████ 100% ✅
-  ├─ CLAUDE.md                     ████████████████████ 100% ✅
-  ├─ .STATUS file                  ████████████████████ 100% ✅
-  ├─ PROJECT-HUB.md                ████████████████████ 100% ✅
-  ├─ QUICK-START.md                ████████████████████ 100% ✅
-  ├─ Proposals (2 created)         ████████████████████ 100% ✅
-  └─ README.md updated             ████████████████████ 100% ✅
+Integration Plan (NEW):
+Phase 1: Atlas ↔ Nexus      ░░░░░░░░░░░░░░░░░░░░   0% 🔥 TOP PRIORITY
+Phase 2: Scribe → Nexus     ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Phase 3: flow-cli → Nexus   ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Phase 4: Unified AI Layer   ░░░░░░░░░░░░░░░░░░░░   0% ⚪
 
-Phase P2: Template Vault Creation  ████████████████████ 100% ✅
-Phase P3: Example Content          ████████████████████ 100% ✅
-Phase P4: Distribution & Testing   ████████████████████ 100% ✅
+MCP Extension (DEFERRED):
+Zotero Integration          ░░░░░░░░░░░░░░░░░░░░   0% 📋 After Integration
+PDF Integration             ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Vault Operations            ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Knowledge Query             ░░░░░░░░░░░░░░░░░░░░   0% ⚪
 
-Desktop App Development:
-Sprint 1: Hello World (Electron)   ████████████████████ 100% ✅
-  ├─ Electron + React + TS setup   ████████████████████ 100% ✅
-  ├─ Vite build configuration      ████████████████████ 100% ✅
-  ├─ Tailwind CSS integration      ████████████████████ 100% ✅
-  └─ App launches successfully     ████████████████████ 100% ✅
+**Overall Progress**: 75% (planning complete, integration prioritized)
 
-Sprint 2: SQLite Database          ████████████████████ 100% ✅
-  ├─ better-sqlite3 integration    ████████████████████ 100% ✅
-  ├─ FTS5 full-text search         ████████████████████ 100% ✅
-  ├─ CRUD operations & IPC         ████████████████████ 100% ✅
-  └─ Zustand store integration     ████████████████████ 100% ✅
+────────────────────────────────────────
 
-Sprint 3: Rich Markdown Editor     ████████████████████ 100% ✅
-  ├─ TipTap editor integration     ████████████████████ 100% ✅
-  ├─ Formatting toolbar            ████████████████████ 100% ✅
-  ├─ Syntax highlighting           ████████████████████ 100% ✅
-  └─ Real-time persistence         ████████████████████ 100% ✅
+📋 INTEGRATION PLAN (NEW TOP PRIORITY)
 
-Sprint 4: PARA Folder Structure    ████████████████████ 100% ✅
-  ├─ 5 PARA folders with icons     ████████████████████ 100% ✅
-  ├─ Folder navigation sidebar     ████████████████████ 100% ✅
-  ├─ Folder filtering              ████████████████████ 100% ✅
-  └─ Editable note titles          ████████████████████ 100% ✅
+See: docs/INTEGRATION-ANALYSIS-2025-01-11.md
 
-Sprint 5-10: Remaining Features    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+**Integration Phase 1: Atlas ↔ Nexus** (1 hour) 🔥
+Location: ~/projects/dev-tools/mcp-servers/statistical-research/
+- Add src/tools/atlas.ts (3 MCP tools)
+  - atlas_get_context - Current session/breadcrumbs
+  - atlas_get_recent - Recent projects
+  - atlas_get_session_stats - Session statistics
+- Test with MCP Inspector
+- Claude now knows what you're working on!
 
-────────────────────────────────────────────────
+**Integration Phase 2: Scribe → Nexus Vault** (3 hours)
+- Point Scribe at ~/Obsidian/Nexus/ by default
+- Map Scribe projects to PARA folders
+- ELIMINATES REDUNDANCY: Single source of truth for notes
 
-✅ JUST COMPLETED (Session: 2025-12-23 Evening - Sprints 1-4 Complete!)
+**Integration Phase 3: flow-cli → Nexus** (2 hours)
+- Add obs dispatcher (search, daily, new, link)
+- Integrate with work command
+- flow-cli can now manage Nexus vault
 
-**This Session:**
-- ✅ **Sprint 1 Complete** - Hello World Desktop App (10h)
-  - Created nexus-desktop/ with Electron + React + TypeScript
-  - Configured electron-vite, Tailwind CSS
-  - App launches successfully
+**Integration Phase 4: Unified AI Layer** (10 hours)
+- All tools use Nexus MCP for Claude
+- Cross-tool intelligence
+- Full context AI
 
-- ✅ **Sprint 2 Complete** - SQLite Database (12h)
-  - Integrated better-sqlite3 with electron-rebuild
-  - Created DatabaseService with FTS5 full-text search
-  - Implemented CRUD operations via IPC handlers
-  - Zustand store connected to database
-  - Migration system with schema_version tracking
-  - WAL mode enabled for performance
+**Total Integration: 16 hours**
 
-- ✅ **Sprint 3 Complete** - Rich Markdown Editor (15h)
-  - Integrated TipTap with ProseMirror
-  - Created Editor component with formatting toolbar
-  - 10+ formatting options (bold, italic, headings, lists, code blocks)
-  - Syntax highlighting with lowlight (VS Code dark theme)
-  - Real-time auto-save to database
-  - Editable note titles (click to edit)
+────────────────────────────────────────
 
-- ✅ **Sprint 4 Complete** - PARA Folder Structure (12h)
-  - Implemented 5 PARA folders (Inbox, Projects, Areas, Resources, Archive)
-  - Folder navigation sidebar with emoji icons
-  - Folder filtering functionality
-  - "All Notes" view
-  - Folder badges in note header
-  - Note count per folder
+📋 ZOTERO IMPLEMENTATION PLAN (DEFERRED TO AFTER INTEGRATION)
 
-**Progress**: 4/10 sprints complete (40%)
+See: PHASE-1-PLAN.md
 
-**Phase P1: Standards Implementation - 100% Complete**
+**Phase 1: Zotero Integration** (4 hours)
+Location: ~/projects/dev-tools/mcp-servers/statistical-research/
+- Task 1.1: src/utils/zotero.ts (1.5h)
+  - searchZotero(), getZoteroItem(), formatCitation()
+  - SQLite queries via Bun.$
+  - 5,931 Zotero items accessible
+- Task 1.2: src/tools/zotero.ts (1.5h)
+  - zotero_search, zotero_cite, zotero_get_item
+  - MCP tool handlers
+- Task 1.3: Testing & Integration (1h)
+  - MCP Inspector tests
+  - Update README
 
-- ✅ **CLAUDE.md** - Comprehensive guidance for Claude Code instances
-  - Documented project nature (knowledge architecture template)
-  - Explained core concepts (3 modes, PARA structure, templates)
-  - Added working-with-repo guidance and common modifications
-  - Included template reference and integration points
-  - Added style guidelines for ADHD-friendly formatting
+**Total: 4 hours over 1 day**
 
-- ✅ **.STATUS File** - Daily progress tracking
-  - Machine-readable format following zsh-configuration standards
-  - Visual progress bars for all phases
-  - Phase-based tracking with sub-items
-  - Next actions with time estimates and priorities
-  - Wins celebration section
+────────────────────────────────────────
 
-- ✅ **PROJECT-HUB.md** - Strategic roadmap and milestone tracking
-  - Overall progress visualization for all phases
-  - Quick reference table for key metrics
-  - Detailed current phase breakdown
-  - Recent completions and historical phases
-  - Design decisions and success criteria documented
-  - Timeline and collaboration notes
+✅ JUST COMPLETED (2025-01-11)
 
-- ✅ **QUICK-START.md** - ADHD-friendly quick start guide
-  - 30-second overview with TL;DR
-  - Common tasks table with time estimates
-  - 2-hour setup guide broken into phases
-  - Where things are located (folder reference)
-  - Daily usage patterns and workflows
-  - Troubleshooting and help resources
+**📋 Integration Analysis**
+- Reviewed 4 dev-tools projects comprehensively
+  - atlas v0.7.0 (state engine, Node.js)
+  - flow-cli v5.2.0 (workflow, ZSH)
+  - scribe v1.16.0 (writer app, Tauri)
+  - nexus v0.1.0 (knowledge architecture, MCP)
 
-- ✅ **PROPOSAL-TEMPLATE-VAULT.md** - P2 implementation proposal
-  - Complete distributable vault structure design
-  - 6-8 hour implementation plan broken into 5 phases
-  - Template file specifications and standards
-  - Sample content examples and QuickAdd configuration
-  - Success criteria and risk mitigation
-  - Timeline and next steps
+- Created comprehensive analysis (655 lines)
+  - Detailed capabilities for each tool
+  - Overlap & redundancy tables
+  - Integration opportunities diagram
+  - 4-phase concrete implementation plan
 
-- ✅ **PROPOSAL-MCP-INTEGRATION.md** - Future MCP server proposal
-  - Technical design for Obsidian vault MCP server
-  - 8 core tools (search, create, update, read, link, tasks, query)
-  - 14-18 hour implementation plan in 5 phases
-  - Integration workflows and benefits analysis
-  - Security considerations and alternatives evaluated
-  - Complete technical specifications
+**🎯 Key Finding:**
+CRITICAL REDUNDANCY: Scribe and Nexus vault both manage markdown notes/projects
+→ Solution: Scribe uses Nexus vault by default (3 hours to implement)
 
-- ✅ **README.md Updates** - Quick links and status section
-  - Added Quick Links table at top for easy navigation
-  - Reorganized Documentation section by category
-  - Added Current Status section with phase tracking
-  - Links to all new files (PROJECT-HUB, QUICK-START, proposals)
+**🔗 Integration Strategy:**
+```
+Layer 5: AI Brain    → NEXUS (Claude MCP)
+Layer 4: Content     → SCRIBE (Editor for Nexus vault)
+Layer 3: Workflow    → FLOW-CLI (ZSH commands)
+Layer 2: State       → ATLAS (Engine)
+Layer 1: Storage     → Filesystem/Obsidian/Zotero
+```
 
-**Standards Research & Application:**
-- Reviewed zsh-configuration standards thoroughly
-  - PROJECT-MANAGEMENT-STANDARDS.md (two-tier PM system)
-  - PROJECT-STRUCTURE.md (file organization)
-  - ADHD-FRIENDLY templates (QUICK-START, etc.)
-  - ARCHITECTURE-COMMAND-REFERENCE.md (reusable patterns)
-  - Identified patterns and applied to Nexus
+**📝 Documentation Updates**
+- Created docs/INTEGRATION-ANALYSIS-2025-01-11.md
+- Updated strategic direction with integration plan
+- Prioritized Atlas integration (1h quick win)
 
-- ✅ **ARCHITECTURE-COMMAND-REFERENCE.md** - Reusable command patterns
-  - Quick command patterns for vault setup and standards implementation
-  - Vault setup commands (folder creation, template creation, dashboards)
-  - Template creation patterns (YAML frontmatter, Dataview queries)
-  - Documentation standards (TL;DR format, progress bars, status indicators)
-  - Obsidian plugin configuration (all 5 plugins with exact settings)
-  - QuickAdd macro templates
-  - Reusable prompt templates for future sprints
-  - Common tasks quick reference table
-
-- ✅ **standards/ Directory** - Universal standards hub
-  - standards/README.md - Standards hub overview
-  - standards/vault/VAULT-STRUCTURE.md - Complete PARA structure specification
-  - standards/vault/TEMPLATE-STANDARDS.md - YAML frontmatter and template formats
-  - standards/documentation/ADHD-FRIENDLY-DOCS.md - Visual hierarchy and formatting rules
-
-- ✅ **ARCHITECTURE-DECISION-MONOREPO.md** - Repository structure decision
-  - Analyzed dev-tools patterns (zsh-configuration, mcp-servers)
-  - Confirmed monorepo approach following existing patterns
-  - Documented rationale: atomic updates, single source of truth, ADHD-friendly
-  - Updated PROPOSAL-TEMPLATE-VAULT.md to reflect monorepo structure
-  - Updated PROPOSAL-MCP-INTEGRATION.md with location notes
-
-- ✅ **Hybrid Structure Reorganization** - Implemented Option C from brainstorming
-  - Created docs/ directory structure (getting-started/, architecture/, claude-integration/, reference/)
-  - Created integrations/, automation/, examples/ directories for future phases
-  - Moved all documentation to docs/ subdirectories
-  - Moved assets to assets/
-  - Created placeholder READMEs for future directories
-  - Updated README.md with new structure and project structure diagram
-  - Benefits: Cleaner root, scalable, ADHD-friendly, follows dev-tools patterns
-
-- ✅ **Cross-Reference Updates** - Updated all file paths after reorganization
-  - Updated CLAUDE.md with all new paths (repository structure, commands, workflows)
-  - Updated QUICK-START.md with new documentation paths
-  - Updated PROPOSAL-MCP-INTEGRATION.md references
-  - Updated PROPOSAL-TEMPLATE-VAULT.md references
-  - Updated PROJECT-HUB.md with new structure
-  - Validated all markdown links work correctly
-  - All files reference correct new locations
-
-- ✅ **Documentation Review & Polish** - Comprehensive review completed
-  - Reviewed README.md (361 lines, all paths verified)
-  - Reviewed QUICK-START.md (496 lines, fixed outdated status from 45% to 100%)
-  - Reviewed CLAUDE.md (336 lines, all command examples correct)
-  - Validated 19+ YAML frontmatter examples
-  - Validated 6+ Dataview queries
-  - Checked all proposals for consistency
-  - All documentation production-ready
-  - Created DOCUMENTATION-REVIEW.md summary
-
-────────────────────────────────────────────────
-
-📋 NEXT ACTIONS
-
-**Next Session - Start Here:**
-
-A) Begin Sprint 5: Full-Text Search 🟢 [10 hours] ⭐ START HERE
-   - Add search bar to UI
-   - Wire up FTS5 search (already in database)
-   - Display search results
-   - Highlight search terms
-   - Keyboard shortcuts (Cmd+K)
-   - Expected outcome: Fast full-text search across all notes
-
-B) Consider Sprint 6: Internal Links & Backlinks [12 hours]
-   - Wiki-style [[note-name]] links
-   - Link autocomplete
-   - Backlinks panel
-   - Graph view (optional)
-
-C) ✅ COMPLETE - Sprints 1-4
-   - ✅ Sprint 1: Electron + React + TypeScript
-   - ✅ Sprint 2: SQLite Database with FTS5
-   - ✅ Sprint 3: TipTap Rich Markdown Editor
-   - ✅ Sprint 4: PARA Folder Structure
-
-**Medium-Term (Next Week):**
-- [ ] Implement P2: Template Vault (6-8 hours total)
-- [ ] Create CONTRIBUTING.md for community contributions
-- [ ] Add templates/ directory with example Obsidian templates
-- [ ] Test full setup workflow from QUICK-START.md
-- [ ] Create video walkthrough of setup process (optional)
-
-**Long-Term (Future Phases):**
-- [ ] P3: Populate vault with example content (4-6 hours)
-- [ ] P4: Create distribution mechanisms (8-10 hours)
-- [ ] MCP Server: Implement vault access server (14-18 hours)
-- [ ] Community: GitHub template repository
-- [ ] Advanced: Integration with Statistical Research MCP
-
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 📁 KEY FILES
 
-Documentation Core:
-- README.md                          - Project overview and philosophy
-- architecture.md                    - Complete vault architecture
-- quickstart.md                      - 2-hour setup guide
-- claude-system-prompt.md            - Claude integration prompt
-- CLAUDE.md                          - Guidance for Claude Code
+Strategic Direction:
+- STRATEGIC-DIRECTION.md              - Executive summary ⭐ START HERE
+- docs/INTEGRATION-ANALYSIS-2025-01-11.md - Integration plan 🔥 NEW
+- PHASE-1-PLAN.md                     - Zotero implementation (on hold)
+- PROJECT-HUB.md                      - Progress tracking
 
-Project Management:
-- .STATUS                            - Daily tracking (THIS FILE)
-- PROJECT-HUB.md                     - Weekly strategic planning (TO CREATE)
+Architecture (Reference):
+- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options
+- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research workflows
+- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Original plan
+- docs/proposals/archive/             - Exploration docs (7 files)
 
-Templates & Standards:
-- standards/adhd/QUICK-START-TEMPLATE.md  - Reference from zsh-configuration
-- standards/project/                      - Project management standards
+Vault Template:
+- vault-template/README.md            - Setup instructions
+- vault-template/_master-dashboard.md - Main control panel
+- vault-template/_vault-guide.md      - Complete reference
 
-Graphics:
-- nexus-icon.svg                     - Branding icon
-- nexus-logo.svg                     - Branding logo
+────────────────────────────────────────
 
-────────────────────────────────────────────────
+🔗 RELATED PROJECTS
+
+| Project | Location | Purpose | Integration Status |
+|---------|----------|---------|-------------------|
+| atlas | ~/projects/dev-tools/atlas/ | State engine | 📋 Phase 1 (1h) |
+| flow-cli | ~/projects/dev-tools/flow-cli/ | ZSH workflow | 📋 Phase 3 (2h) |
+| scribe | ~/projects/dev-tools/scribe/ | Editor app | 📋 Phase 2 (3h) |
+| statistical-research | ~/mcp-servers/statistical-research/ | MCP server | ✅ Target for extensions |
+
+────────────────────────────────────────
 
 🎯 PROJECT CONTEXT
 
 **What is Nexus?**
-A knowledge management architecture template for academic researchers that turns:
-- Obsidian → External memory system
-- Claude → Cognitive interface
-- Optimized for ADHD-friendly workflows
+Knowledge management architecture that connects:
+1. **Obsidian** - External memory (vault, notes, links)
+2. **Claude** - Cognitive interface (skills, tools, queries)
+3. **Code** - R packages, Quarto, LaTeX
 
-**Target Users:**
-- Academic researchers (especially statistics/biostatistics)
-- Knowledge workers with ADHD challenges
-- Anyone needing structured second-brain system
+**Three Modes:**
+- 🔖 Librarian - Knowledge capture, organization, retrieval
+- 🔧 Builder - Code development, package maintenance
+- 📚 Teacher - Lecture creation, pedagogical materials
 
-**Core Value:**
-- Template-driven setup (not software to install)
-- PARA folder structure
-- Dataview-powered dashboards
-- Claude integration via MCP servers
+**NEW FOCUS: Integration Layer**
+Nexus becomes the unifying knowledge layer across all dev-tools:
+- Atlas provides state (what you're working on)
+- Scribe provides editing (content creation)
+- flow-cli provides workflow (commands)
+- Nexus provides intelligence (Claude + unified knowledge)
 
-────────────────────────────────────────────────
-
-🎉 WINS
-
-**Phase P1 Complete (100%) - Major Milestone!**
-
-- 🎯 **Complete standards implementation** - All 7 files created
-- ✅ **CLAUDE.md** provides clear guidance for future Claude instances
-- ✅ **PROJECT-HUB.md** establishes strategic roadmap with 4 phases
-- ✅ **QUICK-START.md** offers ADHD-friendly 2-hour setup guide
-- ✅ **Two comprehensive proposals** for P2 and future MCP integration
-- ✅ **README.md enhanced** with quick links and current status
-- ✅ **.STATUS file** implements two-tier PM system from zsh-configuration
-- 📊 **Visual formatting preserved** throughout (progress bars, emojis, boxes)
-- 📝 **Template references** and YAML examples fully documented
-- 🔗 **Integration points** clearly explained (Claude, MCP, packages)
-- 🎨 **Standards-based approach** ensures consistency across Data-Wise projects
-- ⚡ **Fast execution** - Completed entire phase in single session
-- 🧠 **Knowledge transfer** - Applied zsh-configuration patterns successfully
-- 📚 **Complete documentation** from 30-second overview to 18-hour implementation plans
-
-────────────────────────────────────────────────
+────────────────────────────────────────
 
 💡 NOTES
 
-**Why This Matters:**
-Nexus bridges the gap between static knowledge (Obsidian vault) and
-active cognition (Claude). By standardizing project management and
-documentation, we make it easier for researchers to:
-1. Capture ideas without friction
-2. Connect knowledge automatically
-3. Transform research into teaching
-4. Maintain ADHD-friendly workflows
+**Strategic Shift:**
+Originally planned to go straight to Zotero Phase 1, but integration
+analysis revealed bigger opportunity: connect all 4 dev-tools through
+Nexus as the knowledge layer.
 
-**Next Session Focus:**
-Create PROJECT-HUB.md to establish strategic roadmap and milestone tracking.
-This will separate daily tactics (.STATUS) from weekly strategy (PROJECT-HUB).
+**Key Insight:**
+Scribe + Nexus vault = redundant. By pointing Scribe at Nexus vault,
+we eliminate duplication AND enable Scribe to be the editor for Nexus.
+
+**Recommended Path:**
+1. Integration Phase 1 (Atlas, 1h) - Quick win, enables context-aware AI
+2. Zotero Phase 1 (4h) - Core knowledge capability as originally planned
+3. Integration Phase 2 (Scribe, 3h) - Eliminate redundancy
+4. Continue with remaining phases as needed
+
+**Next Session:**
+Start Integration Phase 1 - Add atlas_* tools to statistical-research MCP.
+This is a 1-hour quick win that enables Claude to know your current work context.
+
