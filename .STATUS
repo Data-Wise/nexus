@@ -3,14 +3,7 @@ priority: 1
 progress: 75
 next: Phase 1 - Zotero Integration (extend statistical-research plugin)
 type: dev
-checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now focuses on Claude + Obsidian knowledge integration. Implementation plan ready (16 hours total).
-
-status: active
-priority: 1
-progress: 75
-next: Phase 1 - Zotero Integration (extend statistical-research plugin)
-type: dev
-checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now focuses on Claude + Obsidian knowledge integration. Implementation plan ready (16 hours total). PROJECT-HUB.md updated to reflect current direction.
+checkpoint: Proposals consolidated (9 → 3). Created STRATEGIC-DIRECTION.md. Archived exploration docs. Clear path: extend statistical-research MCP (16h, 5 phases).
 
 # ═══════════════════════════════════════════════════════════════════
 # Nexus - Claude + Obsidian Knowledge Management (via MCP)
@@ -23,7 +16,7 @@ checkpoint: Strategic refocus complete. Desktop app split to Scribe. Nexus now f
 ~/projects/dev-tools/nexus/
 
 ⏰ LAST UPDATED
-2025-01-11 - PROJECT-HUB.md synced with strategic refocus direction
+2025-01-11 - Proposals consolidated, documentation clarified
 
 ────────────────────────────────────────
 
@@ -96,34 +89,35 @@ See: IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
 
 ────────────────────────────────────────
 
-✅ JUST COMPLETED (2024-12-24)
+✅ JUST COMPLETED (2025-01-11)
 
-**🎯 Strategic Refocus Session**
-- Identified product drift (two products, unclear relationship)
-- Created comprehensive architecture proposals
-- Inventoried existing infrastructure (8 MCP servers, 28 skills)
-- Created detailed implementation plan (16 hours)
-- Split desktop app to Scribe repo
+**📋 Proposal Consolidation**
+- Consolidated 9 proposals (262KB) → 3 core documents
+- Created STRATEGIC-DIRECTION.md (single source of truth)
+- Archived 7 exploration proposals to docs/proposals/archive/
+- Updated PROJECT-HUB.md to sync with strategic direction
+- Updated README.md with strategic direction link
+- Created comprehensive archive README
 
-**📁 Key Documents Created:**
-- PROPOSAL-NEXUS-ARCHITECTURE.md (55KB)
-- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md (69KB)
-- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md (25KB)
-
-**🔀 Repo Reorganization:**
-- Created ~/projects/dev-tools/scribe/ (new repo)
-- Moved nexus-desktop content to Scribe
-- Updated documentation for both repos
-- Clean separation of concerns
+**🎯 Result:**
+- Clear decision: Extend statistical-research MCP (not standalone CLI)
+- Eliminated decision paralysis (9 docs → 1 clear direction)
+- Preserved exploration history for reference
+- Ready to start Phase 1 implementation
 
 ────────────────────────────────────────
 
 📁 KEY FILES
 
-Architecture:
-- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options
-- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research focus
-- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Roadmap
+Strategic Direction:
+- STRATEGIC-DIRECTION.md              - Executive summary & roadmap ⭐ START HERE
+- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Technical plan (16h)
+- PROJECT-HUB.md                      - Progress tracking
+
+Architecture (Reference):
+- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options analysis
+- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research-focused deep dive
+- docs/proposals/archive/             - Exploration phase documents
 
 Vault Template:
 - vault-template/README.md            - Setup instructions
