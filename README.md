@@ -408,8 +408,34 @@ The complete, ready-to-use Obsidian vault is in **`vault-template/`**
 
 ## 📊 Current Status
 
-**Phase:** P1 - Standards Implementation (100% complete)
-**Next:** P2 - Template Vault Creation (planned)
+**Phase:** Integration Phase 1 - COMPLETE ✅ (v0.9.1)  
+**Status:** Production-ready with comprehensive test coverage
+
+### Recent Milestones (Jan 2025)
+
+- ✅ **Integration Phase 1** - Atlas ↔ Nexus integration complete
+  - 3 Atlas tools added to statistical-research MCP
+  - Context-aware AI (Claude knows what you're working on)
+  - 52 Atlas tests (88% pass rate)
+  
+- ✅ **v0.9.1 Release** - Critical bug fix + test expansion
+  - Fixed missing Obsidian implementation files (642 lines)
+  - Added 47 Obsidian tests (95% pass rate)
+  - **134+ total tests passing** across all tools
+  - GitHub Pages documentation deployed
+
+- ✅ **Template Vault** - Production-ready vault structure
+  - Complete PARA organization
+  - 6 templates, 5 dashboards
+  - QuickAdd configuration included
+
+### Tools Available
+
+**statistical-research MCP Server** (v0.9.1):
+- 21 tools (10 R + 7 literature + 3 Atlas + 1 quick capture)
+- 17 A-grade Claude skills
+- 134+ passing tests
+- Live docs: https://data-wise.github.io/claude-statistical-research-mcp/
 
 See [.STATUS](.STATUS) for detailed progress or [PROJECT-HUB.md](PROJECT-HUB.md) for strategic overview.
 

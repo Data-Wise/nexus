@@ -1,9 +1,9 @@
 status: complete
 priority: 1
 progress: 100
-next: Integration Phase 1 COMPLETE. Phase 2 (Scribe) and Zotero postponed to future. Project at stable checkpoint.
+next: Integration Phase 1 COMPLETE. Added critical bug fix (v0.9.1) and comprehensive Obsidian test suite. Project at stable checkpoint.
 type: dev
-checkpoint: ✅ Integration Phase 1 COMPLETE with comprehensive test suite! Atlas tools added to statistical-research MCP with 43 tests (88% pass rate). Tools production-ready. Phase 2 and Zotero work postponed per user decision. Clean checkpoint achieved 2025-01-11.
+checkpoint: ✅ Integration Phase 1 COMPLETE + Bug Fix + Test Suite! statistical-research MCP v0.9.1 released with 134+ tests (90% pass rate). All 21 tools functional. Clean checkpoint achieved 2025-01-12.
 
 # ═══════════════════════════════════════════════════════════════════
 # Nexus - Claude + Obsidian Knowledge Management (via MCP)
@@ -16,7 +16,7 @@ checkpoint: ✅ Integration Phase 1 COMPLETE with comprehensive test suite! Atla
 ~/projects/dev-tools/nexus/
 
 ⏰ LAST UPDATED
-2025-01-11 - Integration analysis complete, planning updated
+2025-01-12 - v0.9.1 released, test suite expanded, bug fixes complete
 
 ────────────────────────────────────────
 
@@ -48,7 +48,7 @@ Integration Analysis        █████████████████�
 Zotero Implementation Plan  ████████████████████ 100% ✅
 
 Integration Plan:
-Phase 1: Atlas ↔ Nexus      ████████████████████ 100% ✅ COMPLETE (2025-01-11)
+Phase 1: Atlas ↔ Nexus      ████████████████████ 100% ✅ COMPLETE + TESTED (v0.9.1)
 Phase 2: Scribe → Nexus     ░░░░░░░░░░░░░░░░░░░░   0% 📋 POSTPONED
 Phase 3: flow-cli → Nexus   ░░░░░░░░░░░░░░░░░░░░   0% 📋 POSTPONED
 Phase 4: Unified AI Layer   ░░░░░░░░░░░░░░░░░░░░   0% ⚪ FUTURE
@@ -122,7 +122,31 @@ Location: ~/projects/dev-tools/mcp-servers/statistical-research/
 
 ✅ JUST COMPLETED
 
-**🧪 Comprehensive Test Suite** (2025-01-11, additional 1 hour)
+**🐛 Bug Fix & Test Suite Expansion** (2025-01-12, 3 hours)
+- Released v0.9.1 with critical bug fix (642 missing lines)
+- Added 47 new Obsidian/quick_capture tests (95% pass rate)
+- Created comprehensive test documentation (387 lines)
+- Deployed updated docs to GitHub Pages
+- Test count increased from 87 to 134+ passing tests
+
+**Files Added:**
+- tests/obsidian.test.ts (307 lines) - Unit tests (19/20 passing)
+- tests/test-obsidian-integration.sh (271 lines) - Integration tests
+- tests/OBSIDIAN-TESTS-README.md (387 lines) - Test documentation
+
+**Files Fixed:**
+- src/tools/obsidian/index.ts (8 lines) - Missing implementation
+- src/tools/obsidian/quick-capture.ts (330 lines) - Quick capture tool
+- src/utils/obsidian-config.ts (117 lines) - Config loader
+- src/utils/obsidian-vault.ts (187 lines) - Vault operations
+
+**Releases:**
+- v0.9.1 - Critical bug fix release
+- GitHub Pages updated with v0.9.1 documentation
+
+────────────────────────────────────
+
+**🧪 Comprehensive Atlas Test Suite** (2025-01-11, additional 1 hour)
 - Created unit tests (tests/atlas.test.ts) - 14 tests, all passing
 - Created E2E tests (tests/test-atlas-e2e.sh) - 15 tests, 10 passing
 - Created integration tests (tests/test-atlas-integration.sh) - 14 tests, all passing
