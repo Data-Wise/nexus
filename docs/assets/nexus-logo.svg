@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <!-- Gradient for main nodes -->
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for center node -->
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0f172a"/>
+  
+  <!-- Connection lines (drawn first, behind nodes) -->
+  <g stroke="#4f46e5" stroke-width="2" opacity="0.6">
+    <!-- From center to outer nodes -->
+    <line x1="200" y1="200" x2="200" y2="80"/>
+    <line x1="200" y1="200" x2="320" y2="140"/>
+    <line x1="200" y1="200" x2="320" y2="260"/>
+    <line x1="200" y1="200" x2="200" y2="320"/>
+    <line x1="200" y1="200" x2="80" y2="260"/>
+    <line x1="200" y1="200" x2="80" y2="140"/>
+    
+    <!-- Between outer nodes -->
+    <line x1="200" y1="80" x2="320" y2="140" opacity="0.3"/>
+    <line x1="320" y1="140" x2="320" y2="260" opacity="0.3"/>
+    <line x1="320" y1="260" x2="200" y2="320" opacity="0.3"/>
+    <line x1="200" y1="320" x2="80" y2="260" opacity="0.3"/>
+    <line x1="80" y1="260" x2="80" y2="140" opacity="0.3"/>
+    <line x1="80" y1="140" x2="200" y2="80" opacity="0.3"/>
+  </g>
+  
+  <!-- Outer nodes (6 nodes in hexagonal pattern) -->
+  <g filter="url(#glow)">
+    <!-- Top -->
+    <circle cx="200" cy="80" r="24" fill="url(#nodeGrad)"/>
+    <!-- Top right -->
+    <circle cx="320" cy="140" r="24" fill="url(#nodeGrad)"/>
+    <!-- Bottom right -->
+    <circle cx="320" cy="260" r="24" fill="url(#nodeGrad)"/>
+    <!-- Bottom -->
+    <circle cx="200" cy="320" r="24" fill="url(#nodeGrad)"/>
+    <!-- Bottom left -->
+    <circle cx="80" cy="260" r="24" fill="url(#nodeGrad)"/>
+    <!-- Top left -->
+    <circle cx="80" cy="140" r="24" fill="url(#nodeGrad)"/>
+  </g>
+  
+  <!-- Center node (larger, different color) -->
+  <circle cx="200" cy="200" r="36" fill="url(#centerGrad)" filter="url(#glow)"/>
+  
+  <!-- Icons in nodes (simplified) -->
+  <g fill="white" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle" dominant-baseline="central">
+    <!-- Top: Research/Paper -->
+    <text x="200" y="80">📄</text>
+    <!-- Top right: Code -->
+    <text x="320" y="140">💻</text>
+    <!-- Bottom right: Teaching -->
+    <text x="320" y="260">📚</text>
+    <!-- Bottom: Tasks -->
+    <text x="200" y="320">✅</text>
+    <!-- Bottom left: Literature -->
+    <text x="80" y="260">🔖</text>
+    <!-- Top left: Ideas -->
+    <text x="80" y="140">💡</text>
+    <!-- Center: Brain/AI -->
+    <text x="200" y="200" font-size="24">🧠</text>
+  </g>
+  
+  <!-- Text label -->
+  <text x="200" y="375" fill="white" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" letter-spacing="4">NEXUS</text>
+</svg>
