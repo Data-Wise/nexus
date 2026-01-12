@@ -272,10 +272,28 @@ If you want different folders:
 
 | Resource | Link |
 |----------|------|
-| **Full Nexus Documentation** | [../docs/](../docs/) |
+| **Nexus Website** | [https://data-wise.github.io/nexus/](https://data-wise.github.io/nexus/) |
+| **Full Documentation** | [../docs/](../docs/) |
 | **Architecture Guide** | [../docs/architecture/overview.md](../docs/architecture/overview.md) |
 | **ADHD Workflows** | [[_getting-started#ADHD-Friendly Workflows]] |
 | **Claude Integration** | [../docs/claude-integration/](../docs/claude-integration/) |
+
+### 🤖 AI Integration (MCP Server)
+
+Nexus works with the **statistical-research MCP Server** for Claude integration:
+
+| Feature | Status | Documentation |
+|---------|--------|---------------|
+| **Atlas Tools** | ✅ v0.9.1 | Work context awareness (3 tools) |
+| **Quick Capture** | ✅ v0.9.1 | Obsidian vault operations |
+| **R Tools** | ✅ v0.9.1 | Statistical analysis (10 tools) |
+| **Literature** | ✅ v0.9.1 | arXiv, CrossRef, Zotero (7 tools) |
+| **Skills** | ✅ 17 A-grade | Research, writing, methods |
+
+**MCP Server Links:**
+- **GitHub**: https://github.com/Data-Wise/claude-statistical-research-mcp
+- **Documentation**: https://data-wise.github.io/claude-statistical-research-mcp/
+- **Latest Release**: v0.9.1 (134+ tests, 90% pass rate)
 
 ---
 
