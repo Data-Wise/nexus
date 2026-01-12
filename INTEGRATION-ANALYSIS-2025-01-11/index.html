@@ -1,0 +1,2981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Knowledge management architecture template for academic researchers">
+      
+      
+        <meta name="author" content="Data-Wise">
+      
+      
+        <link rel="canonical" href="https://data-wise.github.io/nexus/INTEGRATION-ANALYSIS-2025-01-11/">
+      
+      
+        <link rel="prev" href="../claude-integration/obsidian-prompt/">
+      
+      
+        <link rel="next" href="../reference/architecture-commands/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/nexus-icon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Integration Analysis - Nexus - Obsidian + Claude Second Brain</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integration-analysis-atlas-flow-cli-scribe-nexus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nexus - Obsidian + Claude Second Brain" class="md-header__button md-logo" aria-label="Nexus - Obsidian + Claude Second Brain" data-md-component="logo">
+      
+  <img src="../assets/nexus-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nexus - Obsidian + Claude Second Brain
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integration Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/nexus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Data-Wise/nexus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/quickstart/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../claude-integration/system-prompt/" class="md-tabs__link">
+          
+  
+  
+  Claude Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../project-hub/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Project Hub
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nexus - Obsidian + Claude Second Brain" class="md-nav__button md-logo" aria-label="Nexus - Obsidian + Claude Second Brain" data-md-component="logo">
+      
+  <img src="../assets/nexus-logo.svg" alt="logo">
+
+    </a>
+    Nexus - Obsidian + Claude Second Brain
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/nexus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Data-Wise/nexus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/obsidian-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/obsidian-claude-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian + Claude Brain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/monorepo-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monorepo Decision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Claude Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-integration/system-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-integration/obsidian-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Obsidian Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Analysis
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Executive Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-finding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Finding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-atlas-state-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Atlas (State Engine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Atlas (State Engine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Backends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-flow-cli-workflow-zsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. flow-cli (Workflow ZSH)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. flow-cli (Workflow ZSH)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adhd-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scribe-writer-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Scribe (Writer App)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Scribe (Writer App)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-nexus-knowledge-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Nexus (Knowledge Architecture)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Nexus (Knowledge Architecture)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State (Planning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlap-redundancy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlap &amp; Redundancy Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlap &amp; Redundancy Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#significant-overlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Significant Overlap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔴 Significant Overlap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Project Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-session-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Session Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quick-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quick Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-note-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Note Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ai-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AI Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Opportunities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Opportunities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-unified-knowledge-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Strategy: Unified Knowledge Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concrete-integration-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concrete Integration Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concrete Integration Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-atlas-nexus-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Atlas ↔ Nexus (Immediate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-scribe-nexus-vault-high-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Scribe ↔ Nexus Vault (High Priority)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Scribe ↔ Nexus Vault (High Priority)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-scribe-uses-nexus-vault-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Scribe Uses Nexus Vault ⭐ RECOMMENDED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-keep-separate-sync-via-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Keep Separate, Sync Via MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-flow-cli-nexus-integration-medium-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: flow-cli ↔ Nexus Integration (Medium Priority)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-unified-ai-layer-long-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Unified AI Layer (Long-term)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-actions-next-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate Actions (Next Week)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-term-this-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-term (This Month)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term-next-quarter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-term (Next Quarter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks &amp; Mitigation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risks &amp; Mitigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risk-1-breaking-existing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 1: Breaking Existing Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-2-performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 2: Performance Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-3-complexity-increase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 3: Complexity Increase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-for-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions for Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/architecture-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Executive Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-finding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Finding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-atlas-state-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Atlas (State Engine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Atlas (State Engine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Backends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-flow-cli-workflow-zsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. flow-cli (Workflow ZSH)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. flow-cli (Workflow ZSH)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adhd-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scribe-writer-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Scribe (Writer App)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Scribe (Writer App)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-nexus-knowledge-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Nexus (Knowledge Architecture)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Nexus (Knowledge Architecture)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-state-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current State (Planning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlap-redundancy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlap &amp; Redundancy Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlap &amp; Redundancy Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#significant-overlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔴 Significant Overlap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔴 Significant Overlap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Project Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-session-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Session Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quick-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quick Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-note-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Note Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ai-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AI Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Opportunities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Opportunities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategy-unified-knowledge-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Strategy: Unified Knowledge Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concrete-integration-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concrete Integration Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concrete Integration Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-atlas-nexus-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Atlas ↔ Nexus (Immediate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-scribe-nexus-vault-high-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Scribe ↔ Nexus Vault (High Priority)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Scribe ↔ Nexus Vault (High Priority)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-scribe-uses-nexus-vault-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Scribe Uses Nexus Vault ⭐ RECOMMENDED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-keep-separate-sync-via-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Keep Separate, Sync Via MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-flow-cli-nexus-integration-medium-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: flow-cli ↔ Nexus Integration (Medium Priority)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-unified-ai-layer-long-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Unified AI Layer (Long-term)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-actions-next-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate Actions (Next Week)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-term-this-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-term (This Month)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term-next-quarter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-term (Next Quarter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks &amp; Mitigation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risks &amp; Mitigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risk-1-breaking-existing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 1: Breaking Existing Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-2-performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 2: Performance Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-3-complexity-increase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk 3: Complexity Increase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-for-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions for Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="integration-analysis-atlas-flow-cli-scribe-nexus">Integration Analysis: Atlas, flow-cli, Scribe → Nexus<a class="headerlink" href="#integration-analysis-atlas-flow-cli-scribe-nexus" title="Permanent link">&para;</a></h1>
+<p><strong>Created:</strong> 2025-01-11<br />
+<strong>Purpose:</strong> Identify overlap, redundancy, and integration opportunities</p>
+<hr />
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<h3 id="current-state">Current State<a class="headerlink" href="#current-state" title="Permanent link">&para;</a></h3>
+<p><strong>4 separate tools with overlapping concerns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Type</th>
+<th>Purpose</th>
+<th>Status</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>atlas</strong></td>
+<td>Node.js CLI</td>
+<td>Project state engine (registry, sessions, capture)</td>
+<td>Active</td>
+<td>v0.7.0</td>
+</tr>
+<tr>
+<td><strong>flow-cli</strong></td>
+<td>ZSH plugin</td>
+<td>ADHD workflow (work/win/finish, dashboard)</td>
+<td>Production</td>
+<td>v5.2.0</td>
+</tr>
+<tr>
+<td><strong>scribe</strong></td>
+<td>Tauri app</td>
+<td>Distraction-free writer (markdown, projects, AI)</td>
+<td>Active</td>
+<td>v1.16.0</td>
+</tr>
+<tr>
+<td><strong>nexus</strong></td>
+<td>Documentation</td>
+<td>Knowledge architecture (Obsidian + Claude + MCP)</td>
+<td>Planning</td>
+<td>v0.1.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-finding">Key Finding<a class="headerlink" href="#key-finding" title="Permanent link">&para;</a></h3>
+<p><strong>Significant overlap exists</strong> - Each tool addresses different layers of the same problem:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                  THE KNOWLEDGE WORK STACK                       │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│                                                                 │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  Layer 5: Cognitive (AI Brain)        → NEXUS (Claude + MCP)   │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  Layer 4: Content Creation            → SCRIBE (Editor)        │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│  Layer 3: Workflow Management         → FLOW-CLI (ZSH)         │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  Layer 2: State Management            → ATLAS (Engine)         │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  Layer 1: Storage                     → Filesystem/Obsidian    │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│                                                                 │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>└─────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="detailed-analysis">Detailed Analysis<a class="headerlink" href="#detailed-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="1-atlas-state-engine">1. Atlas (State Engine)<a class="headerlink" href="#1-atlas-state-engine" title="Permanent link">&para;</a></h3>
+<p><strong>Location:</strong> <code>~/projects/dev-tools/atlas/</code><br />
+<strong>Runtime:</strong> Node.js<br />
+<strong>Architecture:</strong> Clean Architecture (domain, use-cases, adapters)</p>
+<h4 id="core-capabilities">Core Capabilities<a class="headerlink" href="#core-capabilities" title="Permanent link">&para;</a></h4>
+<p><strong>Project Management:</strong>
+- Project registry (scan, register, list)
+- <code>.STATUS</code> file integration
+- Project type detection
+- Recent projects tracking</p>
+<p><strong>Session Tracking:</strong>
+- Work sessions with duration
+- Session stats and history
+- Export sessions</p>
+<p><strong>Quick Capture:</strong>
+- Capture ideas/tasks/bugs
+- Inbox triage workflow
+- Quick notes</p>
+<p><strong>Context Management:</strong>
+- Breadcrumb trail ("where was I?")
+- Context parking/unparking
+- Context restoration</p>
+<p><strong>ADHD Helpers:</strong>
+- Streak calculator
+- Time blindness helper
+- Session completion helper
+- Celebration helper</p>
+<h4 id="storage-backends">Storage Backends<a class="headerlink" href="#storage-backends" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Filesystem (JSON files)</li>
+<li>SQLite (optional)</li>
+</ul>
+<h4 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>atlas<span class="w"> </span>init
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>atlas<span class="w"> </span>sync<span class="w">                    </span><span class="c1"># Sync from .STATUS files</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>atlas<span class="w"> </span>session<span class="w"> </span>start<span class="w"> </span>&lt;project&gt;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>atlas<span class="w"> </span>catch<span class="w"> </span><span class="s2">&quot;idea&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>atlas<span class="w"> </span>crumb<span class="w"> </span><span class="s2">&quot;breadcrumb&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>atlas<span class="w"> </span>where<span class="w">                   </span><span class="c1"># Show context</span>
+</code></pre></div>
+<hr />
+<h3 id="2-flow-cli-workflow-zsh">2. flow-cli (Workflow ZSH)<a class="headerlink" href="#2-flow-cli-workflow-zsh" title="Permanent link">&para;</a></h3>
+<p><strong>Location:</strong> <code>~/projects/dev-tools/flow-cli/</code><br />
+<strong>Runtime:</strong> ZSH<br />
+<strong>Integration:</strong> Uses atlas as state engine</p>
+<h4 id="core-capabilities_1">Core Capabilities<a class="headerlink" href="#core-capabilities_1" title="Permanent link">&para;</a></h4>
+<p><strong>Session Management:</strong>
+- <code>work &lt;project&gt;</code> - Start session
+- <code>finish</code> - End session
+- <code>hop &lt;project&gt;</code> - Quick switch (tmux)</p>
+<p><strong>Motivation System:</strong>
+- <code>win "achievement"</code> - Log win
+- <code>yay</code> - Show wins
+- <code>flow goal set N</code> - Daily targets</p>
+<p><strong>Context Awareness:</strong>
+- <code>dash</code> - Dashboard (what's happening?)
+- <code>why</code> - Where was I?
+- <code>pick</code> - Project picker (fzf)</p>
+<p><strong>Sync &amp; Tracking:</strong>
+- <code>flow sync</code> - Sync wins across devices
+- Win streaks and daily goals
+- Conventional commit integration</p>
+<p><strong>Dispatchers (Many!):</strong>
+- <code>cc</code> - Claude Code integration
+- <code>mcp</code> - MCP server management
+- <code>r</code> - R/RStudio integration
+- <code>v</code> - VS Code integration
+- <code>wt</code> - Worktree management
+- <code>tm</code> - Tmux integration
+- <code>qu</code> - Quarto integration
+- <code>obs</code> - Obsidian integration
+- <code>g</code> - Git operations</p>
+<h4 id="adhd-optimizations">ADHD Optimizations<a class="headerlink" href="#adhd-optimizations" title="Permanent link">&para;</a></h4>
+<ul>
+<li>10-second start time</li>
+<li>Visible wins for dopamine</li>
+<li>Dashboard for orientation</li>
+<li>Quick project switching</li>
+<li>Friction-free capture</li>
+</ul>
+<hr />
+<h3 id="3-scribe-writer-app">3. Scribe (Writer App)<a class="headerlink" href="#3-scribe-writer-app" title="Permanent link">&para;</a></h3>
+<p><strong>Location:</strong> <code>~/projects/dev-tools/scribe/</code><br />
+<strong>Runtime:</strong> Tauri (Rust + React)<br />
+<strong>Purpose:</strong> ADHD-friendly distraction-free writing</p>
+<h4 id="core-capabilities_2">Core Capabilities<a class="headerlink" href="#core-capabilities_2" title="Permanent link">&para;</a></h4>
+<p><strong>Editor (HybridEditor++):</strong>
+- Three modes: Source, Live Preview, Reading
+- Obsidian-style callouts (11 types)
+- Focus mode
+- Wiki links with autocomplete
+- Tags with autocomplete
+- Citations (@cite)
+- Math (KaTeX)</p>
+<p><strong>Projects:</strong>
+- Project-based organization
+- Templates (Research+, Teaching+, Dev+, Writing+)
+- Project switcher</p>
+<p><strong>AI Integration (CLI-based):</strong>
+- Claude + Gemini chat
+- Quick Actions (✨ Improve, 📝 Expand, etc.)
+- Chat persistence per note
+- @ References (include other notes)
+- No API keys (uses CLI tools)</p>
+<p><strong>Export:</strong>
+- PDF, Word, LaTeX, HTML (via Pandoc)</p>
+<p><strong>Themes &amp; Fonts:</strong>
+- 8 visual themes
+- 14 fonts
+- Dark/light modes</p>
+<p><strong>Keyboard Shortcuts:</strong>
+- ⌘⇧N - Global hotkey
+- ⌘K - Command palette
+- ⌘D - Daily note</p>
+<h4 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Local markdown files</li>
+<li>SQLite for metadata</li>
+<li>Browser DB for projects/notes</li>
+</ul>
+<hr />
+<h3 id="4-nexus-knowledge-architecture">4. Nexus (Knowledge Architecture)<a class="headerlink" href="#4-nexus-knowledge-architecture" title="Permanent link">&para;</a></h3>
+<p><strong>Location:</strong> <code>~/projects/dev-tools/nexus/</code><br />
+<strong>Type:</strong> Documentation + MCP Extension<br />
+<strong>Purpose:</strong> Claude + Obsidian knowledge integration</p>
+<h4 id="current-state-planning">Current State (Planning)<a class="headerlink" href="#current-state-planning" title="Permanent link">&para;</a></h4>
+<p><strong>Deliverables:</strong>
+- ✅ Vault template (PARA structure)
+- ✅ Architecture documentation
+- ✅ Strategic direction
+- 🔄 MCP extension (Phase 1-5)</p>
+<p><strong>Target Capabilities (via MCP):</strong></p>
+<p><strong>Zotero (Phase 1):</strong>
+- Search 2,728+ library items
+- Generate citations
+- Access annotations</p>
+<p><strong>PDFs (Phase 2):</strong>
+- Extract text from ~1,800 PDFs
+- Search across all PDFs
+- Summarize sections</p>
+<p><strong>Vault (Phase 3):</strong>
+- Read/write Obsidian notes
+- Search vault
+- Manage wiki links</p>
+<p><strong>Knowledge Query (Phase 4):</strong>
+- Unified search across all sources
+- Semantic connections
+- AI-assisted synthesis</p>
+<p><strong>Three Modes:</strong>
+- 🔖 Librarian (capture, organize, retrieve)
+- 🔧 Builder (code, packages, tests)
+- 📚 Teacher (lectures, examples)</p>
+<hr />
+<h2 id="overlap-redundancy-analysis">Overlap &amp; Redundancy Analysis<a class="headerlink" href="#overlap-redundancy-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="significant-overlap">🔴 Significant Overlap<a class="headerlink" href="#significant-overlap" title="Permanent link">&para;</a></h3>
+<h4 id="1-project-management">1. Project Management<a class="headerlink" href="#1-project-management" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>atlas</th>
+<th>flow-cli</th>
+<th>scribe</th>
+<th>nexus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project registry</td>
+<td>✅ Core</td>
+<td>✅ (uses atlas)</td>
+<td>✅ Separate</td>
+<td>-</td>
+</tr>
+<tr>
+<td>.STATUS files</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ (proposed)</td>
+</tr>
+<tr>
+<td>Project picker</td>
+<td>✅</td>
+<td>✅ fzf</td>
+<td>✅ UI</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Project templates</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+<td>✅ (vault)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Redundancy:</strong> Three separate project registries (atlas, scribe, potential nexus)</p>
+<h4 id="2-session-tracking">2. Session Tracking<a class="headerlink" href="#2-session-tracking" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>atlas</th>
+<th>flow-cli</th>
+<th>scribe</th>
+<th>nexus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Work sessions</td>
+<td>✅</td>
+<td>✅</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Session duration</td>
+<td>✅</td>
+<td>✅</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Session stats</td>
+<td>✅</td>
+<td>✅</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Redundancy:</strong> None (flow-cli uses atlas correctly)</p>
+<h4 id="3-quick-capture">3. Quick Capture<a class="headerlink" href="#3-quick-capture" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>atlas</th>
+<th>flow-cli</th>
+<th>scribe</th>
+<th>nexus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capture ideas</td>
+<td>✅</td>
+<td>✅ <code>win</code></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Inbox triage</td>
+<td>✅</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Daily notes</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+<td>✅ (vault)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Redundancy:</strong> Multiple capture mechanisms for different purposes</p>
+<h4 id="4-note-management">4. Note Management<a class="headerlink" href="#4-note-management" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>atlas</th>
+<th>flow-cli</th>
+<th>scribe</th>
+<th>nexus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Markdown editor</td>
+<td>-</td>
+<td>-</td>
+<td>✅ Core</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Wiki links</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+<td>✅ (vault)</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+<td>✅ (vault)</td>
+</tr>
+<tr>
+<td>Projects</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ (vault)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Redundancy:</strong> Scribe and Nexus vault both manage markdown notes</p>
+<h4 id="5-ai-integration">5. AI Integration<a class="headerlink" href="#5-ai-integration" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>atlas</th>
+<th>flow-cli</th>
+<th>scribe</th>
+<th>nexus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude integration</td>
+<td>-</td>
+<td>✅ <code>cc</code></td>
+<td>✅ Chat</td>
+<td>✅ Core (MCP)</td>
+</tr>
+<tr>
+<td>Quick Actions</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>-</td>
+<td>✅ <code>why</code></td>
+<td>-</td>
+<td>✅ (knowledge)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Redundancy:</strong> Multiple Claude integrations for different use cases</p>
+<hr />
+<h2 id="integration-opportunities">Integration Opportunities<a class="headerlink" href="#integration-opportunities" title="Permanent link">&para;</a></h2>
+<h3 id="strategy-unified-knowledge-stack">🎯 Strategy: Unified Knowledge Stack<a class="headerlink" href="#strategy-unified-knowledge-stack" title="Permanent link">&para;</a></h3>
+<p><strong>Principle:</strong> Each tool focuses on its layer, integrates with others</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                    PROPOSED INTEGRATION                         │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├─────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│                                                                 │
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  ┌──────────────────────────────────────────────────────────┐  │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  │  NEXUS (Layer 5: AI Brain)                               │  │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  │  • Claude MCP server                                     │  │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  │  • Unified knowledge query                               │  │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  │  • Cross-tool intelligence                               │  │
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  │                                                          │  │
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  │  Integrates with:                                        │  │
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  │  → Scribe (read/write notes)                            │  │
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│  │  → Atlas (read project state)                           │  │
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│  │  → Zotero/PDFs (read literature)                        │  │
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│  └────────────────────┬─────────────────────────────────────┘  │
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│                       │                                         │
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│  ┌────────────────────┴─────────────────────────────────────┐  │
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│  │  SCRIBE (Layer 4: Content Creation)                      │  │
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│  │  • Distraction-free editor                               │  │
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│  │  • Project-based writing                                 │  │
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>│  │  • Export to multiple formats                            │  │
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│  │                                                          │  │
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│  │  Integrates with:                                        │  │
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>│  │  → Nexus vault (read/write)                             │  │
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>│  │  → Atlas (project metadata)                             │  │
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>│  └────────────────────┬─────────────────────────────────────┘  │
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>│                       │                                         │
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>│  ┌────────────────────┴─────────────────────────────────────┐  │
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>│  │  FLOW-CLI (Layer 3: Workflow)                            │  │
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>│  │  • ZSH commands (work/win/finish)                        │  │
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>│  │  • Dashboard and context                                 │  │
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>│  │  • Dispatchers (cc, mcp, r, qu, obs, etc.)              │  │
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>│  │                                                          │  │
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>│  │  Integrates with:                                        │  │
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>│  │  → Atlas (state management)                             │  │
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>│  │  → Nexus (via `obs` dispatcher)                         │  │
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>│  │  → Scribe (via `scribe` command)                        │  │
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>│  └────────────────────┬─────────────────────────────────────┘  │
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>│                       │                                         │
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>│  ┌────────────────────┴─────────────────────────────────────┐  │
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>│  │  ATLAS (Layer 2: State Engine)                           │  │
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>│  │  • Project registry                                      │  │
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>│  │  • Session tracking                                      │  │
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>│  │  • Quick capture                                         │  │
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>│  │  • Context management                                    │  │
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>│  │                                                          │  │
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>│  │  Reads from:                                             │  │
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>│  │  → .STATUS files (all projects)                         │  │
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>│  │  → Nexus vault metadata                                 │  │
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>│  └──────────────────────────────────────────────────────────┘  │
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>│                                                                 │
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>│  ┌──────────────────────────────────────────────────────────┐  │
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>│  │  STORAGE (Layer 1)                                       │  │
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>│  │  • Filesystem (.STATUS, markdown)                        │  │
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>│  │  • Obsidian vault (Nexus)                               │  │
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>│  │  • Zotero database (research)                            │  │
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>│  │  • PDFs (teaching + research)                            │  │
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>│  └──────────────────────────────────────────────────────────┘  │
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>│                                                                 │
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>└─────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="concrete-integration-plan">Concrete Integration Plan<a class="headerlink" href="#concrete-integration-plan" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-atlas-nexus-immediate">Phase 1: Atlas ↔ Nexus (Immediate)<a class="headerlink" href="#phase-1-atlas-nexus-immediate" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Nexus MCP can read Atlas state</p>
+<p><strong>Implementation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// In statistical-research MCP server</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// src/tools/atlas.ts</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">atlasTools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;atlas_get_context&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Get current work context (project, session, breadcrumbs)&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="kt">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Bun</span><span class="p">.</span><span class="nx">$</span><span class="sb">`atlas where --json`</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">stdout</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;atlas_get_recent&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Get recent projects&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="kt">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Bun</span><span class="p">.</span><span class="nx">$</span><span class="sb">`atlas recent --limit </span><span class="si">${</span><span class="nx">limit</span><span class="si">}</span><span class="sb"> --json`</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">stdout</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;atlas_get_session_stats&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Get session statistics&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="kt">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Bun</span><span class="p">.</span><span class="nx">$</span><span class="sb">`atlas stats --json`</span><span class="p">;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">stdout</span><span class="p">);</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">];</span>
+</code></pre></div></p>
+<p><strong>Claude Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User: &quot;What was I working on today?&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Claude: [Uses atlas_get_context]
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        You&#39;ve been working on:
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        - Project: nexus (ADHD knowledge management)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        - Session: 47 minutes
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        - Last breadcrumb: &quot;Phase 1 Zotero integration planning&quot;
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        Would you like me to search your vault for related notes?
+</code></pre></div></p>
+<p><strong>Effort:</strong> 1 hour</p>
+<hr />
+<h3 id="phase-2-scribe-nexus-vault-high-priority">Phase 2: Scribe ↔ Nexus Vault (High Priority)<a class="headerlink" href="#phase-2-scribe-nexus-vault-high-priority" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Scribe and Nexus vault are redundant</p>
+<p><strong>Solution Options:</strong></p>
+<h4 id="option-a-scribe-uses-nexus-vault-recommended">Option A: Scribe Uses Nexus Vault ⭐ RECOMMENDED<a class="headerlink" href="#option-a-scribe-uses-nexus-vault-recommended" title="Permanent link">&para;</a></h4>
+<p><strong>Change:</strong> Point Scribe's project storage to Nexus vault</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// scribe/src/lib/preferences.ts</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">DEFAULT_VAULT_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NEXUS_VAULT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HOME</span><span class="si">}</span><span class="sb">/Obsidian/Nexus`</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// Scribe projects live in:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// ~/Obsidian/Nexus/10-PROJECTS/</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// ~/Obsidian/Nexus/50-DAILY/</span>
+</code></pre></div>
+<p><strong>Benefits:</strong>
+- ✅ Single source of truth for notes
+- ✅ Scribe becomes the editor for Nexus
+- ✅ Claude can read/write via both Scribe and MCP
+- ✅ No data synchronization needed</p>
+<p><strong>Changes Required:</strong>
+- Scribe: Update default paths to Nexus vault structure
+- Scribe: Map project types to PARA folders
+- Nexus: Document Scribe as recommended editor</p>
+<p><strong>Effort:</strong> 2-3 hours</p>
+<h4 id="option-b-keep-separate-sync-via-mcp">Option B: Keep Separate, Sync Via MCP<a class="headerlink" href="#option-b-keep-separate-sync-via-mcp" title="Permanent link">&para;</a></h4>
+<p>Scribe keeps its own storage, Nexus MCP can read from both.</p>
+<p><strong>Not recommended</strong> - Creates sync issues</p>
+<hr />
+<h3 id="phase-3-flow-cli-nexus-integration-medium-priority">Phase 3: flow-cli ↔ Nexus Integration (Medium Priority)<a class="headerlink" href="#phase-3-flow-cli-nexus-integration-medium-priority" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> flow-cli commands work with Nexus vault</p>
+<p><strong>New Dispatcher:</strong> <code>obs</code> (Obsidian/Nexus)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># lib/dispatchers/obs.zsh</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>obs<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">cmd</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nb">shift</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cmd</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span>search<span class="o">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="c1"># Search Nexus vault</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span>nexus<span class="w"> </span>knowledge<span class="w"> </span>vault<span class="w"> </span>search<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="p">;;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span>daily<span class="o">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="c1"># Open today&#39;s note</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span>nexus<span class="w"> </span>knowledge<span class="w"> </span>vault<span class="w"> </span>daily
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="p">;;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span>new<span class="o">)</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="c1"># Create note from template</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span>nexus<span class="w"> </span>knowledge<span class="w"> </span>vault<span class="w"> </span>new<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="p">;;</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span>link<span class="o">)</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="c1"># Create wiki link</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">      </span>nexus<span class="w"> </span>knowledge<span class="w"> </span>vault<span class="w"> </span>link<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">      </span><span class="p">;;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span>*<span class="o">)</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: obs {search|daily|new|link} ...&quot;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">      </span><span class="p">;;</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">  </span><span class="k">esac</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="o">}</span>
+</code></pre></div>
+<p><strong>Integration with <code>work</code> command:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>work<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">project</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="c1"># Start atlas session</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>atlas<span class="w"> </span>session<span class="w"> </span>start<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$project</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="c1"># Load project context from Nexus vault</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span>~/Obsidian/Nexus/10-PROJECTS/<span class="nv">$project</span>/_dashboard.md<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span>obs<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="s2">&quot;10-PROJECTS/</span><span class="nv">$project</span><span class="s2">/_dashboard.md&quot;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="k">fi</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="c1"># ... existing work command logic</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="o">}</span>
+</code></pre></div></p>
+<p><strong>Effort:</strong> 2 hours</p>
+<hr />
+<h3 id="phase-4-unified-ai-layer-long-term">Phase 4: Unified AI Layer (Long-term)<a class="headerlink" href="#phase-4-unified-ai-layer-long-term" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> All tools use Nexus MCP for Claude integration</p>
+<p><strong>Current State:</strong>
+- flow-cli: <code>cc</code> dispatcher calls <code>claude</code> CLI
+- scribe: AI Chat calls <code>claude</code>/<code>gemini</code> CLI
+- nexus: MCP server provides tools</p>
+<p><strong>Proposed:</strong>
+- All tools call Nexus MCP for intelligence
+- Nexus MCP has full context (atlas, scribe notes, vault, zotero)
+- Single source of truth for AI capabilities</p>
+<p><strong>Example:</strong></p>
+<p>In Scribe:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Instead of:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">callClaudeCLI</span><span class="p">(</span><span class="nx">prompt</span><span class="p">);</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">// Use:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">mcpClient</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;nexus_synthesize&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nx">question</span><span class="o">:</span><span class="w"> </span><span class="kt">prompt</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nx">current_note</span><span class="o">:</span><span class="w"> </span><span class="kt">noteContent</span><span class="p">,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nx">project</span><span class="o">:</span><span class="w"> </span><span class="kt">currentProject</span><span class="p">,</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nx">session</span><span class="o">:</span><span class="w"> </span><span class="kt">atlasSession</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">});</span>
+</code></pre></div></p>
+<p><strong>Benefits:</strong>
+- ✅ Claude has full context across all tools
+- ✅ Consistent AI behavior
+- ✅ Easier to add new AI features
+- ✅ Single place to manage prompts/skills</p>
+<p><strong>Effort:</strong> 8-10 hours (across all tools)</p>
+<hr />
+<h2 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="immediate-actions-next-week">Immediate Actions (Next Week)<a class="headerlink" href="#immediate-actions-next-week" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Phase 1: Atlas ↔ Nexus</strong> (1 hour)</li>
+<li>Add <code>atlas_*</code> tools to statistical-research MCP</li>
+<li>Test with Claude Code</li>
+<li>
+<p>Document integration</p>
+</li>
+<li>
+<p><strong>Phase 2: Scribe → Nexus Vault</strong> (3 hours)</p>
+</li>
+<li>Change Scribe default vault path</li>
+<li>Map Scribe projects to PARA folders</li>
+<li>Test round-trip (create in Scribe, read via MCP)</li>
+</ol>
+<h3 id="short-term-this-month">Short-term (This Month)<a class="headerlink" href="#short-term-this-month" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Phase 3: flow-cli → Nexus</strong> (2 hours)</li>
+<li>Add <code>obs</code> dispatcher</li>
+<li>Integrate with <code>work</code> command</li>
+<li>Document workflows</li>
+</ol>
+<h3 id="long-term-next-quarter">Long-term (Next Quarter)<a class="headerlink" href="#long-term-next-quarter" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Phase 4: Unified AI Layer</strong> (10 hours)</li>
+<li>Migrate all tools to use Nexus MCP</li>
+<li>Create comprehensive context system</li>
+<li>Add cross-tool intelligence</li>
+</ol>
+<hr />
+<h2 id="risks-mitigation">Risks &amp; Mitigation<a class="headerlink" href="#risks-mitigation" title="Permanent link">&para;</a></h2>
+<h3 id="risk-1-breaking-existing-workflows">Risk 1: Breaking Existing Workflows<a class="headerlink" href="#risk-1-breaking-existing-workflows" title="Permanent link">&para;</a></h3>
+<p><strong>Mitigation:</strong>
+- Make all integrations opt-in initially
+- Provide migration guides
+- Keep existing functionality working</p>
+<h3 id="risk-2-performance-impact">Risk 2: Performance Impact<a class="headerlink" href="#risk-2-performance-impact" title="Permanent link">&para;</a></h3>
+<p><strong>Mitigation:</strong>
+- Cache frequently accessed data
+- Use lazy loading
+- Profile and optimize</p>
+<h3 id="risk-3-complexity-increase">Risk 3: Complexity Increase<a class="headerlink" href="#risk-3-complexity-increase" title="Permanent link">&para;</a></h3>
+<p><strong>Mitigation:</strong>
+- Clear documentation for each integration
+- Simple user-facing APIs
+- Hide complexity behind clean interfaces</p>
+<hr />
+<h2 id="success-metrics">Success Metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Target</th>
+<th>How to Measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tools Used</strong></td>
+<td>4 separate</td>
+<td>4 integrated</td>
+<td>All share common data</td>
+</tr>
+<tr>
+<td><strong>Context Switching</strong></td>
+<td>Manual</td>
+<td>Automatic</td>
+<td>Time to recover context</td>
+</tr>
+<tr>
+<td><strong>Data Duplication</strong></td>
+<td>3 registries</td>
+<td>1 source of truth</td>
+<td>Count of project lists</td>
+</tr>
+<tr>
+<td><strong>AI Context</strong></td>
+<td>Tool-specific</td>
+<td>Cross-tool</td>
+<td>Can Claude see all?</td>
+</tr>
+<tr>
+<td><strong>Setup Time</strong></td>
+<td>4x install</td>
+<td>1 install + enable</td>
+<td>New user onboarding</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="questions-for-decision">Questions for Decision<a class="headerlink" href="#questions-for-decision" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Scribe Integration:</strong> Should Scribe use Nexus vault by default, or stay separate with sync?</p>
+</li>
+<li>
+<p><strong>Atlas Evolution:</strong> Should Atlas become the universal state engine for all tools?</p>
+</li>
+<li>
+<p><strong>flow-cli Scope:</strong> Should flow-cli remain ZSH-only, or add TypeScript components for tighter integration?</p>
+</li>
+<li>
+<p><strong>Nexus MCP:</strong> Should it be standalone or merged into statistical-research?</p>
+</li>
+<li>
+<p><strong>Migration Path:</strong> Big bang integration or incremental rollout?</p>
+</li>
+</ol>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><strong>Awaiting your decision on:</strong>
+1. Approve Phase 1 (Atlas ↔ Nexus) - 1 hour
+2. Approve Phase 2 (Scribe → Nexus vault) - 3 hours
+3. Prioritize Phase 3 (flow-cli integration) - 2 hours</p>
+<p><strong>Or:</strong>
+- Defer integration to focus on Phase 1 Zotero implementation first?</p>
+<hr />
+<p><strong>Created:</strong> 2025-01-11<br />
+<strong>Maintainer:</strong> DT<br />
+<strong>Related:</strong> PHASE-1-PLAN.md, STRATEGIC-DIRECTION.md</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Data-Wise
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Data-Wise/nexus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/Data-Wise/claude-statistical-research-mcp" target="_blank" rel="noopener" title="MCP Server" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
