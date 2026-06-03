@@ -181,7 +181,10 @@ nav:
     - R Packages: academic/r-packages.md
   - Tutorials:
     - tutorials/index.md
+    - The Big Picture: tutorials/big-picture.md
     - First Day Setup: tutorials/first-day.md
+    - Daily Workflow: tutorials/daily-workflow.md
+    - Research Paper: tutorials/research-paper.md
     - Weekly Review: tutorials/weekly-review.md
   - About:
     - changelog.md
