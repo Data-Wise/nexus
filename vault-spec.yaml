@@ -1,0 +1,28 @@
+version: "1.0"
+description: "PARA-based Obsidian vault structure for academic researchers"
+
+required_folders:
+  - path: "00-INBOX"
+    description: "Capture inbox for unprocessed notes"
+  - path: "10-PROJECTS"
+    description: "Active research projects and manuscripts"
+  - path: "20-AREAS"
+    description: "Ongoing responsibilities (courses, committees)"
+  - path: "30-RESOURCES"
+    description: "Reference materials, literature notes"
+  - path: "40-ARCHIVE"
+    description: "Completed or inactive items"
+
+optional_folders:
+  - path: "_SYSTEM"
+    description: "Templates, plugins, config (not PARA content)"
+  - path: "_SYSTEM/templates"
+    description: "Note templates"
+
+system_files:
+  - path: "_SYSTEM/templates/literature-note.md"
+    description: "Template for literature notes"
+  - path: "_SYSTEM/templates/project-note.md"
+    description: "Template for project notes"
+  - path: "_SYSTEM/templates/daily-note.md"
+    description: "Template for daily notes"
