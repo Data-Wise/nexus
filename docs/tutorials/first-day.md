@@ -5,291 +5,165 @@ description: Complete Nexus setup from zero to productive
 
 # First Day Setup
 
-**⏱️ Time: 45 min | 📊 Progress: 6 phases**
+**⏱️ Time: 30 min | 📊 Progress: 5 phases**
 
 ---
 
 ## TL;DR
 
-| Phase | Time | Goal |
-|-------|------|------|
-| 1. Install | 10 min | Obsidian + plugins |
-| 2. Structure | 5 min | Create folders |
-| 3. Connect | 10 min | Claude MCP |
-| 4. Configure | 10 min | Settings + prompt |
-| 5. Populate | 5 min | First content |
-| 6. Test | 5 min | Verify everything |
+| Phase | Time | What You Do |
+|-------|------|-------------|
+| 1. Install Obsidian | 5 min | Download app, create vault |
+| 2. Install Nexus Plugin | 3 min | **One-click from Community Plugins** |
+| 3. Connect Claude | 5 min | Use built-in MCP wizard |
+| 4. Create Structure | 5 min | PARA folders |
+| 5. Test & Go | 5 min | Verify everything works |
 
 ---
 
-## Phase 1: Install [10 min]
+## Phase 1: Install Obsidian [5 min]
 
-### 1.1 Install Obsidian
+### Download & Setup
 
-1. Download from [obsidian.md](https://obsidian.md/)
-2. Install and open
-3. Create new vault: `Nexus`
-4. Location: `~/Obsidian/Nexus`
-
-### 1.2 Install Core Plugins
-
-Open Settings (⌘,) → Community Plugins → Turn off Safe Mode
-
-Search and install:
-
-| Plugin | Required | Purpose |
-|--------|----------|---------|
-| **Dataview** | ✅ | Dynamic queries |
-| **Templater** | ✅ | Smart templates |
-| **Tasks** | ✅ | Task management |
-| **Calendar** | ✅ | Daily notes |
-| **QuickAdd** | Recommended | Fast capture |
-
-### 1.3 Install Nexus Plugin
-
-```bash
-# Create plugin folder
-mkdir -p ~/Obsidian/Nexus/.obsidian/plugins/nexus
-
-# Download from releases
-# https://github.com/Data-Wise/nexus/releases
-# Files: main.js, manifest.json, styles.css
-```
-
-Enable in Settings → Community Plugins → Nexus
+1. **Download** from [obsidian.md](https://obsidian.md/)
+2. **Install** and open
+3. **Create new vault** named `Nexus`
+4. **Location**: `~/Obsidian/Nexus` (recommended)
 
 ---
 
-## Phase 2: Structure [5 min]
+## Phase 2: Install Nexus Plugin [3 min]
 
-### 2.1 Create Folders
+### ✨ Easy Way: Community Plugins (Recommended)
 
-```bash
-cd ~/Obsidian/Nexus
+1. Open **Settings** (⌘,)
+2. Go to **Community Plugins**
+3. Click **Turn off Safe Mode** (if prompted)
+4. Click **Browse**
+5. Search for **"Nexus"** (by ProfSynapse)
+6. Click **Install** → **Enable**
 
-# PARA-inspired structure
-mkdir -p 00-INBOX/{fleeting-notes,literature-inbox}
-mkdir -p 10-PROJECTS/{research,teaching,packages}
-mkdir -p 20-AREAS/{causal-inference,mediation-theory,sensitivity-analysis}
-mkdir -p 30-RESOURCES/{literature,templates,code-snippets}
-mkdir -p 40-ARCHIVE
-mkdir -p 50-DAILY/2026
-mkdir -p 60-TASKS
-```
+**Done!** The plugin is now installed.
 
-### 2.2 Verify Structure
+### Alternative: Manual Install
 
-In Obsidian, you should see:
+If you prefer manual installation:
 
-```
-📁 Nexus
-├── 📁 00-INBOX
-├── 📁 10-PROJECTS
-├── 📁 20-AREAS
-├── 📁 30-RESOURCES
-├── 📁 40-ARCHIVE
-├── 📁 50-DAILY
-└── 📁 60-TASKS
-```
+1. Go to [GitHub Releases](https://github.com/ProfSynapse/nexus/releases)
+2. Download: `main.js`, `manifest.json`, `styles.css`
+3. Create folder: `~/Obsidian/Nexus/.obsidian/plugins/nexus/`
+4. Put files there
+5. Enable in Settings → Community Plugins
 
 ---
 
-## Phase 3: Connect Claude [10 min]
+## Phase 3: Connect Claude Desktop [5 min]
 
-### 3.1 Install Claude Desktop
+### Use the Built-in Wizard
 
-Download from [claude.ai/download](https://claude.ai/download)
+1. In Obsidian, go to **Settings → Nexus**
+2. Click **Get Started** tab
+3. Click **MCP Integration**
+4. The wizard will:
+   - Generate `connector.js` for your vault
+   - Show you the exact config to add to Claude Desktop
+   - Guide you through each step
 
-### 3.2 Configure MCP
+### What the Wizard Generates
 
-Edit config file:
-
-```bash
-# Open config
-open ~/Library/Application\ Support/Claude/claude_desktop_config.json
-```
-
-Add Nexus server:
+The wizard creates config like this for Claude Desktop:
 
 ```json
 {
   "mcpServers": {
     "nexus": {
       "command": "node",
-      "args": [
-        "/Users/YOUR_USERNAME/Obsidian/Nexus/.obsidian/plugins/nexus/connector.js"
-      ],
+      "args": ["/Users/YOUR_NAME/Obsidian/Nexus/.obsidian/plugins/nexus/connector.js"],
       "env": {
-        "VAULT_PATH": "/Users/YOUR_USERNAME/Obsidian/Nexus"
+        "VAULT_PATH": "/Users/YOUR_NAME/Obsidian/Nexus"
       }
     }
   }
 }
 ```
 
-⚠️ **Replace `YOUR_USERNAME` with your actual username!**
+### Apply the Config
 
-### 3.3 Restart Claude
+1. **Copy** the config from the wizard
+2. **Open** Claude Desktop config:
+   ```bash
+   open ~/Library/Application\ Support/Claude/claude_desktop_config.json
+   ```
+3. **Paste** the nexus server config
+4. **Restart** Claude Desktop (⌘Q, then reopen)
 
-Quit Claude Desktop completely (⌘Q), then reopen.
+### Verify Connection
 
-### 3.4 Test Connection
-
-In Claude, type:
+In Claude Desktop, ask:
 
 ```
 "List my Nexus folders"
 ```
 
-**Expected**: Claude shows your folder structure.
+If Claude shows your vault structure, you're connected! 🎉
 
 ---
 
-## Phase 4: Configure [10 min]
+## Phase 4: Create Folder Structure [5 min]
 
-### 4.1 Plugin Settings
+### Quick Setup with Terminal
 
-#### Dataview
-- Settings → Dataview
-- Enable JavaScript Queries: ON
-- Enable Inline Queries: ON
+```bash
+cd ~/Obsidian/Nexus
 
-#### Templater
-- Settings → Templater
-- Template folder: `30-RESOURCES/templates`
+# Create PARA-inspired structure
+mkdir -p 00-INBOX/{fleeting-notes,literature-inbox}
+mkdir -p 10-PROJECTS/{research,teaching,packages}
+mkdir -p 20-AREAS/{causal-inference,mediation-theory}
+mkdir -p 30-RESOURCES/{literature,templates,code-snippets}
+mkdir -p 40-ARCHIVE
+mkdir -p 50-DAILY/2026
+mkdir -p 60-TASKS
+```
 
-#### Calendar
-- Settings → Calendar
-- Enable daily notes: ON
-- Daily note folder: `50-DAILY/2026`
+### Or Create Manually in Obsidian
 
-#### Tasks
-- Settings → Tasks
-- Global filter: (leave empty for now)
+Right-click in the file explorer and create:
 
-### 4.2 System Prompt
-
-In Claude Desktop → Settings → Custom Instructions:
-
-```markdown
-# NEXUS SYSTEM
-
-You are operating with Nexus, my Obsidian knowledge vault.
-
-## VAULT STRUCTURE
-- 00-INBOX: Quick capture
-- 10-PROJECTS: Active work (research, teaching, packages)
-- 20-AREAS: Domains (causal-inference, mediation, sensitivity)
-- 30-RESOURCES: Literature, templates, snippets
-- 40-ARCHIVE: Completed
-- 50-DAILY: Daily notes
-- 60-TASKS: Task management
-
-## RESPONSE FORMAT (ADHD-optimized)
-- TL;DR first if response >200 words
-- Time estimates [X min]
-- Progress tracking [X/Y]
-- Bold keywords for scanning
-- Tables over prose
-
-## MY CONTEXT
-- Professor: Statistics/Biostatistics
-- Research: Causal mediation analysis
-- Teaching: STAT 579, STAT 440/540
-- Packages: mediationverse ecosystem
-
-## COMMANDS
-- "Morning brief" → Daily overview
-- "Capture: [X]" → Create inbox note
-- "Task: [X]" → Create task
-- "Show [project] status" → Dashboard
+```
+📁 00-INBOX/
+📁 10-PROJECTS/
+📁 20-AREAS/
+📁 30-RESOURCES/
+📁 40-ARCHIVE/
+📁 50-DAILY/
+📁 60-TASKS/
 ```
 
 ---
 
-## Phase 5: Populate [5 min]
+## Phase 5: Test Everything [5 min]
 
-### 5.1 Create First Daily Note
+### Quick Tests
 
-In Obsidian, create `50-DAILY/2026/2026-06-03.md`:
+Try each command in Claude:
 
-```markdown
-# Tuesday, June 3, 2026
+| Command | Expected Result |
+|---------|-----------------|
+| `"Morning brief"` | Shows overview (may be empty) |
+| `"Capture: Test note - setup complete!"` | Creates note in inbox |
+| `"Show my folders"` | Lists your vault structure |
+| `"Create daily note"` | Creates today's note |
 
-## Morning
-- 
-
-## Tasks
-- [ ] Complete Nexus setup
-- [ ] Test all commands
-
-## Notes
-- 
-
-## End of Day
-- 
-```
-
-### 5.2 Create First Project
-
-Create `10-PROJECTS/research/P_med/_index.md`:
-
-```markdown
-# P_med: Product of Mediated Effects
-
-## Overview
-- **Type**: Research Paper
-- **Target**: Psychological Methods
-- **Status**: Drafting
-- **Progress**: ▓▓▓▓▓▓░░░░ 60%
-
-## Sections
-- [x] Introduction
-- [x] Methods
-- [ ] Results ← CURRENT
-- [ ] Discussion
-- [ ] Abstract
-
-## Tasks
-- [ ] Add sensitivity analysis table
-- [ ] Write results paragraph 3
-
-## Notes
-- 
-
-## Files
-- [[P_med-draft.qmd]]
-```
-
-### 5.3 Create First Capture
+### Create Your First Project
 
 In Claude:
 
 ```
-"Capture: Test note - Nexus is now set up!"
+"Create a project dashboard for P_med in my research folder"
 ```
 
-Check that it appears in `00-INBOX/fleeting-notes/`.
-
----
-
-## Phase 6: Test [5 min]
-
-### Test Each Command
-
-| Command | Expected |
-|---------|----------|
-| `"Morning brief"` | Shows overview |
-| `"Capture: Test"` | Creates note |
-| `"Show P_med status"` | Shows dashboard |
-| `"Task: Test task"` | Creates task |
-| `"What should I work on?"` | Suggests task |
-
-### Verify Integration
-
-1. Create note in Obsidian → Can Claude see it?
-2. Claude creates note → Does it appear in Obsidian?
-3. Edit note in Obsidian → Does Claude see changes?
+Claude will create `10-PROJECTS/research/P_med/_index.md` with a starter template.
 
 ---
 
@@ -298,55 +172,140 @@ Check that it appears in `00-INBOX/fleeting-notes/`.
 ### What You Now Have
 
 - [x] Obsidian vault with PARA structure
-- [x] Essential plugins installed
-- [x] Claude connected via MCP
-- [x] ADHD-optimized system prompt
-- [x] First project created
-- [x] All commands working
+- [x] Nexus plugin installed (one-click!)
+- [x] Claude Desktop connected via MCP
+- [x] Basic commands working
 
-### Next Steps
+### Your Daily Workflow Starts Now
 
-| Priority | Action |
-|----------|--------|
-| Today | Run `"Morning brief"` tomorrow |
-| This week | Add your current projects |
-| This week | Set up literature workflow |
-| Ongoing | Process inbox daily |
+| Time | Do This |
+|------|---------|
+| Morning | `"Morning brief"` |
+| During day | `"Capture: [thought]"` |
+| End of day | `"End of day"` |
+| Weekly | `"Weekly review"` |
 
-### Quick Reference
+---
+
+## Real Examples
+
+### Example 1: Capture a Research Idea
+
+You're reading a paper and have a thought:
 
 ```
-"Morning brief"           → Start day
-"Capture: [X]"           → Quick note
-"Task: [X]"              → Add task
-"Show [project] status"  → Dashboard
-"What should I work on?" → Suggestion
-"End of day"             → Wrap up
+"Capture: VanderWeele's bounds could be extended to three-way decomposition"
+```
+
+Claude creates in `00-INBOX/fleeting-notes/`:
+```markdown
+# Fleeting Note - 2026-06-03 09:15
+
+VanderWeele's bounds could be extended to three-way decomposition
+
+---
+Created: 2026-06-03 09:15
+Type: fleeting
+Status: inbox
+```
+
+### Example 2: Check Project Status
+
+Working on your P_med paper:
+
+```
+"Show P_med status"
+```
+
+Claude shows:
+```
+📊 PROJECT: P_med
+
+Progress: ▓▓▓▓▓▓▓░░░ 70%
+Status: Drafting
+Deadline: June 15 (12 days)
+
+Active tasks:
+- [ ] Add sensitivity table
+- [ ] Write results paragraph 3
+
+Recent notes: 2 this week
+```
+
+### Example 3: Morning Startup
+
+Start your day:
+
+```
+"Morning brief"
+```
+
+Claude shows:
+```
+🌅 MORNING BRIEF - Tuesday, June 3
+
+📅 TODAY
+• 10:00 — STAT 579 Lecture
+• 14:00 — Research meeting
+
+🎯 TOP 3 (pick ONE)
+1. [45 min] P_med results section
+2. [30 min] Grade HW5
+3. [15 min] Process inbox
+
+📊 PROJECT PULSE
+• P_med ▓▓▓▓▓▓▓░░░ 70%
+• STAT-579 ▓▓▓▓▓▓▓▓▓░ 93%
+
+📥 INBOX: 5 items
+```
+
+### Example 4: Add a Paper to Your Queue
+
+Found a relevant paper:
+
+```
+"Add paper: Imai 2010 identification for causal mediation"
+```
+
+Claude creates in `30-RESOURCES/literature/`:
+```markdown
+# Imai (2010) - Identification for Causal Mediation
+
+## Status
+- [ ] Read
+- [ ] Extracted
+- [ ] Connected
+
+## Key Contributions
+(To fill after reading)
+
+---
+Added: 2026-06-03
+Tags: #literature #mediation #identification
 ```
 
 ---
 
 ## Troubleshooting
 
-??? question "Claude can't see vault"
-    1. Check paths in MCP config are absolute
-    2. Restart Claude Desktop
-    3. Verify `connector.js` exists
+??? question "Plugin not showing in Community Plugins?"
+    Search for "Nexus" by ProfSynapse. If not found, try "Claudesidian" (older name).
 
-??? question "Commands not working"
-    1. Check Nexus plugin is enabled
-    2. Verify system prompt is set
-    3. Try: "What tools do you have?"
+??? question "Claude can't connect to vault?"
+    1. Check `connector.js` exists in plugin folder
+    2. Verify paths are absolute (not `~`)
+    3. Restart Claude Desktop completely (⌘Q)
 
-??? question "Notes not syncing"
-    1. Check vault path in config
-    2. Obsidian → Reload app
-    3. Claude → Restart
+??? question "Commands not working?"
+    1. Ensure Nexus plugin is enabled
+    2. Try: "What Nexus tools do you have?"
+    3. Check Nexus settings in Obsidian
 
 ---
 
-## What's Next?
+## Next Steps
 
-- [Weekly Review Tutorial](weekly-review.md) — Set up weekly habits
-- [Task Management](../workflows/task-management.md) — Deep dive
-- [Literature Pipeline](../workflows/literature-pipeline.md) — Add papers
+- [Weekly Review](weekly-review.md) — Establish maintenance habits
+- [Commands Reference](../reference/commands.md) — All available commands
+- [Research Projects](../academic/research-projects.md) — Academic workflows

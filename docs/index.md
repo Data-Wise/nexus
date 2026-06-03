@@ -39,17 +39,107 @@ hide:
 
 ---
 
-## TL;DR
+## Install in 3 Steps
 
-Nexus turns your **Obsidian vault** into an intelligent knowledge system with **Claude as the cognitive interface**.
+| Step | Action | Time |
+|------|--------|------|
+| 1️⃣ | **Obsidian** → Settings → Community Plugins → Search "Nexus" → Install | 2 min |
+| 2️⃣ | **Nexus Settings** → Get Started → MCP Integration → Follow wizard | 3 min |
+| 3️⃣ | **Claude Desktop**: Paste config, restart, test with `"Show my vault"` | 2 min |
 
-| Feature | Description |
-|---------|-------------|
-| **Knowledge Management** | Semantic search, automatic linking, literature pipeline |
-| **Task Management** | Daily focus, project tracking, deadline awareness |
-| **Project Dashboards** | Research papers, teaching materials, R packages |
-| **Claude Integration** | Natural language queries, proactive suggestions |
-| **ADHD Optimized** | Visual anchors, progress tracking, time estimates |
+[Full Setup Tutorial →](tutorials/first-day.md)
+
+---
+
+## See It In Action
+
+### Morning Startup
+
+```
+You: "Morning brief"
+
+Claude: 🌅 MORNING BRIEF — Tuesday, June 3
+
+📅 TODAY
+• 10:00 — STAT 579 Lecture
+• 14:00 — Research meeting
+
+🎯 TOP 3 (pick ONE)
+1. [45 min] P_med results section
+2. [30 min] Grade HW5  
+3. [15 min] Process inbox
+
+📊 PROJECT PULSE
+• P_med     ▓▓▓▓▓▓▓░░░ 70%
+• STAT-579  ▓▓▓▓▓▓▓▓▓░ 93%
+```
+
+### Capture Ideas Instantly
+
+```
+You: "Capture: VanderWeele's bounds could extend to three-way decomposition"
+
+Claude: ✓ Captured to inbox. Tagged #methodology #sensitivity
+```
+
+### Check Project Status
+
+```
+You: "Show P_med status"
+
+Claude: 📊 PROJECT: P_med
+        Progress: ▓▓▓▓▓▓▓░░░ 70%
+        Deadline: June 15 (12 days)
+        
+        ✅ Introduction, Methods done
+        🔄 Results (active)
+        ⏳ Discussion, Abstract
+        
+        Tasks:
+        • Add sensitivity table
+        • Write results paragraph 3
+```
+
+### Add Literature
+
+```
+You: "Add paper: Imai 2010 identification for causal mediation"
+
+Claude: ✓ Created literature note in 30-RESOURCES/literature/
+        Ready for reading and extraction.
+```
+
+---
+
+## Why Nexus?
+
+<div class="grid cards" markdown>
+
+-   :material-brain:{ .lg .middle } **Think in Connections**
+
+    ---
+
+    Your knowledge isn't folders — it's a web. Nexus links ideas across projects, papers, and concepts.
+
+-   :material-lightning-bolt:{ .lg .middle } **Zero Friction Capture**
+
+    ---
+
+    `"Capture: [thought]"` — that's it. No apps to open, no forms to fill. Process later.
+
+-   :material-chart-line:{ .lg .middle } **Progress You Can See**
+
+    ---
+
+    Visual dashboards show exactly where each project stands. No more "what was I working on?"
+
+-   :material-head-heart:{ .lg .middle } **ADHD-Optimized**
+
+    ---
+
+    Time estimates, progress bars, energy matching. Built for brains that work differently.
+
+</div>
 
 ---
 
@@ -64,52 +154,20 @@ graph TB
         RESOURCES[30-RESOURCES]
     end
     
-    subgraph Claude["🧠 Claude Nexus"]
-        LIB[Librarian Mode]
-        BUILD[Builder Mode]
-        TEACH[Teacher Mode]
+    subgraph Claude["🧠 Claude via MCP"]
+        CAPTURE[Capture]
+        SEARCH[Search]
+        ORGANIZE[Organize]
     end
     
-    subgraph Output["📤 Deliverables"]
+    subgraph Output["📤 Your Work"]
         PAPERS[Research Papers]
-        LECTURES[Quarto Lectures]
-        PACKAGES[R Packages]
+        LECTURES[Course Materials]
+        CODE[R Packages]
     end
     
-    Obsidian --> Claude --> Output
+    Obsidian <--> Claude --> Output
 ```
-
----
-
-## Three Modes
-
-<div class="grid cards" markdown>
-
--   :material-bookshelf:{ .lg .middle } **Librarian**
-
-    ---
-
-    Knowledge capture, organization, and retrieval
-
-    [:octicons-arrow-right-24: Knowledge workflows](workflows/knowledge-management.md)
-
--   :material-hammer-wrench:{ .lg .middle } **Builder**
-
-    ---
-
-    Code development and package maintenance
-
-    [:octicons-arrow-right-24: R packages](academic/r-packages.md)
-
--   :material-school:{ .lg .middle } **Teacher**
-
-    ---
-
-    Lecture creation and course materials
-
-    [:octicons-arrow-right-24: Teaching](academic/teaching-materials.md)
-
-</div>
 
 ---
 
@@ -117,11 +175,15 @@ graph TB
 
 | Say This | Claude Does |
 |----------|-------------|
-| `"Morning brief"` | Today's calendar + top 3 tasks + project pulse |
-| `"Capture this: [thought]"` | Creates note in inbox |
-| `"Show P_med status"` | Project dashboard with progress |
+| `"Morning brief"` | Today's calendar + top tasks + project status |
+| `"Capture: [thought]"` | Creates note in inbox |
+| `"Task: [thing]"` | Adds task with due date |
+| `"Show [project] status"` | Project dashboard |
+| `"Find [topic]"` | Semantic search across vault |
 | `"What should I work on?"` | Suggests task based on energy + deadlines |
-| `"Create lecture on [topic]"` | Generates Quarto slides |
+| `"End of day"` | Wraps up, moves incomplete to tomorrow |
+
+[All Commands →](reference/commands.md)
 
 ---
 
@@ -129,10 +191,14 @@ graph TB
 
 Nexus is designed for **statistics/biostatistics researchers**:
 
-- 📊 **Research Projects** — Track manuscripts, simulations, reviews
-- 🎓 **Teaching Materials** — Generate Quarto lectures, R labs
-- 📦 **R Packages** — Manage mediationverse ecosystem
-- 📚 **Literature** — Capture papers, extract contributions
+| Domain | What Nexus Helps With |
+|--------|----------------------|
+| 📊 **Research** | Track manuscripts, simulations, revisions, submissions |
+| 🎓 **Teaching** | Lecture prep, grading queue, office hours notes |
+| 📦 **Packages** | R package development, documentation, CRAN prep |
+| 📚 **Literature** | Capture papers, extract contributions, link to projects |
+
+[Research Workflows →](academic/research-projects.md) · [Teaching →](academic/teaching-materials.md) · [R Packages →](academic/r-packages.md)
 
 ---
 
@@ -140,31 +206,33 @@ Nexus is designed for **statistics/biostatistics researchers**:
 
 Every response includes:
 
-- ✅ **TL;DR first** (if >200 words)
-- ✅ **Time estimates** `[15 min]`
-- ✅ **Progress tracking** `[3/7 complete]`
-- ✅ **Bold keywords** for scanning
-- ✅ **Visual anchors** (tables, bullets)
+| Feature | Why It Helps |
+|---------|--------------|
+| ✅ **TL;DR first** | Scannable, get the point fast |
+| ✅ **Time estimates** `[15 min]` | Combat time blindness |
+| ✅ **Progress bars** | Visual feedback, dopamine hit |
+| ✅ **ONE task suggestion** | Reduce decision fatigue |
+| ✅ **Energy matching** | Right task for your current state |
 
-[:octicons-arrow-right-24: Full ADHD Guide](adhd-guide.md)
+[Full ADHD Guide →](adhd-guide.md)
 
 ---
 
 ## Documentation
 
-| Section | Description |
+| Section | What's There |
 |---------|-------------|
-| [Guide](guide/index.md) | Installation & configuration |
-| [Workflows](workflows/index.md) | Knowledge, tasks, projects |
-| [Reference](reference/index.md) | Commands, templates, queries |
-| [Academic](academic/index.md) | Research, teaching, packages |
+| [Quick Start](quick-start.md) | 10-minute setup |
 | [Tutorials](tutorials/index.md) | Step-by-step guides |
+| [Workflows](workflows/index.md) | Knowledge, tasks, projects, literature |
+| [Reference](reference/index.md) | Commands, templates, vault structure |
+| [Academic](academic/index.md) | Research, teaching, R packages |
 
 ---
 
 <div style="text-align: center; padding: 2rem; color: var(--md-default-fg-color--light);" markdown>
 
-**Nexus** — Where research, teaching, and code converge.
+**Nexus** uses [ProfSynapse's Nexus plugin](https://github.com/ProfSynapse/nexus) for Obsidian.
 
 *Built by Stat-Wise for academic researchers who think in connections.*
 

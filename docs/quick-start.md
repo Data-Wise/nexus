@@ -1,164 +1,191 @@
 ---
 title: Quick Start
-description: Get Nexus running in 15 minutes
+description: Get Nexus running in 10 minutes
 ---
 
 # Quick Start
 
-**⏱️ Time: 15 min | 📊 Steps: 5**
+**⏱️ Time: 10 min | Get from zero to working Nexus**
 
 ---
 
-## TL;DR
+## TL;DR — 3 Steps
 
 ```bash
-# 1. Create vault structure
-mkdir -p ~/Obsidian/Nexus/{00-INBOX,10-PROJECTS,20-AREAS,30-RESOURCES,40-ARCHIVE,50-DAILY,60-TASKS}
+# 1. Install Nexus plugin in Obsidian
+#    Settings → Community Plugins → Browse → Search "Nexus" → Install → Enable
 
-# 2. Install Nexus plugin in Obsidian
+# 2. Connect Claude Desktop
+#    Nexus Settings → Get Started → MCP Integration → Follow wizard
 
-# 3. Configure Claude Desktop MCP
-
-# 4. Start using: "Morning brief"
+# 3. Test it
+#    In Claude: "Show my vault folders"
 ```
 
 ---
 
-## Step 1: Prerequisites [2 min]
+## Step 1: Install Nexus Plugin [3 min]
 
-### Required
+### In Obsidian:
 
-- [x] [Obsidian](https://obsidian.md/) installed
-- [x] [Claude Desktop](https://claude.ai/download) installed
+1. **⌘,** to open Settings
+2. **Community Plugins** → Turn off Safe Mode
+3. **Browse** → Search **"Nexus"**
+4. **Install** → **Enable**
 
-### Recommended Plugins
+That's it! ✅
 
-| Plugin | Purpose |
-|--------|---------|
-| **Dataview** | Dynamic queries |
-| **Templater** | Smart templates |
-| **Tasks** | Task management |
-| **Calendar** | Daily notes |
+!!! tip "Can't find Nexus?"
+    Search for "Claudesidian" — it's the same plugin (older name).
 
 ---
 
-## Step 2: Create Vault [3 min]
+## Step 2: Connect Claude Desktop [5 min]
 
-```bash
-# Create vault with PARA-style structure
-mkdir -p ~/Obsidian/Nexus
-cd ~/Obsidian/Nexus
+### Use the Built-in Wizard
 
-# Core folders
-mkdir -p 00-INBOX/{fleeting-notes,literature-inbox}
-mkdir -p 10-PROJECTS/{research,teaching,packages}
-mkdir -p 20-AREAS/{causal-inference,mediation-theory}
-mkdir -p 30-RESOURCES/{literature,templates,code-snippets}
-mkdir -p 40-ARCHIVE
-mkdir -p 50-DAILY/$(date +%Y)
-mkdir -p 60-TASKS
-```
+1. **Obsidian Settings → Nexus**
+2. Click **Get Started** tab
+3. Click **MCP Integration**
+4. Follow the wizard — it generates everything for you!
 
-Open in Obsidian: **Open folder as vault** → `~/Obsidian/Nexus`
+### What the Wizard Does
 
----
+- Creates `connector.js` in your plugin folder
+- Shows you exactly what to paste into Claude's config
+- Gives you the correct paths for your system
 
-## Step 3: Install Plugin [3 min]
+### Apply to Claude Desktop
 
-### Option A: GitHub Release
-
-1. Download from [Releases](https://github.com/Data-Wise/nexus/releases):
-   - `main.js`
-   - `manifest.json`
-   - `styles.css`
-
-2. Create plugin folder:
-```bash
-mkdir -p ~/Obsidian/Nexus/.obsidian/plugins/nexus
-```
-
-3. Move files to folder
-
-4. Enable in Obsidian → Settings → Community Plugins → **Nexus**
-
----
-
-## Step 4: Configure Claude [5 min]
-
-### MCP Configuration
-
-Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+The wizard shows config like:
 
 ```json
 {
   "mcpServers": {
     "nexus": {
       "command": "node",
-      "args": [
-        "/Users/YOUR_USERNAME/.obsidian/plugins/nexus/connector.js"
-      ],
+      "args": ["/path/to/your/vault/.obsidian/plugins/nexus/connector.js"],
       "env": {
-        "VAULT_PATH": "/Users/YOUR_USERNAME/Obsidian/Nexus"
+        "VAULT_PATH": "/path/to/your/vault"
       }
     }
   }
 }
 ```
 
-!!! warning "Replace YOUR_USERNAME"
-    Update paths with your actual macOS username.
-
-### Restart Claude Desktop
-
-Quit and reopen to load the MCP server.
+1. Copy the config
+2. Open: `~/Library/Application Support/Claude/claude_desktop_config.json`
+3. Paste
+4. Restart Claude Desktop (⌘Q, reopen)
 
 ---
 
-## Step 5: Verify [2 min]
-
-### Test Connection
+## Step 3: Test It [2 min]
 
 In Claude Desktop:
 
 ```
-"List my vault folders"
+"Show my vault folders"
 ```
 
-**Expected**: Claude shows your folder structure.
+**Expected**: Claude lists your Obsidian folders.
 
-### First Commands
+### Quick Test Commands
 
-| Try This | Result |
-|----------|--------|
-| `"Morning brief"` | Today's overview |
-| `"Capture: Test note"` | Creates inbox note |
-| `"Show my projects"` | Lists active projects |
+| Command | What Happens |
+|---------|--------------|
+| `"Capture: Test note"` | Creates note in vault |
+| `"Search for test"` | Finds the note |
+| `"Show vault stats"` | Shows note counts |
 
 ---
 
-## ✅ Done!
+## You're Done! 🎉
 
-**Next steps:**
+### What You Can Do Now
 
-- [ ] [Set up daily workflow](workflows/task-management.md)
-- [ ] [Configure system prompt](guide/system-prompt.md)
-- [ ] [Add first project](tutorials/first-day.md)
+| Say This | Claude Does |
+|----------|-------------|
+| `"Morning brief"` | Daily overview |
+| `"Capture: [idea]"` | Quick note |
+| `"Task: [thing]"` | Add task |
+| `"Find [topic]"` | Search notes |
+| `"Create project: [name]"` | New project |
+
+---
+
+## Examples for Researchers
+
+### Capture a thought
+
+```
+"Capture: Consider using bootstrap for P_med confidence intervals"
+```
+
+### Add a paper
+
+```
+"Add paper: VanderWeele 2015 sensitivity analysis mediation"
+```
+
+### Check project status
+
+```
+"Show P_med status"
+```
+
+### Morning startup
+
+```
+"Morning brief"
+```
+
+---
+
+## Optional: Create Folder Structure
+
+If you want the full PARA structure:
+
+```bash
+cd ~/Obsidian/YourVault
+
+mkdir -p 00-INBOX/{fleeting-notes,literature-inbox}
+mkdir -p 10-PROJECTS/{research,teaching,packages}
+mkdir -p 20-AREAS/{causal-inference,mediation-theory}
+mkdir -p 30-RESOURCES/{literature,templates}
+mkdir -p 40-ARCHIVE
+mkdir -p 50-DAILY/2026
+mkdir -p 60-TASKS
+```
+
+Or just ask Claude:
+
+```
+"Create the PARA folder structure in my vault"
+```
+
+---
+
+## Next Steps
+
+| Want To... | Go To... |
+|------------|----------|
+| Full setup tutorial | [First Day Setup](tutorials/first-day.md) |
+| Daily workflow | [Task Management](workflows/task-management.md) |
+| Research workflows | [Research Projects](academic/research-projects.md) |
+| All commands | [Commands Reference](reference/commands.md) |
 
 ---
 
 ## Troubleshooting
 
-??? question "Claude can't access vault"
-    - Check `VAULT_PATH` is absolute (starts with `/`)
-    - Restart Claude Desktop
-    - Verify plugin files exist
+??? question "Claude says 'no tools available'"
+    1. Restart Claude Desktop completely (⌘Q)
+    2. Check connector.js exists in plugin folder
+    3. Verify absolute paths in config (no `~`)
 
-??? question "Plugin not loading"
-    - Check all 3 files in plugin folder
-    - Enable in Obsidian settings
-    - Restart Obsidian
+??? question "Plugin not in Community Plugins"
+    Search for "Claudesidian" instead of "Nexus"
 
-??? question "MCP not connecting"
-    - Check JSON syntax (no trailing commas)
-    - Verify node.js is installed
-    - Check Claude Desktop logs
+??? question "Need more help?"
+    See [Full First Day Setup](tutorials/first-day.md) for detailed steps
