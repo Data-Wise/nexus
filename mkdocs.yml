@@ -173,6 +173,7 @@ nav:
     - Commands: reference/commands.md
     - Vault Structure: reference/vault-structure.md
     - Templates: reference/templates.md
+    - Quick Reference Cards: reference/refcards.md
   - Academic:
     - academic/index.md
     - Research Projects: academic/research-projects.md
