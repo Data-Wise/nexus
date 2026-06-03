@@ -1,0 +1,10 @@
+{
+  "globalFilter": "",
+  "removeGlobalFilter": false,
+  "setDoneDate": true,
+  "autoSuggestInEditor": true,
+  "provideAccessKeys": true,
+  "useFilenameAsScheduledDate": false,
+  "filenameAsDateFolders": [],
+  "tasksPluginVersion": "1.0.0"
+}

@@ -1,0 +1,19 @@
+{
+  "attachmentFolderPath": "30-RESOURCES/attachments",
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00-INBOX",
+  "promptDelete": true,
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "defaultViewMode": "source",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+}

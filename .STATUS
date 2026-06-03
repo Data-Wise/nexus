@@ -1,0 +1,177 @@
+status: active
+priority: 1
+progress: 75
+next: Phase 1 - Zotero Integration (extend statistical-research plugin)
+type: dev
+checkpoint: Proposals consolidated (9 → 3). Created STRATEGIC-DIRECTION.md. Archived exploration docs. Clear path: extend statistical-research MCP (16h, 5 phases).
+
+# ═══════════════════════════════════════════════════════════════════
+# Nexus - Claude + Obsidian Knowledge Management (via MCP)
+# ═══════════════════════════════════════════════════════════════════
+
+🧠 Nexus - Knowledge Integration Status
+────────────────────────────────────────
+
+📍 LOCATION
+~/projects/dev-tools/nexus/
+
+⏰ LAST UPDATED
+2025-01-11 - Proposals consolidated, documentation clarified
+
+────────────────────────────────────────
+
+🎯 CURRENT STATUS
+**✅ STRATEGIC REFOCUS COMPLETE**
+
+The vision is clear:
+- Use Claude as the primary brain for research, teaching, and package development
+- Integrate Zotero (2,728 items), PDFs (~1,800 files), and Obsidian vault
+- Extend existing statistical-research plugin (not build from scratch)
+- Desktop app → Scribe (split to separate repo)
+
+**What's Ready:**
+- ✅ Vault template (PARA structure, templates, dashboards)
+- ✅ Architecture proposals and implementation plan
+- ✅ Statistical-research plugin foundation (17 skills, 9 tools)
+- ✅ Desktop app preserved as Scribe
+
+────────────────────────────────────────
+
+📊 PROGRESS
+
+Knowledge Architecture:
+Vault Template              ████████████████████ 100% ✅
+Documentation               ████████████████████ 100% ✅
+Architecture Proposals      ████████████████████ 100% ✅
+Implementation Plan         ████████████████████ 100% ✅
+
+Plugin Integration (Next):
+Phase 1: Zotero             ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Phase 2: PDF Extraction     ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 3: Vault Operations   ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 4: Knowledge Query    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Phase 5: Integration        ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+
+**Overall Progress**: 75% (architecture complete, implementation next)
+
+────────────────────────────────────────
+
+📋 IMPLEMENTATION PLAN
+
+See: IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
+
+**Phase 1: Zotero Integration** (4 hours)
+- lib/zotero.sh - SQLite queries against ~/Zotero/zotero.sqlite
+- commands/zotero/* - Search, cite, annotate
+- 2,728 library items accessible via Claude
+
+**Phase 2: PDF Integration** (3 hours)
+- lib/pdf-extract.sh - pdftotext extraction
+- commands/pdf/* - Extract, search, summarize
+- ~1,800 PDFs (research + teaching)
+
+**Phase 3: Vault Operations** (4 hours)
+- lib/obsidian.sh - Read/write/search vault
+- commands/vault/* - Read, write, search, link
+- Full Obsidian vault access
+
+**Phase 4: Knowledge Query** (3 hours)
+- skills/knowledge/* - Unified search
+- commands/knowledge/* - Cross-source queries
+- "Ask anything" across all sources
+
+**Phase 5: Integration & Testing** (2 hours)
+- End-to-end workflows
+- Error handling
+- Documentation
+
+**Total: 16 hours over 4-5 days**
+
+────────────────────────────────────────
+
+✅ JUST COMPLETED (2025-01-11)
+
+**📋 Proposal Consolidation**
+- Consolidated 9 proposals (262KB) → 3 core documents
+- Created STRATEGIC-DIRECTION.md (single source of truth)
+- Archived 7 exploration proposals to docs/proposals/archive/
+- Updated PROJECT-HUB.md to sync with strategic direction
+- Updated README.md with strategic direction link
+- Created comprehensive archive README
+
+**🎯 Result:**
+- Clear decision: Extend statistical-research MCP (not standalone CLI)
+- Eliminated decision paralysis (9 docs → 1 clear direction)
+- Preserved exploration history for reference
+- Ready to start Phase 1 implementation
+
+────────────────────────────────────────
+
+📁 KEY FILES
+
+Strategic Direction:
+- STRATEGIC-DIRECTION.md              - Executive summary & roadmap ⭐ START HERE
+- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Technical plan (16h)
+- PROJECT-HUB.md                      - Progress tracking
+
+Architecture (Reference):
+- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options analysis
+- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research-focused deep dive
+- docs/proposals/archive/             - Exploration phase documents
+
+Vault Template:
+- vault-template/README.md            - Setup instructions
+- vault-template/_master-dashboard.md - Main control panel
+- vault-template/_vault-guide.md      - Complete reference
+
+Documentation:
+- README.md                           - Project overview
+- CLAUDE.md                           - Claude Code guidance
+- docs/architecture/overview.md       - Full architecture
+
+────────────────────────────────────────
+
+🔗 RELATED PROJECTS
+
+| Project | Location | Purpose |
+|---------|----------|---------|
+| Scribe | ~/projects/dev-tools/scribe/ | Desktop capture app |
+| Statistical Research | ~/projects/dev-tools/claude-plugins/local/statistical-research/ | Claude plugin |
+| MCP Servers | ~/projects/dev-tools/mcp-servers/ | MCP infrastructure |
+
+────────────────────────────────────────
+
+🎯 PROJECT CONTEXT
+
+**What is Nexus?**
+Knowledge management architecture that connects:
+1. **Obsidian** - External memory (vault, notes, links)
+2. **Claude** - Cognitive interface (skills, tools, queries)
+3. **Code** - R packages, Quarto, LaTeX
+
+**Three Modes:**
+- 🔖 Librarian - Knowledge capture, organization, retrieval
+- 🔧 Builder - Code development, package maintenance
+- 📚 Teacher - Lecture creation, pedagogical materials
+
+**Target Integration:**
+- Zotero (2,728 items)
+- Research PDFs (~110 files)
+- Teaching PDFs (~1,682 files)
+- Obsidian vault (PARA structure)
+
+────────────────────────────────────────
+
+💡 NOTES
+
+**Strategic Decision Made:**
+Nexus refocused from "build two products" to "integrate Claude with existing tools."
+
+**Key Insight:**
+Statistical-research plugin already has literature tools - just needs
+Zotero/PDF/Vault extensions. Build on existing infrastructure.
+
+**Next Session:**
+Start Phase 1 - Zotero Integration (4 hours)
+Follow IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
+
