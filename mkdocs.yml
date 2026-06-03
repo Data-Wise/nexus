@@ -1,0 +1,187 @@
+# ============================================================
+# Nexus Documentation Site
+# MkDocs Material Theme (craft plugin style)
+# ============================================================
+
+site_name: Nexus
+site_url: https://data-wise.github.io/nexus/
+site_author: Stat-Wise
+site_description: >-
+  Obsidian + Claude Second Brain for Academic Researchers.
+  Knowledge management, task management, and project dashboards.
+
+repo_name: Data-Wise/nexus
+repo_url: https://github.com/Data-Wise/nexus
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2025-2026 Stat-Wise
+
+# ============================================================
+# Theme Configuration
+# ============================================================
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - announce.dismiss
+
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/brain
+    
+  favicon: assets/favicon.png
+
+# ============================================================
+# Plugins
+# ============================================================
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - tags:
+      tags_file: tags.md
+
+# ============================================================
+# Markdown Extensions
+# ============================================================
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: Data-Wise
+      repo: nexus
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# ============================================================
+# Extra CSS/JS
+# ============================================================
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Data-Wise
+      name: GitHub
+  version:
+    provider: mike
+
+# ============================================================
+# Navigation
+# ============================================================
+nav:
+  - Home:
+    - index.md
+    - Quick Start: quick-start.md
+    - ADHD Guide: adhd-guide.md
+  - Guide:
+    - guide/index.md
+    - Installation: guide/installation.md
+    - Configuration: guide/configuration.md
+    - MCP Setup: guide/mcp-setup.md
+    - System Prompt: guide/system-prompt.md
+  - Workflows:
+    - workflows/index.md
+    - Knowledge Management: workflows/knowledge-management.md
+    - Task Management: workflows/task-management.md
+    - Project Dashboards: workflows/project-dashboards.md
+    - Literature Pipeline: workflows/literature-pipeline.md
+  - Reference:
+    - reference/index.md
+    - Commands: reference/commands.md
+    - Vault Structure: reference/vault-structure.md
+    - Templates: reference/templates.md
+  - Academic:
+    - academic/index.md
+    - Research Projects: academic/research-projects.md
+    - Teaching Materials: academic/teaching-materials.md
+    - R Packages: academic/r-packages.md
+  - Tutorials:
+    - tutorials/index.md
+    - First Day Setup: tutorials/first-day.md
+    - Weekly Review: tutorials/weekly-review.md
+  - About:
+    - changelog.md
+    - contributing.md
