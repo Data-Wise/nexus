@@ -82,7 +82,7 @@ plugins:
   - minify:
       minify_html: true
   - tags:
-      tags_file: tags.md
+      # tags_file: tags.md  # deprecated
 
 # ============================================================
 # Markdown Extensions
