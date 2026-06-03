@@ -1,133 +1,131 @@
 status: active
 priority: 1
-progress: 75
-next: Phase 1 - Zotero Integration (extend statistical-research plugin)
+progress: 90
+next: Set up personal Obsidian vault + install ProfSynapse Nexus plugin + connect Claude Desktop
 type: dev
-checkpoint: Proposals consolidated (9 → 3). Created STRATEGIC-DIRECTION.md. Archived exploration docs. Clear path: extend statistical-research MCP (16h, 5 phases).
+checkpoint: Documentation site LIVE at data-wise.github.io/nexus. 47 doc files, 17.5K lines. Pivoted from custom-plugin build to ProfSynapse Nexus (Community Plugin) + comprehensive docs. 5 tutorials, 9 refcards, 4 workflows, 3 academic guides all complete and deployed.
 
 # ═══════════════════════════════════════════════════════════════════
-# Nexus - Claude + Obsidian Knowledge Management (via MCP)
+# Nexus - Obsidian + Claude Second Brain (Documentation + Setup)
 # ═══════════════════════════════════════════════════════════════════
 
-🧠 Nexus - Knowledge Integration Status
+🧠 Nexus - Knowledge Management System Status
 ────────────────────────────────────────
 
 📍 LOCATION
-~/projects/dev-tools/nexus/
+~/projects/nexus/
+
+🌐 LIVE SITE
+https://data-wise.github.io/nexus/
+
+📦 REPO
+https://github.com/Data-Wise/nexus
 
 ⏰ LAST UPDATED
-2025-01-11 - Proposals consolidated, documentation clarified
+2026-06-03 - Documentation site complete, expanded tutorials + refcards
 
 ────────────────────────────────────────
 
 🎯 CURRENT STATUS
-**✅ STRATEGIC REFOCUS COMPLETE**
+**✅ DOCUMENTATION SITE COMPLETE & DEPLOYED**
 
-The vision is clear:
-- Use Claude as the primary brain for research, teaching, and package development
-- Integrate Zotero (2,728 items), PDFs (~1,800 files), and Obsidian vault
-- Extend existing statistical-research plugin (not build from scratch)
-- Desktop app → Scribe (split to separate repo)
+Strategic pivot: Instead of building a custom MCP plugin from scratch,
+adopt the mature ProfSynapse/nexus Obsidian plugin (Community Plugin,
+4k+ downloads, v5.9.9) and build comprehensive ADHD-optimized docs +
+academic workflows around it.
 
-**What's Ready:**
-- ✅ Vault template (PARA structure, templates, dashboards)
-- ✅ Architecture proposals and implementation plan
-- ✅ Statistical-research plugin foundation (17 skills, 9 tools)
-- ✅ Desktop app preserved as Scribe
+**What's Live:**
+- ✅ MkDocs Material site deployed to GitHub Pages
+- ✅ GitHub Actions auto-deploy on push (last build: success, 46s)
+- ✅ 47 documentation files (~17,500 lines)
+- ✅ Indigo + Amber theme, Mermaid diagrams, badges all rendering
 
 ────────────────────────────────────────
 
 📊 PROGRESS
 
-Knowledge Architecture:
-Vault Template              ████████████████████ 100% ✅
-Documentation               ████████████████████ 100% ✅
-Architecture Proposals      ████████████████████ 100% ✅
-Implementation Plan         ████████████████████ 100% ✅
+Documentation Site:
+Site Infrastructure         ████████████████████ 100% ✅
+Home + Quick Start          ████████████████████ 100% ✅
+Tutorials (5)               ████████████████████ 100% ✅
+Workflows (4)               ████████████████████ 100% ✅
+Reference + Refcards (9)    ████████████████████ 100% ✅
+Academic Guides (3)         ████████████████████ 100% ✅
 
-Plugin Integration (Next):
-Phase 1: Zotero             ░░░░░░░░░░░░░░░░░░░░   0% 📋
-Phase 2: PDF Extraction     ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-Phase 3: Vault Operations   ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-Phase 4: Knowledge Query    ░░░░░░░░░░░░░░░░░░░░   0% ⚪
-Phase 5: Integration        ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Personal Setup (Next):
+Create Obsidian Vault       ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Install Nexus Plugin        ░░░░░░░░░░░░░░░░░░░░   0% 📋
+Connect Claude Desktop MCP  ░░░░░░░░░░░░░░░░░░░░   0% ⚪
+Custom Academic Prompt      ░░░░░░░░░░░░░░░░░░░░   0% ⚪
 
-**Overall Progress**: 75% (architecture complete, implementation next)
-
-────────────────────────────────────────
-
-📋 IMPLEMENTATION PLAN
-
-See: IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
-
-**Phase 1: Zotero Integration** (4 hours)
-- lib/zotero.sh - SQLite queries against ~/Zotero/zotero.sqlite
-- commands/zotero/* - Search, cite, annotate
-- 2,728 library items accessible via Claude
-
-**Phase 2: PDF Integration** (3 hours)
-- lib/pdf-extract.sh - pdftotext extraction
-- commands/pdf/* - Extract, search, summarize
-- ~1,800 PDFs (research + teaching)
-
-**Phase 3: Vault Operations** (4 hours)
-- lib/obsidian.sh - Read/write/search vault
-- commands/vault/* - Read, write, search, link
-- Full Obsidian vault access
-
-**Phase 4: Knowledge Query** (3 hours)
-- skills/knowledge/* - Unified search
-- commands/knowledge/* - Cross-source queries
-- "Ask anything" across all sources
-
-**Phase 5: Integration & Testing** (2 hours)
-- End-to-end workflows
-- Error handling
-- Documentation
-
-**Total: 16 hours over 4-5 days**
+**Overall Progress**: 90% (docs complete, personal setup remaining)
 
 ────────────────────────────────────────
 
-✅ JUST COMPLETED (2025-01-11)
+✅ JUST COMPLETED (2026-06-03)
 
-**📋 Proposal Consolidation**
-- Consolidated 9 proposals (262KB) → 3 core documents
-- Created STRATEGIC-DIRECTION.md (single source of truth)
-- Archived 7 exploration proposals to docs/proposals/archive/
-- Updated PROJECT-HUB.md to sync with strategic direction
-- Updated README.md with strategic direction link
-- Created comprehensive archive README
+**📚 Documentation Site Build-out**
+- Created full MkDocs Material site, deployed to GitHub Pages
+- 4 Workflows: knowledge-mgmt, task-mgmt, project-dashboards, literature-pipeline
+- 3 Academic guides: research-projects, teaching-materials, r-packages
+- Reference: commands, vault-structure, templates
 
-**🎯 Result:**
-- Clear decision: Extend statistical-research MCP (not standalone CLI)
-- Eliminated decision paralysis (9 docs → 1 clear direction)
-- Preserved exploration history for reference
-- Ready to start Phase 1 implementation
+**🎓 Expanded Tutorials (5 total)**
+- big-picture.md (351 lines) - philosophy, 3 modes, PARA, lifecycle
+- first-day.md - 30-min setup with Community Plugin
+- daily-workflow.md (412 lines) - full annotated example day
+- research-paper.md (433 lines) - 8-phase paper lifecycle
+- weekly-review.md - 15-min maintenance routine
+
+**🃏 Reference Cards (9 printable ASCII cards)**
+- Daily Workflow, Commands, Vault Structure, ADHD Strategies,
+  Research Paper, Literature Pipeline, Weekly Review (fillable),
+  Teaching Workflow, Voice/Quick Shortcuts
+
+**🔧 Fixes & Polish**
+- Fixed badge rendering (markdown attribute on div)
+- Simplified install to one-click Community Plugin
+- Added real example dialogues on home page
+- Verified Mermaid + SVG rendering in built HTML
+
+────────────────────────────────────────
+
+📋 NEXT STEPS (Personal Setup)
+
+**Step 1: Create Obsidian Vault** (~5 min)
+- Create ~/Obsidian/Nexus/
+- Build PARA structure (00-INBOX → 60-TASKS)
+
+**Step 2: Install Nexus Plugin** (~3 min)
+- Obsidian → Settings → Community Plugins → Browse
+- Search "Nexus" (by ProfSynapse) → Install → Enable
+
+**Step 3: Connect Claude Desktop** (~5 min)
+- Nexus Settings → Get Started → MCP Integration (built-in wizard)
+- Generates connector.js + Claude Desktop config
+- Restart Claude, test: "List my Nexus folders"
+
+**Step 4: Custom Academic System Prompt** (~10 min)
+- Adapt recommended system prompt for stats/causal-inference context
+- Add ADHD formatting preferences
+- Define custom commands (mb, cap, pp, eod, wr)
 
 ────────────────────────────────────────
 
 📁 KEY FILES
 
-Strategic Direction:
-- STRATEGIC-DIRECTION.md              - Executive summary & roadmap ⭐ START HERE
-- IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md - Technical plan (16h)
-- PROJECT-HUB.md                      - Progress tracking
-
-Architecture (Reference):
-- PROPOSAL-NEXUS-ARCHITECTURE.md      - Architecture options analysis
-- PROPOSAL-CLAUDE-RESEARCH-BRAIN.md   - Research-focused deep dive
-- docs/proposals/archive/             - Exploration phase documents
-
-Vault Template:
-- vault-template/README.md            - Setup instructions
-- vault-template/_master-dashboard.md - Main control panel
-- vault-template/_vault-guide.md      - Complete reference
+Site Config:
+- mkdocs.yml                          - Site config + navigation
+- .github/workflows/docs.yml          - Auto-deploy pipeline
 
 Documentation:
-- README.md                           - Project overview
-- CLAUDE.md                           - Claude Code guidance
-- docs/architecture/overview.md       - Full architecture
+- docs/index.md                       - Home (install + examples) ⭐
+- docs/quick-start.md                 - 10-min setup
+- docs/tutorials/big-picture.md       - Philosophy & overview ⭐
+- docs/tutorials/*.md                 - 5 step-by-step guides
+- docs/reference/refcards.md          - 9 printable cards
+- docs/workflows/*.md                 - 4 core workflows
+- docs/academic/*.md                  - 3 academic guides
 
 ────────────────────────────────────────
 
@@ -135,43 +133,44 @@ Documentation:
 
 | Project | Location | Purpose |
 |---------|----------|---------|
+| ProfSynapse/nexus | github.com/ProfSynapse/nexus | The Obsidian plugin (upstream) |
 | Scribe | ~/projects/dev-tools/scribe/ | Desktop capture app |
-| Statistical Research | ~/projects/dev-tools/claude-plugins/local/statistical-research/ | Claude plugin |
-| MCP Servers | ~/projects/dev-tools/mcp-servers/ | MCP infrastructure |
+| Statistical Research | ~/projects/dev-tools/claude-plugins/local/statistical-research/ | Claude plugin (17 skills) |
 
 ────────────────────────────────────────
 
 🎯 PROJECT CONTEXT
 
 **What is Nexus?**
-Knowledge management architecture that connects:
-1. **Obsidian** - External memory (vault, notes, links)
-2. **Claude** - Cognitive interface (skills, tools, queries)
-3. **Code** - R packages, Quarto, LaTeX
+Obsidian + Claude second brain for academic researchers. Connects:
+1. **Obsidian** - Local-first vault (PARA structure, Markdown)
+2. **Claude** - Cognitive interface via ProfSynapse Nexus MCP
+3. **Your Work** - Research papers, teaching, R packages
 
 **Three Modes:**
 - 🔖 Librarian - Knowledge capture, organization, retrieval
 - 🔧 Builder - Code development, package maintenance
 - 📚 Teacher - Lecture creation, pedagogical materials
 
-**Target Integration:**
-- Zotero (2,728 items)
-- Research PDFs (~110 files)
-- Teaching PDFs (~1,682 files)
-- Obsidian vault (PARA structure)
+**ADHD-Optimized:** TL;DR, time estimates, progress bars,
+energy matching, one-task focus, frictionless capture.
 
 ────────────────────────────────────────
 
 💡 NOTES
 
-**Strategic Decision Made:**
-Nexus refocused from "build two products" to "integrate Claude with existing tools."
+**Strategic Pivot (this phase):**
+Moved from "build custom MCP plugin" to "adopt mature ProfSynapse
+Nexus plugin + build great docs/workflows around it." Much faster
+path to a working system; leverages 4k+ download community plugin
+with native chat, MCP, semantic search, workspace memory.
 
-**Key Insight:**
-Statistical-research plugin already has literature tools - just needs
-Zotero/PDF/Vault extensions. Build on existing infrastructure.
+**Site Stats:**
+- 47 doc files, ~17,500 lines
+- 5 tutorials, 9 refcards, 4 workflows, 3 academic guides
+- Auto-deploys on git push (GitHub Actions, ~46s)
 
 **Next Session:**
-Start Phase 1 - Zotero Integration (4 hours)
-Follow IMPLEMENTATION-PLAN-EXTEND-STATISTICAL-RESEARCH.md
-
+Personal vault setup + plugin install + Claude Desktop connection.
+Then write custom academic system prompt grounded in mediationverse
+packages, STAT 579 workflow, and P_med research.
