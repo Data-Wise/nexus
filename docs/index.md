@@ -24,7 +24,7 @@ hide:
 
 **Obsidian + Claude Second Brain for Academic Researchers**
 
-<div class="badges">
+<div class="badges" markdown>
 
 [![Documentation](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://data-wise.github.io/nexus/)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Data-Wise/nexus/releases)
