@@ -13,7 +13,7 @@ tags: [dashboard]
 
 ```dataview
 TASK
-FROM "60-TASKS/_today"
+FROM "60_tasks/_today"
 WHERE !completed
 ```
 
@@ -27,7 +27,7 @@ TABLE
   status as "Status",
   progress as "Progress",
   deadline as "Deadline"
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE type = "manuscript"
   AND status != "published"
   AND status != "archived"
@@ -39,7 +39,7 @@ SORT priority ASC, deadline ASC
 TABLE
   status as "Status",
   week as "Week"
-FROM "10-PROJECTS/teaching"
+FROM "10_projects/teaching"
 WHERE type = "lecture"
   AND status = "planning"
 SORT week ASC
@@ -50,7 +50,7 @@ SORT week ASC
 TABLE
   status as "Status",
   progress as "Progress"
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE type = "package"
   AND status = "active"
 ```
@@ -62,13 +62,13 @@ WHERE type = "package"
 **Needs Processing**:
 ```dataview
 LIST
-FROM "00-INBOX"
+FROM "00_inbox"
 WHERE file.name != "_inbox-dashboard"
 SORT file.ctime DESC
 LIMIT 10
 ```
 
-**Count**: `$= dv.pages('"00-INBOX"').length` items
+**Count**: `$= dv.pages('"00_inbox"').length` items
 
 ---
 
@@ -80,7 +80,7 @@ TABLE
   year as "Year",
   read-status as "Status",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE type = "literature"
 SORT file.ctime DESC
 LIMIT 5
@@ -92,7 +92,7 @@ LIMIT 5
 
 ```dataview
 TASK
-FROM "60-TASKS" OR "10-PROJECTS"
+FROM "60_tasks" OR "10_projects"
 WHERE completed
   AND date(completion) >= date(today) - dur(7 days)
 SORT completion DESC
@@ -105,12 +105,12 @@ LIMIT 10
 
 | Section | Link |
 |---------|------|
-| Research | [[10-PROJECTS/research/_research-dashboard\|Research Dashboard]] |
-| Teaching | [[10-PROJECTS/teaching/_teaching-dashboard\|Teaching Dashboard]] |
-| Packages | [[10-PROJECTS/packages/_packages-dashboard\|Packages Dashboard]] |
-| Literature | [[30-RESOURCES/literature/_literature-index\|Literature Index]] |
-| Tasks | [[60-TASKS/_today\|Today's Tasks]] |
-| Daily | [[50-DAILY/|Daily Notes]] |
+| Research | [[10_projects/research/_research-dashboard\|Research Dashboard]] |
+| Teaching | [[10_projects/teaching/_teaching-dashboard\|Teaching Dashboard]] |
+| Packages | [[10_projects/packages/_packages-dashboard\|Packages Dashboard]] |
+| Literature | [[30_resources/literature/_literature-index\|Literature Index]] |
+| Tasks | [[60_tasks/_today\|Today's Tasks]] |
+| Daily | [[50_daily/|Daily Notes]] |
 
 ---
 
@@ -119,7 +119,7 @@ LIMIT 10
 **This Week**:
 ```dataview
 LIST
-FROM "50-DAILY/_weekly-reviews"
+FROM "50_daily/_weekly-reviews"
 SORT file.name DESC
 LIMIT 1
 ```

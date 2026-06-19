@@ -23,7 +23,7 @@ QuickAdd is an Obsidian plugin that enables lightning-fast note creation via key
 
 1. In Settings → **QuickAdd**, scroll to bottom
 2. Find **"Import Entire QuickAdd Settings"** section
-3. Copy the contents of `_SYSTEM/quickadd-config.json`
+3. Copy the contents of `_system/quickadd-config.json`
 4. Paste into the import text box
 5. Click **Import**
 
@@ -55,7 +55,7 @@ Set these up in Settings → **Hotkeys** → Search for "QuickAdd":
 **What it does**:
 1. Opens input prompt
 2. Type your thought
-3. Automatically appends to `00-INBOX/fleeting-notes/YYYY-MM-DD-fleeting.md`
+3. Automatically appends to `00_inbox/fleeting_notes/YYYY-MM-DD-fleeting.md`
 4. Tags with `#fleeting`
 5. Keeps you in your current file (no context switching!)
 
@@ -74,7 +74,7 @@ Result: Added to today's fleeting notes
 
 **What it does**:
 1. Opens input prompt for task name
-2. Creates new file in `60-TASKS/` using task template
+2. Creates new file in `60_tasks/` using task template
 3. Opens in new pane with full template ready to fill out
 4. Auto-populates creation date and metadata
 
@@ -93,7 +93,7 @@ Result: New task file opens with template, ready to set priority/time/etc.
 
 **What it does**:
 1. Prompts for paper name (e.g., "VanderWeele2015-mediation")
-2. Creates file in `30-RESOURCES/literature/`
+2. Creates file in `30_resources/literature/`
 3. Uses paper-note template with YAML frontmatter
 4. Opens in edit mode
 
@@ -112,8 +112,8 @@ Result: Literature note created, ready to fill in authors/year/key ideas
 
 **What it does**:
 1. Shows multi-choice menu:
-   - Research Project → `10-PROJECTS/research/`
-   - Lecture → `10-PROJECTS/teaching/` (choose course)
+   - Research Project → `10_projects/research/`
+   - Lecture → `10_projects/teaching/` (choose course)
 2. Uses appropriate template (project.md or lecture.md)
 3. Opens in edit mode
 
@@ -158,7 +158,7 @@ Result: New project created with checklist and metadata
 ### "Template not found" error
 
 **Fix**:
-1. Check that template exists in `30-RESOURCES/templates/`
+1. Check that template exists in `30_resources/templates/`
 2. In QuickAdd settings, verify template path is correct
 3. Ensure template path uses `/` not `\` (even on Windows)
 
@@ -207,7 +207,7 @@ If creating a note takes > 2 seconds, you'll forget the thought. QuickAdd shortc
 ### 🧹 Daily Inbox Review
 
 Add to your daily routine:
-1. Open `00-INBOX/fleeting-notes/`
+1. Open `00_inbox/fleeting_notes/`
 2. Convert valuable thoughts to permanent notes
 3. Delete/archive the rest
 4. Keep inbox at zero
@@ -226,7 +226,7 @@ This creates connections as you capture, no manual linking needed later.
 
 QuickAdd supports JavaScript macros for complex workflows. See:
 - QuickAdd documentation: https://github.com/chhoumann/quickadd
-- Vault: `_SYSTEM/quickadd-macros/` (for future custom macros)
+- Vault: `_system/quickadd-macros/` (for future custom macros)
 
 ---
 
@@ -234,7 +234,7 @@ QuickAdd supports JavaScript macros for complex workflows. See:
 
 - [[_getting-started|Getting Started Guide]]
 - [[_vault-guide|Complete Vault Guide]]
-- [[30-RESOURCES/templates/|All Templates]]
+- [[30_resources/templates/|All Templates]]
 
 ---
 

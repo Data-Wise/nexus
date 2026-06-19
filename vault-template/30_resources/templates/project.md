@@ -38,7 +38,7 @@ progress: 0
 ## 📝 Research Log
 ```dataview
 LIST
-FROM "50-DAILY"
+FROM "50_daily"
 WHERE contains(file.outlinks, this.file.link)
 SORT file.name DESC
 LIMIT 10
@@ -47,7 +47,7 @@ LIMIT 10
 ## ✅ Tasks
 ```dataview
 TASK
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE contains(file.path, this.file.folder)
   AND !completed
 ```

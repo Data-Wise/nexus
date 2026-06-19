@@ -15,7 +15,7 @@ tags: [tasks, examples]
   - Priority: 1
   - Time: 2h
   - Due: 2025-12-28
-  - Project: [[10-PROJECTS/research/_example-mediation-inference]]
+  - Project: [[10_projects/research/_example-mediation-inference]]
   - Context: @write
   - Energy: high
 
@@ -40,7 +40,7 @@ tags: [tasks, examples]
   - Time: 4h
   - Context: @code
   - Energy: high
-  - Related: [[10-PROJECTS/packages/medrobust]]
+  - Related: [[10_projects/packages/medrobust]]
 
 - [x] **Run simulation scenarios 1-3** #research
   - Priority: 3

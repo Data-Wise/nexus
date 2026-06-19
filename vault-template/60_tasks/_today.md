@@ -11,19 +11,19 @@ tags: [tasks, daily]
 - [x] Run simulation scenarios 4-6 for mediation manuscript
   - Time: 2h
   - Context: @computer
-  - Project: [[10-PROJECTS/research/_example-mediation-inference]]
+  - Project: [[10_projects/research/_example-mediation-inference]]
 
 - [ ] Prepare STAT 579 lecture slides for Week 2
   - Time: 1h
   - Context: @computer
-  - Project: [[10-PROJECTS/teaching/STAT579]]
+  - Project: [[10_projects/teaching/STAT579]]
 
 ## 📋 Should Do
 
 - [ ] Review RMediation bug report #42
   - Time: 30m
   - Context: @code
-  - Project: [[10-PROJECTS/packages/RMediation]]
+  - Project: [[10_projects/packages/RMediation]]
 
 - [ ] Respond to reviewer comments on sensitivity paper
   - Time: 1h
@@ -36,7 +36,7 @@ tags: [tasks, daily]
   - Time: 20m
   - Context: @read
 
-- [ ] Organize 00-INBOX folder
+- [ ] Organize 00_inbox folder
   - Time: 15m
   - Context: @computer
 

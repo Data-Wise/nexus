@@ -13,7 +13,7 @@ Please:
 
 1. Search for recent papers (2020-present) on [TOPIC]
 2. For each paper found:
-   - Create a literature note using the template: `30-RESOURCES/templates/paper-note.md`
+   - Create a literature note using the template: `30_resources/templates/paper-note.md`
    - Filename format: `FirstAuthorYYYY-short-descriptive-title`
    - Extract key information:
      * Authors and publication details
@@ -113,9 +113,9 @@ Find 5-10 papers that:
 
 ## After Claude Responds
 
-1. Review generated notes in `30-RESOURCES/literature/`
+1. Review generated notes in `30_resources/literature/`
 2. Verify citations and DOIs
-3. Download PDFs to `00-INBOX/literature-inbox/`
+3. Download PDFs to `00_inbox/literature_inbox/`
 4. Add personal notes/questions
 5. Link to relevant projects
 6. Update relevance scores if needed
@@ -147,5 +147,5 @@ Find 5-10 papers that:
 ---
 
 **Related**:
-- [[30-RESOURCES/templates/paper-note|Literature Note Template]]
-- [[30-RESOURCES/literature/_literature-index|Literature Index]]
+- [[30_resources/templates/paper-note|Literature Note Template]]
+- [[30_resources/literature/_literature-index|Literature Index]]

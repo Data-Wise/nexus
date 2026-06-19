@@ -49,14 +49,14 @@ Open **[[_master-dashboard]]** and start exploring!
 ### Folder Structure (PARA Method)
 
 ```
-00-INBOX/          → Quick capture (process daily)
-10-PROJECTS/       → Active work (research, teaching, packages)
-20-AREAS/          → Ongoing domains (causal inference, etc.)
-30-RESOURCES/      → Reference materials (literature, templates)
-40-ARCHIVE/        → Completed work
-50-DAILY/          → Daily notes
-60-TASKS/          → Task management
-_SYSTEM/           → Configuration & setup
+00_inbox/          → Quick capture (process daily)
+10_projects/       → Active work (research, teaching, packages)
+20_areas/          → Ongoing domains (causal inference, etc.)
+30_resources/      → Reference materials (literature, templates)
+40_archive/        → Completed work
+50_daily/          → Daily notes
+60_tasks/          → Task management
+_system/           → Configuration & setup
 ```
 
 ### Key Files
@@ -65,9 +65,9 @@ _SYSTEM/           → Configuration & setup
 |------|---------|
 | **[[_master-dashboard]]** | Main control panel |
 | **[[_getting-started]]** | Detailed usage guide |
-| **[[_SYSTEM/QUICKADD-SETUP]]** | Quick capture setup |
-| **[[10-PROJECTS/research/_research-dashboard]]** | Research overview |
-| **[[30-RESOURCES/literature/_literature-index]]** | Papers & references |
+| **[[_system/QUICKADD-SETUP]]** | Quick capture setup |
+| **[[10_projects/research/_research-dashboard]]** | Research overview |
+| **[[30_resources/literature/_literature-index]]** | Papers & references |
 
 ---
 
@@ -110,11 +110,11 @@ All plugins are pre-configured. If you need to reconfigure:
 | Dataview | `.obsidian/plugins/dataview/data.json` |
 | Templater | `.obsidian/plugins/templater-obsidian/data.json` |
 | Tasks | `.obsidian/plugins/obsidian-tasks-plugin/data.json` |
-| QuickAdd | Import from `_SYSTEM/quickadd-config.json` |
+| QuickAdd | Import from `_system/quickadd-config.json` |
 
 ### Templates
 
-All templates are in: `30-RESOURCES/templates/`
+All templates are in: `30_resources/templates/`
 
 - `project.md` - Research projects, manuscripts
 - `paper-note.md` - Literature notes
@@ -140,7 +140,7 @@ Dashboards use Dataview queries. To modify:
 
 ### Project Template
 
-**Location**: `30-RESOURCES/templates/project.md`
+**Location**: `30_resources/templates/project.md`
 
 **YAML Frontmatter**:
 ```yaml
@@ -156,7 +156,7 @@ progress: 0-100
 
 ### Literature Note
 
-**Location**: `30-RESOURCES/templates/paper-note.md`
+**Location**: `30_resources/templates/paper-note.md`
 
 **YAML Frontmatter**:
 ```yaml
@@ -173,7 +173,7 @@ relevance:
 
 ### Task Template
 
-**Location**: `30-RESOURCES/templates/task.md`
+**Location**: `30_resources/templates/task.md`
 
 **YAML Frontmatter**:
 ```yaml
@@ -190,10 +190,10 @@ time-estimate: "15m | 30m | 1h | 2h | half-day | full-day"
 
 ### Add Your Own Templates
 
-1. Create new `.md` file in `30-RESOURCES/templates/`
+1. Create new `.md` file in `30_resources/templates/`
 2. Add YAML frontmatter with metadata
 3. Use Templater syntax: `<% tp.date.now() %>`, `<% tp.file.title %>`
-4. Configure QuickAdd to use new template (see [[_SYSTEM/QUICKADD-SETUP]])
+4. Configure QuickAdd to use new template (see [[_system/QUICKADD-SETUP]])
 
 ### Modify Dashboards
 
@@ -206,7 +206,7 @@ All dashboards query YAML frontmatter. To add new fields:
 TABLE
   status,
   MY-NEW-FIELD as "Display Name"
-FROM "10-PROJECTS"
+FROM "10_projects"
 WHERE type = "manuscript"
 ```
 
@@ -244,7 +244,7 @@ If you want different folders:
 
 **Cause**: Keyboard shortcuts not configured.
 
-**Fix**: See [[_SYSTEM/QUICKADD-SETUP#Keyboard Shortcuts]]
+**Fix**: See [[_system/QUICKADD-SETUP#Keyboard Shortcuts]]
 
 ### Dataview queries show errors
 
@@ -262,9 +262,9 @@ If you want different folders:
 **Fix**:
 1. Settings → Core Plugins → Enable "Daily notes"
 2. Settings → Daily notes → Set:
-   - **Folder**: `50-DAILY`
+   - **Folder**: `50_daily`
    - **Format**: `YYYY/YYYY-MM/YYYY-MM-DD`
-   - **Template**: `30-RESOURCES/templates/daily.md`
+   - **Template**: `30_resources/templates/daily.md`
 
 ---
 
@@ -302,7 +302,7 @@ Nexus works with the **statistical-research MCP Server** for Claude integration:
 After setup:
 
 1. ✅ Read [[_getting-started|Getting Started Guide]]
-2. ✅ Set up [[_SYSTEM/QUICKADD-SETUP|QuickAdd shortcuts]]
+2. ✅ Set up [[_system/QUICKADD-SETUP|QuickAdd shortcuts]]
 3. ✅ Create your first project (try `Cmd+Shift+R`)
 4. ✅ Process the example content (delete or archive when ready)
 5. ✅ Review [[_master-dashboard|Master Dashboard]] daily
@@ -323,16 +323,16 @@ After setup:
 
 **Morning** (5 min):
 - Open [[_master-dashboard]]
-- Review [[60-TASKS/_today]]
+- Review [[60_tasks/_today]]
 - Pick 3 must-do tasks
 
 **Evening** (5 min):
 - Check off completed tasks
-- Quick [[50-DAILY/|daily note]]
+- Quick [[50_daily/|daily note]]
 - Move unfinished tasks to tomorrow
 
 **Weekly** (30 min):
-- Use [[30-RESOURCES/templates/weekly-review|weekly review template]]
+- Use [[30_resources/templates/weekly-review|weekly review template]]
 - Archive completed projects
 - Plan next week's priorities
 

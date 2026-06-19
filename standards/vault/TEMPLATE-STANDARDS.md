@@ -36,7 +36,7 @@ tags: []                 # Optional: Categories
 
 ### 1. Project Template
 
-**File:** `30-RESOURCES/templates/project.md`
+**File:** `30_resources/templates/project.md`
 
 **Use Case:** Research projects, teaching courses, software packages
 
@@ -98,7 +98,7 @@ tags: [project]
 ```markdown
 ```dataview
 TABLE status, deadline, priority
-FROM "10-PROJECTS"
+FROM "10_projects"
 WHERE type = "manuscript"
 SORT deadline ASC
 ```
@@ -108,7 +108,7 @@ SORT deadline ASC
 
 ### 2. Literature Note Template
 
-**File:** `30-RESOURCES/templates/paper-note.md`
+**File:** `30_resources/templates/paper-note.md`
 
 **Use Case:** Academic paper notes
 
@@ -201,7 +201,7 @@ TABLE
   year as "Year",
   rating as "Rating",
   read-status as "Status"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(tags, "mediation")
 SORT year DESC
 ```
@@ -211,7 +211,7 @@ SORT year DESC
 
 ### 3. Daily Note Template
 
-**File:** `30-RESOURCES/templates/daily.md`
+**File:** `30_resources/templates/daily.md`
 
 **Use Case:** Daily planning and logging
 
@@ -240,7 +240,7 @@ tags: [daily]
 ## 📋 Tasks
 \`\`\`dataview
 TASK
-FROM "10-PROJECTS" OR "60-TASKS"
+FROM "10_projects" OR "60_tasks"
 WHERE due = date(this.date) AND !completed
 SORT priority ASC
 \`\`\`
@@ -260,7 +260,7 @@ SORT priority ASC
 ```markdown
 ```dataview
 LIST
-FROM "50-DAILY"
+FROM "50_daily"
 WHERE date = date(today)
 ```
 ```
@@ -269,7 +269,7 @@ WHERE date = date(today)
 
 ### 4. Lecture/Teaching Template
 
-**File:** `30-RESOURCES/templates/lecture.md`
+**File:** `30_resources/templates/lecture.md`
 
 **Use Case:** Teaching materials, lectures, course content
 
@@ -353,7 +353,7 @@ tags: [teaching, course-code]
 
 ### 5. Task Template
 
-**File:** `30-RESOURCES/templates/task.md`
+**File:** `30_resources/templates/task.md`
 
 **Use Case:** Standalone task notes (for complex tasks)
 
@@ -417,7 +417,7 @@ tags: [task]
 
 ### 6. Weekly Review Template
 
-**File:** `30-RESOURCES/templates/weekly-review.md`
+**File:** `30_resources/templates/weekly-review.md`
 
 **Use Case:** Weekly retrospectives
 
@@ -444,7 +444,7 @@ tags: [review, weekly]
 
 \`\`\`dataview
 TABLE status, progress
-FROM "10-PROJECTS"
+FROM "10_projects"
 WHERE type = "manuscript"
 \`\`\`
 

@@ -137,4 +137,4 @@
 
 ---
 
-**Related**: [[20-AREAS/notation-conventions/]]
+**Related**: [[20_areas/notation-conventions/]]

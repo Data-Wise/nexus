@@ -18,7 +18,7 @@ TABLE
   target-journal as "Journal",
   deadline as "Deadline",
   collaborators as "Team"
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE type = "manuscript"
   AND (status = "drafting" OR status = "revision")
 SORT priority ASC, deadline ASC
@@ -32,7 +32,7 @@ SORT priority ASC, deadline ASC
 TABLE
   created as "Created",
   priority as "Priority"
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE type = "manuscript"
   AND status = "idea"
 SORT priority ASC, created DESC
@@ -46,7 +46,7 @@ SORT priority ASC, created DESC
 TABLE
   target-journal as "Journal",
   deadline as "Submitted"
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE type = "manuscript"
   AND status = "submitted"
 SORT deadline DESC
@@ -61,7 +61,7 @@ TABLE
   year as "Year",
   journal as "Journal",
   doi as "DOI"
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE type = "manuscript"
   AND status = "published"
 SORT year DESC
@@ -74,7 +74,7 @@ SORT year DESC
 ### High Priority
 ```dataview
 TASK
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE !completed
   AND priority <= 2
 SORT priority ASC
@@ -83,7 +83,7 @@ SORT priority ASC
 ### This Week
 ```dataview
 TASK
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 WHERE !completed
   AND (due <= date(today) + dur(7 days))
 SORT due ASC
@@ -98,7 +98,7 @@ TABLE
   authors as "Authors",
   year as "Year",
   relevance.research as "Relevance"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE relevance.research = "high"
   OR relevance.research = "medium"
 SORT year DESC
@@ -109,8 +109,8 @@ LIMIT 10
 
 ## 🔗 Quick Links
 - [[_master-dashboard|← Back to Command Center]]
-- [[10-PROJECTS/teaching/_teaching-dashboard|Teaching Dashboard →]]
-- [[30-RESOURCES/literature/_literature-index|Literature Index]]
+- [[10_projects/teaching/_teaching-dashboard|Teaching Dashboard →]]
+- [[30_resources/literature/_literature-index|Literature Index]]
 
 ---
 

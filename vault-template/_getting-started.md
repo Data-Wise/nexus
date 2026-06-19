@@ -36,27 +36,27 @@ Nexus turns:
 
 | Folder | What Goes Here | Process |
 |--------|---------------|---------|
-| **00-INBOX** | Random thoughts, paper PDFs | **Daily** - Sort into other folders |
-| **10-PROJECTS** | Active work with deadlines | **Weekly** - Review progress |
-| **20-AREAS** | Ongoing responsibilities | **Monthly** - Reflect on direction |
-| **30-RESOURCES** | Reference materials | **As needed** - Add when useful |
-| **40-ARCHIVE** | Completed/inactive | **Quarterly** - Move finished work |
-| **50-DAILY** | Daily notes | **Daily** - Journal & log |
-| **60-TASKS** | Task management | **Daily** - Pick today's focus |
-| **_SYSTEM** | Configuration | **Rarely** - Only when customizing |
+| **00_inbox** | Random thoughts, paper PDFs | **Daily** - Sort into other folders |
+| **10_projects** | Active work with deadlines | **Weekly** - Review progress |
+| **20_areas** | Ongoing responsibilities | **Monthly** - Reflect on direction |
+| **30_resources** | Reference materials | **As needed** - Add when useful |
+| **40_archive** | Completed/inactive | **Quarterly** - Move finished work |
+| **50_daily** | Daily notes | **Daily** - Journal & log |
+| **60_tasks** | Task management | **Daily** - Pick today's focus |
+| **_system** | Configuration | **Rarely** - Only when customizing |
 
 ---
 
 ## 🚦 Folder Deep Dive
 
-### 00-INBOX: Quick Capture
+### 00_inbox: Quick Capture
 
 **Purpose**: Collect everything without friction
 
 **Subfolders**:
-- `fleeting-notes/` - Raw thoughts (use `Cmd+Shift+N`)
-- `literature-inbox/` - PDFs to process
-- `voice-memos/` - Audio transcriptions
+- `fleeting_notes/` - Raw thoughts (use `Cmd+Shift+N`)
+- `literature_inbox/` - PDFs to process
+- `voice_memos/` - Audio transcriptions
 
 **Daily workflow**:
 1. Capture all day without organizing
@@ -67,7 +67,7 @@ Nexus turns:
 
 ---
 
-### 10-PROJECTS: Active Work
+### 10_projects: Active Work
 
 **Purpose**: Time-bound efforts with clear outcomes
 
@@ -81,20 +81,20 @@ Nexus turns:
 - Requires multiple sessions
 - Has a clear "done" state
 
-**Not a project?** → Move to 20-AREAS
+**Not a project?** → Move to 20_areas
 
 **Examples**:
 - ✅ "Write mediation manuscript" (project)
 - ❌ "Stay current on causal inference" (area)
 
 **Dashboards**:
-- [[10-PROJECTS/research/_research-dashboard|Research Dashboard]]
-- [[10-PROJECTS/teaching/_teaching-dashboard|Teaching Dashboard]]
-- [[10-PROJECTS/packages/_packages-dashboard|Packages Dashboard]]
+- [[10_projects/research/_research-dashboard|Research Dashboard]]
+- [[10_projects/teaching/_teaching-dashboard|Teaching Dashboard]]
+- [[10_projects/packages/_packages-dashboard|Packages Dashboard]]
 
 ---
 
-### 20-AREAS: Ongoing Domains
+### 20_areas: Ongoing Domains
 
 **Purpose**: Responsibilities without deadlines
 
@@ -112,7 +112,7 @@ Nexus turns:
 
 ---
 
-### 30-RESOURCES: Reference Library
+### 30_resources: Reference Library
 
 **Purpose**: Reusable knowledge
 
@@ -121,11 +121,11 @@ Nexus turns:
   - `by-topic/` - Organized by research area
   - `by-author/` - Organized by first author
 - `templates/` - Note templates
-- `code-snippets/` - Reusable R/Python code
-- `reference-cards/` - Quick references
+- `code_snippets/` - Reusable R/Python code
+- `reference_cards/` - Quick references
 
 **Literature Workflow**:
-1. Get new paper → Save PDF to `00-INBOX/literature-inbox/`
+1. Get new paper → Save PDF to `00_inbox/literature_inbox/`
 2. Create note: `Cmd+Shift+P` → Filename: "AuthorYYYY-short-title"
 3. Fill in: authors, year, journal, key ideas
 4. Tag with topics: `#mediation`, `#sensitivity-analysis`
@@ -134,7 +134,7 @@ Nexus turns:
 
 ---
 
-### 40-ARCHIVE: Completed Work
+### 40_archive: Completed Work
 
 **When to archive**:
 - Published manuscripts
@@ -145,7 +145,7 @@ Nexus turns:
 
 ---
 
-### 50-DAILY: Daily Notes
+### 50_daily: Daily Notes
 
 **Purpose**: Daily log and journal
 
@@ -164,7 +164,7 @@ Nexus turns:
 
 ---
 
-### 60-TASKS: Task Management
+### 60_tasks: Task Management
 
 **Files**:
 - `_today.md` - Today's focus (open every morning)
@@ -193,12 +193,12 @@ time-estimate: 15m | 30m | 1h | 2h | half-day
 
 | Template | Shortcut | Location | Use For |
 |----------|----------|----------|---------|
-| **Project** | `Cmd+Shift+R` | `10-PROJECTS/` | Manuscripts, courses, packages |
-| **Paper Note** | `Cmd+Shift+P` | `30-RESOURCES/literature/` | Literature |
-| **Daily Note** | Auto-created | `50-DAILY/` | Daily journal |
-| **Lecture** | `Cmd+Shift+R` → Lecture | `10-PROJECTS/teaching/` | Teaching |
-| **Task** | `Cmd+Shift+T` | `60-TASKS/` | To-dos |
-| **Weekly Review** | Manual | `50-DAILY/_weekly-reviews/` | Reflection |
+| **Project** | `Cmd+Shift+R` | `10_projects/` | Manuscripts, courses, packages |
+| **Paper Note** | `Cmd+Shift+P` | `30_resources/literature/` | Literature |
+| **Daily Note** | Auto-created | `50_daily/` | Daily journal |
+| **Lecture** | `Cmd+Shift+R` → Lecture | `10_projects/teaching/` | Teaching |
+| **Task** | `Cmd+Shift+T` | `60_tasks/` | To-dos |
+| **Weekly Review** | Manual | `50_daily/_weekly-reviews/` | Reflection |
 
 ### Template Syntax
 
@@ -234,22 +234,22 @@ Templates use **Templater** plugin syntax:
 
 Each project type has its own dashboard:
 
-1. **Research** - [[10-PROJECTS/research/_research-dashboard]]
+1. **Research** - [[10_projects/research/_research-dashboard]]
    - Manuscripts by status (idea, drafting, review, submitted)
    - Research tasks
    - Related literature
 
-2. **Teaching** - [[10-PROJECTS/teaching/_teaching-dashboard]]
+2. **Teaching** - [[10_projects/teaching/_teaching-dashboard]]
    - Courses & lectures to prep
    - Teaching tasks
    - Teaching-relevant papers
 
-3. **Packages** - [[10-PROJECTS/packages/_packages-dashboard]]
+3. **Packages** - [[10_projects/packages/_packages-dashboard]]
    - Package status & version
    - GitHub issues
    - Package-related literature
 
-4. **Literature** - [[30-RESOURCES/literature/_literature-index]]
+4. **Literature** - [[30_resources/literature/_literature-index]]
    - Papers by topic
    - Papers by author
    - Reading queue
@@ -274,8 +274,8 @@ I'm working on [[P_med-manuscript]] which builds on [[VanderWeele2015-mediation]
 
 **In Task Templates**:
 ```yaml
-project: [[10-PROJECTS/research/sensitivity-bounds]]
-related: [[30-RESOURCES/literature/Ding2016-sensitivity]]
+project: [[10_projects/research/sensitivity-bounds]]
+related: [[30_resources/literature/Ding2016-sensitivity]]
 ```
 
 **In Dashboards**: Links auto-populate from queries
@@ -286,8 +286,8 @@ related: [[30-RESOURCES/literature/Ding2016-sensitivity]]
 |-----------|---------|-------------|
 | **Project link** | `[[P_med-manuscript]]` | Connect daily notes to projects |
 | **Literature link** | `[[VanderWeele2015]]` | Cite papers in projects |
-| **Resource link** | `[[20-AREAS/mediation-theory]]` | Connect to knowledge base |
-| **Task link** | `[[60-TASKS/fix-bug-42]]` | Reference specific tasks |
+| **Resource link** | `[[20_areas/mediation-theory]]` | Connect to knowledge base |
+| **Task link** | `[[60_tasks/fix-bug-42]]` | Reference specific tasks |
 
 ---
 
@@ -321,7 +321,7 @@ Result: Appended to today's fleeting notes, tagged #fleeting
 **Scenario**: Realize you need to do something
 
 **Creates**:
-- New file in `60-TASKS/`
+- New file in `60_tasks/`
 - Pre-filled template
 - Opens in new pane (don't lose context)
 
@@ -337,7 +337,7 @@ Opens: Template with priority, time, context fields ready
 **Scenario**: Starting to read a new paper
 
 **Creates**:
-- Literature note in `30-RESOURCES/literature/`
+- Literature note in `30_resources/literature/`
 - YAML frontmatter for metadata
 - Sections for key ideas, equations, connections
 
@@ -360,7 +360,7 @@ Opens: Paper note template ready to fill
    - See all active projects
    - Check inbox count
 
-2. **Review [[60-TASKS/_today]]**
+2. **Review [[60_tasks/_today]]**
    - See today's planned tasks
    - Pick 3 must-dos
 
@@ -379,7 +379,7 @@ Opens: Paper note template ready to fill
 
 1. **Check off completed tasks**
    - In project files
-   - In `60-TASKS/_today`
+   - In `60_tasks/_today`
 
 2. **Quick daily note entry**
    - What did I accomplish?
@@ -396,7 +396,7 @@ Opens: Paper note template ready to fill
 
 ### Friday Review (30 min)
 
-Use template: [[30-RESOURCES/templates/weekly-review]]
+Use template: [[30_resources/templates/weekly-review]]
 
 1. **Reflect on wins**
    - What projects advanced?
@@ -466,7 +466,7 @@ Use template: [[30-RESOURCES/templates/weekly-review]]
 
 ### Modify Templates
 
-1. Open template file (e.g., `30-RESOURCES/templates/project.md`)
+1. Open template file (e.g., `30_resources/templates/project.md`)
 2. Edit YAML frontmatter or content
 3. Save
 4. New notes using template will have changes
@@ -503,11 +503,11 @@ Settings → Hotkeys → Search for command → Click to rebind
 ### "Where should this note go?"
 
 **Decision tree**:
-1. Is it a random thought? → `00-INBOX/` (process later)
-2. Is it a to-do? → `60-TASKS/`
-3. Is it about a paper? → `30-RESOURCES/literature/`
-4. Is it project work? → `10-PROJECTS/{type}/`
-5. Is it reference material? → `30-RESOURCES/`
+1. Is it a random thought? → `00_inbox/` (process later)
+2. Is it a to-do? → `60_tasks/`
+3. Is it about a paper? → `30_resources/literature/`
+4. Is it project work? → `10_projects/{type}/`
+5. Is it reference material? → `30_resources/`
 
 ### "How do I link notes?"
 
@@ -532,7 +532,7 @@ Nexus is designed for Obsidian specifically (Dataview, local files, Markdown). P
 
 ## 📚 Next Steps
 
-1. ✅ Set up [[_SYSTEM/QUICKADD-SETUP|QuickAdd shortcuts]]
+1. ✅ Set up [[_system/QUICKADD-SETUP|QuickAdd shortcuts]]
 2. ✅ Create your first project (`Cmd+Shift+R`)
 3. ✅ Capture a thought (`Cmd+Shift+N`)
 4. ✅ Add a paper you're reading (`Cmd+Shift+P`)

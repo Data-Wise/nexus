@@ -17,7 +17,7 @@ TABLE
   version as "Version",
   cran-status as "CRAN",
   next-release as "Next Release"
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE type = "package"
   AND status = "active"
 SORT priority ASC
@@ -32,7 +32,7 @@ TABLE
   tests-passing as "Tests",
   coverage as "Coverage",
   r-cmd-check as "R CMD Check"
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE type = "package"
   AND status = "active"
 ```
@@ -44,7 +44,7 @@ WHERE type = "package"
 ### High Priority Issues
 ```dataview
 TASK
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE !completed
   AND priority <= 2
 SORT priority ASC
@@ -53,7 +53,7 @@ SORT priority ASC
 ### Feature Requests
 ```dataview
 TASK
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE !completed
   AND contains(tags, "feature")
 SORT priority ASC
@@ -65,7 +65,7 @@ SORT priority ASC
 
 ```dataview
 LIST
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE type = "package"
   AND contains(file.name, "README")
 ```
@@ -74,14 +74,14 @@ WHERE type = "package"
 
 ## 🔗 Mediationverse Ecosystem
 
-**Meta-package coordination**: [[10-PROJECTS/packages/mediationverse]]
+**Meta-package coordination**: [[10_projects/packages/mediationverse]]
 
 ### Component Packages
 ```dataview
 TABLE
   status as "Status",
   version as "Version"
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE contains(tags, "mediationverse")
   AND type = "package"
 SORT file.name ASC
@@ -96,7 +96,7 @@ TABLE
   title as "Title",
   authors as "Authors",
   relevance.packages as "Relevance"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE relevance.packages = "high"
   OR relevance.packages = "medium"
 SORT year DESC
@@ -110,7 +110,7 @@ LIMIT 10
 ### This Week
 ```dataview
 TASK
-FROM "10-PROJECTS/packages"
+FROM "10_projects/packages"
 WHERE !completed
   AND (due <= date(today) + dur(7 days))
 SORT due ASC
@@ -120,8 +120,8 @@ SORT due ASC
 
 ## 🔗 Quick Links
 - [[_master-dashboard|← Back to Command Center]]
-- [[10-PROJECTS/teaching/_teaching-dashboard|← Teaching Dashboard]]
-- [[10-PROJECTS/research/_research-dashboard|Research Dashboard]]
+- [[10_projects/teaching/_teaching-dashboard|← Teaching Dashboard]]
+- [[10_projects/research/_research-dashboard|Research Dashboard]]
 
 ---
 

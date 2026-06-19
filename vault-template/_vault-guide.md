@@ -33,12 +33,12 @@ vault-template/
 ├── _vault-guide.md                This file
 ├── README.md                      Setup instructions
 │
-├── 00-INBOX/                      Quick capture
-│   ├── fleeting-notes/            Raw thoughts
-│   ├── literature-inbox/          PDFs to process
-│   └── voice-memos/               Audio transcriptions
+├── 00_inbox/                      Quick capture
+│   ├── fleeting_notes/            Raw thoughts
+│   ├── literature_inbox/          PDFs to process
+│   └── voice_memos/               Audio transcriptions
 │
-├── 10-PROJECTS/                   Active work
+├── 10_projects/                   Active work
 │   ├── research/                  Manuscripts, studies
 │   │   └── _research-dashboard.md Research overview
 │   ├── teaching/                  Courses, lectures
@@ -46,13 +46,13 @@ vault-template/
 │   └── packages/                  R package development
 │       └── _packages-dashboard.md  Package overview
 │
-├── 20-AREAS/                      Ongoing domains
+├── 20_areas/                      Ongoing domains
 │   ├── causal-inference-methods/  Core expertise
 │   ├── sensitivity-analysis/      E-values, tipping points
 │   ├── mediation-theory/          NDE/NIE theory
 │   └── statistical-pedagogy/      Teaching methods
 │
-├── 30-RESOURCES/                  Reference library
+├── 30_resources/                  Reference library
 │   ├── literature/                Paper notes
 │   │   ├── by-topic/              Organized by area
 │   │   ├── by-author/             Organized by author
@@ -64,28 +64,28 @@ vault-template/
 │   │   ├── lecture.md             Teaching template
 │   │   ├── task.md                Task template
 │   │   └── weekly-review.md       Weekly review template
-│   ├── code-snippets/             Reusable code
+│   ├── code_snippets/             Reusable code
 │   │   ├── R/                     R functions
 │   │   └── python/                Python scripts
-│   └── reference-cards/           Quick references
+│   └── reference_cards/           Quick references
 │
-├── 40-ARCHIVE/                    Completed/inactive
-│   ├── completed-papers/          Published manuscripts
-│   ├── past-courses/              Old semesters
-│   └── old-projects/              Inactive projects
+├── 40_archive/                    Completed/inactive
+│   ├── completed_papers/          Published manuscripts
+│   ├── past_courses/              Old semesters
+│   └── old_projects/              Inactive projects
 │
-├── 50-DAILY/                      Daily notes
+├── 50_daily/                      Daily notes
 │   └── YYYY/YYYY-MM/YYYY-MM-DD.md Daily journal
 │
-├── 60-TASKS/                      Task management
+├── 60_tasks/                      Task management
 │   ├── _today.md                  Today's focus
 │   ├── _this-week.md              Weekly planning
 │   ├── _waiting-for.md            Blocked tasks
 │   └── _example-tasks.md          Example tasks
 │
-└── _SYSTEM/                       Configuration
-    ├── claude-prompts/            Reusable prompts
-    ├── dataview-queries/          Query library
+└── _system/                       Configuration
+    ├── claude_prompts/            Reusable prompts
+    ├── dataview_queries/          Query library
     ├── templates/                 System templates
     ├── quickadd-config.json       QuickAdd settings
     └── QUICKADD-SETUP.md          Setup guide
@@ -97,9 +97,9 @@ vault-template/
 
 ### 1. Project Template
 
-**File**: `30-RESOURCES/templates/project.md`
+**File**: `30_resources/templates/project.md`
 **Shortcut**: `Cmd+Shift+R` → Research Project
-**Location**: `10-PROJECTS/research/`
+**Location**: `10_projects/research/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -130,9 +130,9 @@ progress: 0               # 0-100
 
 ### 2. Paper Note Template
 
-**File**: `30-RESOURCES/templates/paper-note.md`
+**File**: `30_resources/templates/paper-note.md`
 **Shortcut**: `Cmd+Shift+P`
-**Location**: `30-RESOURCES/literature/`
+**Location**: `30_resources/literature/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -169,9 +169,9 @@ created: YYYY-MM-DD
 
 ### 3. Daily Note Template
 
-**File**: `30-RESOURCES/templates/daily.md`
+**File**: `30_resources/templates/daily.md`
 **Shortcut**: Auto-created (Cmd+P → "today")
-**Location**: `50-DAILY/YYYY/YYYY-MM/`
+**Location**: `50_daily/YYYY/YYYY-MM/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -196,9 +196,9 @@ tags: [daily]
 
 ### 4. Lecture Template
 
-**File**: `30-RESOURCES/templates/lecture.md`
+**File**: `30_resources/templates/lecture.md`
 **Shortcut**: `Cmd+Shift+R` → Lecture
-**Location**: `10-PROJECTS/teaching/`
+**Location**: `10_projects/teaching/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -231,9 +231,9 @@ prep-time: 0              # hours spent preparing
 
 ### 5. Task Template
 
-**File**: `30-RESOURCES/templates/task.md`
+**File**: `30_resources/templates/task.md`
 **Shortcut**: `Cmd+Shift+T`
-**Location**: `60-TASKS/`
+**Location**: `60_tasks/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -265,9 +265,9 @@ due:                      # Optional deadline
 
 ### 6. Weekly Review Template
 
-**File**: `30-RESOURCES/templates/weekly-review.md`
+**File**: `30_resources/templates/weekly-review.md`
 **Shortcut**: Manual creation
-**Location**: `50-DAILY/_weekly-reviews/`
+**Location**: `50_daily/_weekly-reviews/`
 
 **YAML Frontmatter**:
 ```yaml
@@ -297,7 +297,7 @@ tags: [review, weekly]
 **File**: `_master-dashboard.md`
 
 **Sections**:
-1. **Today's Focus** - Tasks from `60-TASKS/_today`
+1. **Today's Focus** - Tasks from `60_tasks/_today`
 2. **Active Projects** - Research, teaching, packages (by status)
 3. **Inbox** - Items needing processing + count
 4. **Recent Literature** - Last 5 papers added
@@ -311,7 +311,7 @@ tags: [review, weekly]
 
 ### Research Dashboard
 
-**File**: `10-PROJECTS/research/_research-dashboard.md`
+**File**: `10_projects/research/_research-dashboard.md`
 
 **Sections**:
 1. **Active Manuscripts** - Drafting & revision status
@@ -327,7 +327,7 @@ tags: [review, weekly]
 
 ### Teaching Dashboard
 
-**File**: `10-PROJECTS/teaching/_teaching-dashboard.md`
+**File**: `10_projects/teaching/_teaching-dashboard.md`
 
 **Sections**:
 1. **Current Courses** - Active courses by week
@@ -343,7 +343,7 @@ tags: [review, weekly]
 
 ### Packages Dashboard
 
-**File**: `10-PROJECTS/packages/_packages-dashboard.md`
+**File**: `10_projects/packages/_packages-dashboard.md`
 
 **Sections**:
 1. **Active Development** - Packages in development
@@ -360,7 +360,7 @@ tags: [review, weekly]
 
 ### Literature Index
 
-**File**: `30-RESOURCES/literature/_literature-index.md`
+**File**: `30_resources/literature/_literature-index.md`
 
 **Sections**:
 1. **To Read** - Papers in queue
@@ -381,7 +381,7 @@ tags: [review, weekly]
 **List all files in folder**:
 ```dataview
 LIST
-FROM "10-PROJECTS/research"
+FROM "10_projects/research"
 ```
 
 **Table with specific fields**:
@@ -390,14 +390,14 @@ TABLE
   status,
   progress,
   deadline
-FROM "10-PROJECTS"
+FROM "10_projects"
 WHERE type = "manuscript"
 ```
 
 **Filter by condition**:
 ```dataview
 LIST
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE rating >= "⭐⭐⭐⭐"
 SORT year DESC
 ```
@@ -409,7 +409,7 @@ SORT year DESC
 **Tasks due this week**:
 ```dataview
 TASK
-FROM "60-TASKS" OR "10-PROJECTS"
+FROM "60_tasks" OR "10_projects"
 WHERE !completed
   AND (due <= date(today) + dur(7 days))
 SORT due ASC
@@ -418,7 +418,7 @@ SORT due ASC
 **Completed tasks today**:
 ```dataview
 TASK
-FROM "60-TASKS" OR "10-PROJECTS"
+FROM "60_tasks" OR "10_projects"
 WHERE completed
   AND date(completion) = date(today)
 ```
@@ -429,7 +429,7 @@ TABLE
   authors as "Authors",
   year as "Year",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(tags, "#mediation")
 SORT year DESC
 ```
@@ -437,7 +437,7 @@ SORT year DESC
 **Project research log** (daily notes mentioning project):
 ```dataview
 LIST
-FROM "50-DAILY"
+FROM "50_daily"
 WHERE contains(file.outlinks, this.file.link)
 SORT file.name DESC
 LIMIT 10
@@ -449,12 +449,12 @@ LIMIT 10
 
 **Count items**:
 ```
-Total papers: `$= dv.pages('"30-RESOURCES/literature"').length`
+Total papers: `$= dv.pages('"30_resources/literature"').length`
 ```
 
 **Filter and count**:
 ```
-To read: `$= dv.pages('"30-RESOURCES/literature"').where(p => p["read-status"] == "to-read").length`
+To read: `$= dv.pages('"30_resources/literature"').where(p => p["read-status"] == "to-read").length`
 ```
 
 **Current date**:
@@ -473,7 +473,7 @@ Set these in: Settings → Hotkeys → Search "QuickAdd"
 | Shortcut | Command | Creates |
 |----------|---------|---------|
 | `Cmd+Shift+N` | 💭 Capture Thought | Fleeting note in inbox |
-| `Cmd+Shift+T` | ✅ Add Task | Task in 60-TASKS/ |
+| `Cmd+Shift+T` | ✅ Add Task | Task in 60_tasks/ |
 | `Cmd+Shift+P` | 📄 New Paper Note | Literature note |
 | `Cmd+Shift+R` | 📊 New Project | Project (multi-choice) |
 
@@ -584,8 +584,8 @@ tags: [teaching, lecture, course-name]
 **Time**: 30 minutes (Fridays)
 
 1. **Create weekly review note**:
-   - Copy template: `30-RESOURCES/templates/weekly-review.md`
-   - Save to: `50-DAILY/_weekly-reviews/YYYY-WXX.md`
+   - Copy template: `30_resources/templates/weekly-review.md`
+   - Save to: `50_daily/_weekly-reviews/YYYY-WXX.md`
 
 2. **Review wins** (10 min):
    - Open each dashboard
@@ -608,7 +608,7 @@ tags: [teaching, lecture, course-name]
 5. **Inbox zero**:
    - Process all fleeting notes
    - Archive or convert to permanent notes
-   - Clear `00-INBOX/` folder
+   - Clear `00_inbox/` folder
 
 ---
 
@@ -617,7 +617,7 @@ tags: [teaching, lecture, course-name]
 **Time**: 20 minutes per paper
 
 1. **Capture PDF**:
-   - Download to `00-INBOX/literature-inbox/`
+   - Download to `00_inbox/literature_inbox/`
 
 2. **Create note**: `Cmd+Shift+P`
    - Filename: `FirstAuthorYYYY-short-title`
@@ -643,7 +643,7 @@ tags: [teaching, lecture, course-name]
    - `#mediation`, `#sensitivity-analysis`, etc.
 
 7. **Move PDF**:
-   - From `00-INBOX/literature-inbox/`
+   - From `00_inbox/literature_inbox/`
    - To Zotero/organized folder
    - Note path in literature note
 
@@ -671,7 +671,7 @@ tags: [teaching, lecture, course-name]
 4. **Set up resources**:
    - Link related literature
    - Note code repository path
-   - Link to relevant areas (e.g., `[[20-AREAS/mediation-theory]]`)
+   - Link to relevant areas (e.g., `[[20_areas/mediation-theory]]`)
 
 5. **Create initial tasks**:
    - Break project into 3-5 major tasks
@@ -704,7 +704,7 @@ tags: [teaching, lecture, course-name]
    - 1 medium-priority (priority 3)
    - 1 low-hanging fruit (15-30 min, low energy)
 
-4. **Update [[60-TASKS/_today]]**:
+4. **Update [[60_tasks/_today]]**:
    - Move selected tasks to "Must Do Today"
    - Estimate total time
    - Schedule time blocks
@@ -747,7 +747,7 @@ tags: [teaching, lecture, course-name]
 
 **Fix**:
 1. Settings → Community Plugins → Templater → Enable
-2. Settings → Templater → Template folder path: `30-RESOURCES/templates`
+2. Settings → Templater → Template folder path: `30_resources/templates`
 3. Restart Obsidian
 
 ---
@@ -766,7 +766,7 @@ tags: [teaching, lecture, course-name]
 2. **Enable plugin**: Settings → Community Plugins → QuickAdd → Enable
 3. **Import config**:
    - Settings → QuickAdd → Scroll to bottom
-   - Copy `_SYSTEM/quickadd-config.json` contents
+   - Copy `_system/quickadd-config.json` contents
    - Paste into import box → Import
 
 ---
@@ -818,9 +818,9 @@ tags: [teaching, lecture, course-name]
 **Fix**:
 1. Settings → Core Plugins → Enable "Daily notes"
 2. Settings → Daily notes:
-   - **Folder**: `50-DAILY`
+   - **Folder**: `50_daily`
    - **Date format**: `YYYY/YYYY-MM/YYYY-MM-DD`
-   - **Template**: `30-RESOURCES/templates/daily.md`
+   - **Template**: `30_resources/templates/daily.md`
 3. Now `Cmd+D` (or click calendar) creates note
 
 ---
@@ -844,7 +844,7 @@ tags: [teaching, lecture, course-name]
 
 - **Main README**: [[README]]
 - **Getting Started**: [[_getting-started]]
-- **QuickAdd Setup**: [[_SYSTEM/QUICKADD-SETUP]]
+- **QuickAdd Setup**: [[_system/QUICKADD-SETUP]]
 - **Parent Documentation**: `../docs/`
 
 ---

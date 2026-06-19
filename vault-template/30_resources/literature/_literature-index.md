@@ -16,7 +16,7 @@ TABLE
   authors as "Authors",
   year as "Year",
   journal as "Journal"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE type = "literature"
   AND read-status = "to-read"
 SORT year DESC
@@ -31,7 +31,7 @@ TABLE
   authors as "Authors",
   year as "Year",
   progress as "Progress"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE type = "literature"
   AND read-status = "reading"
 SORT file.ctime DESC
@@ -47,7 +47,7 @@ TABLE
   year as "Year",
   journal as "Journal",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE type = "literature"
   AND rating >= "⭐⭐⭐⭐"
 SORT rating DESC, year DESC
@@ -63,7 +63,7 @@ TABLE
   year as "Year",
   authors as "Authors",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(tags, "#mediation")
 SORT year DESC
 ```
@@ -74,7 +74,7 @@ TABLE
   year as "Year",
   authors as "Authors",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(tags, "#sensitivity-analysis")
 SORT year DESC
 ```
@@ -85,7 +85,7 @@ TABLE
   year as "Year",
   authors as "Authors",
   rating as "⭐"
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(tags, "#semiparametric")
 SORT year DESC
 ```
@@ -97,7 +97,7 @@ SORT year DESC
 ### VanderWeele
 ```dataview
 LIST
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(authors, "VanderWeele")
 SORT year DESC
 ```
@@ -105,7 +105,7 @@ SORT year DESC
 ### Robins
 ```dataview
 LIST
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(authors, "Robins")
 SORT year DESC
 ```
@@ -113,7 +113,7 @@ SORT year DESC
 ### Tchetgen Tchetgen
 ```dataview
 LIST
-FROM "30-RESOURCES/literature"
+FROM "30_resources/literature"
 WHERE contains(authors, "Tchetgen")
 SORT year DESC
 ```
@@ -122,19 +122,19 @@ SORT year DESC
 
 ## 📊 Reading Stats
 
-**Total Papers**: `$= dv.pages('"30-RESOURCES/literature"').where(p => p.type == "literature").length`
+**Total Papers**: `$= dv.pages('"30_resources/literature"').where(p => p.type == "literature").length`
 
 **By Status**:
-- To Read: `$= dv.pages('"30-RESOURCES/literature"').where(p => p["read-status"] == "to-read").length`
-- Reading: `$= dv.pages('"30-RESOURCES/literature"').where(p => p["read-status"] == "reading").length`
-- Completed: `$= dv.pages('"30-RESOURCES/literature"').where(p => p["read-status"] == "read").length`
+- To Read: `$= dv.pages('"30_resources/literature"').where(p => p["read-status"] == "to-read").length`
+- Reading: `$= dv.pages('"30_resources/literature"').where(p => p["read-status"] == "reading").length`
+- Completed: `$= dv.pages('"30_resources/literature"').where(p => p["read-status"] == "read").length`
 
 ---
 
 ## 🔗 Quick Links
 - [[_master-dashboard|← Back to Command Center]]
-- [[10-PROJECTS/research/_research-dashboard|Research Dashboard]]
-- [[00-INBOX/literature-inbox|Literature Inbox]]
+- [[10_projects/research/_research-dashboard|Research Dashboard]]
+- [[00_inbox/literature_inbox|Literature Inbox]]
 
 ---
 

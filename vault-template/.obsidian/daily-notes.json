@@ -1,5 +1,5 @@
 {
-  "folder": "50-DAILY",
+  "folder": "50_daily",
   "format": "YYYY/YYYY-MM/YYYY-MM-DD",
-  "template": "30-RESOURCES/templates/daily.md"
+  "template": "30_resources/templates/daily.md"
 }

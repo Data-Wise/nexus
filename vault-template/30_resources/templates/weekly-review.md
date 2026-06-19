@@ -35,7 +35,7 @@ tags: [review, weekly]
 **Completed Tasks**:
 ```dataview
 TASK
-FROM "60-TASKS" OR "10-PROJECTS"
+FROM "60_tasks" OR "10_projects"
 WHERE completed
   AND date(completion) >= date("<% tp.date.now("YYYY-MM-DD", -6) %>")
   AND date(completion) <= date("<% tp.date.now("YYYY-MM-DD") %>")
@@ -44,7 +44,7 @@ WHERE completed
 **Daily Notes Created**:
 ```dataview
 LIST
-FROM "50-DAILY"
+FROM "50_daily"
 WHERE file.ctime >= date("<% tp.date.now("YYYY-MM-DD", -6) %>")
 SORT file.name DESC
 ```
@@ -88,7 +88,7 @@ SORT file.name DESC
 ---
 
 ## 🧹 Inbox Status
-- **00-INBOX items**:
+- **00_inbox items**:
 - **Action needed**:
 
 ---

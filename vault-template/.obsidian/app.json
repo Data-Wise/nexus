@@ -1,9 +1,9 @@
 {
-  "attachmentFolderPath": "30-RESOURCES/attachments",
+  "attachmentFolderPath": "30_resources/attachments",
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,
   "newFileLocation": "folder",
-  "newFileFolderPath": "00-INBOX",
+  "newFileFolderPath": "00_inbox",
   "promptDelete": true,
   "alwaysUpdateLinks": true,
   "showFrontmatter": true,

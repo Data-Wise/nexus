@@ -13,49 +13,49 @@ Every Nexus vault MUST use this structure:
 
 ```
 Nexus/                           # Vault root
-├── 00-INBOX/                    # 📥 Quick capture (process daily)
-│   ├── fleeting-notes/          # Raw thoughts, ideas
-│   └── literature-inbox/        # Papers to process
+├── 00_inbox/                    # 📥 Quick capture (process daily)
+│   ├── fleeting_notes/          # Raw thoughts, ideas
+│   └── literature_inbox/        # Papers to process
 │
-├── 10-PROJECTS/                 # 🎯 Active work (PARA: Projects)
+├── 10_projects/                 # 🎯 Active work (PARA: Projects)
 │   ├── research/                # Research papers, manuscripts
 │   ├── teaching/                # Courses, lectures
 │   └── packages/                # Software development
 │
-├── 20-AREAS/                    # 🔄 Ongoing domains (PARA: Areas)
+├── 20_areas/                    # 🔄 Ongoing domains (PARA: Areas)
 │   ├── causal-inference/        # Domain expertise
 │   ├── sensitivity-analysis/    # Methodological areas
 │   └── [domain-name]/           # User-defined areas
 │
-├── 30-RESOURCES/                # 📚 Reference (PARA: Resources)
+├── 30_resources/                # 📚 Reference (PARA: Resources)
 │   ├── literature/              # Paper notes
 │   │   ├── by-topic/            # Organized by subject
 │   │   └── by-author/           # Organized by researcher
 │   ├── templates/               # Note templates
-│   ├── code-snippets/           # Reusable code
+│   ├── code_snippets/           # Reusable code
 │   │   ├── R/
 │   │   └── python/
-│   └── reference-cards/         # Quick references
+│   └── reference_cards/         # Quick references
 │
-├── 40-ARCHIVE/                  # 📦 Completed (PARA: Archive)
+├── 40_archive/                  # 📦 Completed (PARA: Archive)
 │   ├── completed-papers/        # Published manuscripts
 │   ├── past-courses/            # Previous semesters
 │   └── old-projects/            # Inactive work
 │
-├── 50-DAILY/                    # 📅 Daily notes
+├── 50_daily/                    # 📅 Daily notes
 │   ├── YYYY/                    # Year folders
 │   │   └── YYYY-MM/             # Month subfolders
 │   └── _weekly-reviews/         # Weekly retrospectives
 │
-├── 60-TASKS/                    # ✅ Task management
+├── 60_tasks/                    # ✅ Task management
 │   ├── _task-inbox.md           # Uncategorized tasks
 │   ├── _today.md                # Today's focus
 │   ├── _this-week.md            # Weekly planning
 │   └── _waiting-for.md          # Blocked/delegated
 │
-├── _SYSTEM/                     # ⚙️ Configuration
-│   ├── claude-prompts/          # Reusable prompts
-│   └── dataview-queries/        # Saved queries
+├── _system/                     # ⚙️ Configuration
+│   ├── claude_prompts/          # Reusable prompts
+│   └── dataview_queries/        # Saved queries
 │
 └── _master-dashboard.md         # 🧠 Command center
 ```
@@ -64,13 +64,13 @@ Nexus/                           # Vault root
 
 ## Folder Purposes
 
-### 00-INBOX (Capture Layer)
+### 00_inbox (Capture Layer)
 
 **Purpose:** Friction-free capture of raw thoughts and materials
 
 **When to Use:**
-- Quick ideas (fleeting-notes/)
-- Papers to read later (literature-inbox/)
+- Quick ideas (fleeting_notes/)
+- Papers to read later (literature_inbox/)
 - Anything you're not sure where to file yet
 
 **Review Frequency:** Daily (process to other folders)
@@ -79,7 +79,7 @@ Nexus/                           # Vault root
 
 ---
 
-### 10-PROJECTS (Active Work)
+### 10_projects (Active Work)
 
 **Purpose:** Active projects with deadlines and deliverables
 
@@ -94,11 +94,11 @@ Nexus/                           # Vault root
 - `teaching/STAT579-2025/` - Current course
 - `packages/RMediation/` - Active development
 
-**File Lifetime:** Until project complete, then → 40-ARCHIVE
+**File Lifetime:** Until project complete, then → 40_archive
 
 ---
 
-### 20-AREAS (Ongoing Domains)
+### 20_areas (Ongoing Domains)
 
 **Purpose:** Long-term responsibilities and expertise domains
 
@@ -117,7 +117,7 @@ Nexus/                           # Vault root
 
 ---
 
-### 30-RESOURCES (Reference Materials)
+### 30_resources (Reference Materials)
 
 **Purpose:** Supporting materials, templates, and references
 
@@ -132,12 +132,12 @@ Nexus/                           # Vault root
 - Project templates
 - Document scaffolds
 
-**code-snippets/**
+**code_snippets/**
 - Reusable code fragments
 - Analysis templates
 - Function libraries
 
-**reference-cards/**
+**reference_cards/**
 - Quick reference sheets
 - Notation standards
 - Checklists
@@ -146,7 +146,7 @@ Nexus/                           # Vault root
 
 ---
 
-### 40-ARCHIVE (Completed Work)
+### 40_archive (Completed Work)
 
 **Purpose:** Completed projects no longer actively worked on
 
@@ -156,19 +156,19 @@ Nexus/                           # Vault root
 - Package released and stable
 - Paper published
 
-**Organization:** Mirror structure of 10-PROJECTS
+**Organization:** Mirror structure of 10_projects
 
 **File Lifetime:** Permanent (historical record)
 
 ---
 
-### 50-DAILY (Daily Notes)
+### 50_daily (Daily Notes)
 
 **Purpose:** Day-by-day logs and planning
 
 **Structure:**
 ```
-50-DAILY/
+50_daily/
 ├── 2025/
 │   ├── 2025-12/
 │   │   ├── 2025-12-20.md
@@ -186,7 +186,7 @@ Nexus/                           # Vault root
 
 ---
 
-### 60-TASKS (Task Management)
+### 60_tasks (Task Management)
 
 **Purpose:** Centralized task tracking across all projects
 
@@ -205,7 +205,7 @@ Nexus/                           # Vault root
 
 ---
 
-### _SYSTEM (Configuration)
+### _system (Configuration)
 
 **Purpose:** Vault configuration and reusable assets
 
@@ -234,8 +234,8 @@ Optional but recommended:
 ```
 📋 _getting-started.md            # First-time user guide
 📋 _vault-guide.md                # Complete reference
-📋 30-RESOURCES/literature/_literature-index.md
-📋 10-PROJECTS/research/_research-dashboard.md
+📋 30_resources/literature/_literature-index.md
+📋 10_projects/research/_research-dashboard.md
 ```
 
 ---
@@ -277,7 +277,7 @@ Optional but recommended:
 ### Research Project Structure
 
 ```
-10-PROJECTS/research/my-project/
+10_projects/research/my-project/
 ├── my-project.md              # Main project note
 ├── ideas.md                   # Brainstorming
 ├── notes/                     # Research notes
@@ -288,7 +288,7 @@ Optional but recommended:
 ### Teaching Course Structure
 
 ```
-10-PROJECTS/teaching/STAT579-2025/
+10_projects/teaching/STAT579-2025/
 ├── STAT579-2025.md            # Course overview
 ├── syllabus/
 ├── lectures/
@@ -302,7 +302,7 @@ Optional but recommended:
 ### Package Development Structure
 
 ```
-10-PROJECTS/packages/RMediation/
+10_projects/packages/RMediation/
 ├── RMediation.md              # Package notes
 ├── development-log.md         # Progress log
 ├── roadmap.md                 # Future plans
@@ -317,20 +317,20 @@ Optional but recommended:
 
 ```
 Is this active work with a deadline?
-  ↓ YES → 10-PROJECTS/
+  ↓ YES → 10_projects/
   ↓ NO  → Continue
 
 Is this an ongoing responsibility?
-  ↓ YES → 20-AREAS/
+  ↓ YES → 20_areas/
   ↓ NO  → Continue
 
 Is this reference material?
-  ↓ YES → 30-RESOURCES/
+  ↓ YES → 30_resources/
   ↓ NO  → Continue
 
 Is this a completed project?
-  ↓ YES → 40-ARCHIVE/
-  ↓ NO  → 00-INBOX/ (decide later)
+  ↓ YES → 40_archive/
+  ↓ NO  → 00_inbox/ (decide later)
 ```
 
 ---
@@ -341,20 +341,20 @@ Is this a completed project?
 
 ```bash
 # One command
-mkdir -p ~/Obsidian/Nexus/{00-INBOX/{fleeting-notes,literature-inbox},10-PROJECTS/{research,teaching,packages},20-AREAS,30-RESOURCES/{literature/{by-topic,by-author},templates,code-snippets/{R,python},reference-cards},40-ARCHIVE,50-DAILY/$(date +%Y),60-TASKS,_SYSTEM/{claude-prompts,dataview-queries}}
+mkdir -p ~/Obsidian/Nexus/{00_inbox/{fleeting_notes,literature_inbox},10_projects/{research,teaching,packages},20_areas,30_resources/{literature/{by-topic,by-author},templates,code_snippets/{R,python},reference_cards},40_archive,50_daily/$(date +%Y),60_tasks,_system/{claude_prompts,dataview_queries}}
 ```
 
 ### Create Project
 
 ```bash
 # Research project
-mkdir -p ~/Obsidian/Nexus/10-PROJECTS/research/my-project/{notes,drafts}
+mkdir -p ~/Obsidian/Nexus/10_projects/research/my-project/{notes,drafts}
 
 # Teaching course
-mkdir -p ~/Obsidian/Nexus/10-PROJECTS/teaching/COURSE-YEAR/{lectures,assignments,syllabus}
+mkdir -p ~/Obsidian/Nexus/10_projects/teaching/COURSE-YEAR/{lectures,assignments,syllabus}
 
 # Package
-mkdir -p ~/Obsidian/Nexus/10-PROJECTS/packages/package-name
+mkdir -p ~/Obsidian/Nexus/10_projects/packages/package-name
 ```
 
 ---
@@ -371,7 +371,7 @@ If you have an unorganized vault:
 3. Start using new structure for new notes
 
 **Week 2: Migrate active projects**
-1. Move current work to 10-PROJECTS/
+1. Move current work to 10_projects/
 2. Leave everything else alone
 
 **Week 3: Organize by importance**
@@ -379,11 +379,11 @@ If you have an unorganized vault:
 2. Leave rarely accessed notes in place
 
 **Week 4: Archive old content**
-1. Move completed work to 40-ARCHIVE/
+1. Move completed work to 40_archive/
 2. Delete truly obsolete content
 
 **Ongoing:**
-- Process 00-INBOX/ daily
+- Process 00_inbox/ daily
 - Archive completed projects
 - Refine organization as needed
 
@@ -393,40 +393,40 @@ If you have an unorganized vault:
 
 ❌ **Too many nested levels**
 ```
-10-PROJECTS/research/topic/subtopic/sub-subtopic/note.md
+10_projects/research/topic/subtopic/sub-subtopic/note.md
 ```
 ✅ **Keep it flat** (3 levels max)
 ```
-10-PROJECTS/research/topic/note.md
+10_projects/research/topic/note.md
 ```
 
 ❌ **Duplicating PARA at every level**
 ```
-10-PROJECTS/research/projects/areas/resources/
+10_projects/research/projects/areas/resources/
 ```
 ✅ **PARA at vault root only**
 ```
-10-PROJECTS/research/my-project/
+10_projects/research/my-project/
 ```
 
 ❌ **Spaces and capitals in folder names**
 ```
-10-PROJECTS/Research Papers/My Great Idea/
+10_projects/Research Papers/My Great Idea/
 ```
 ✅ **Hyphens and lowercase**
 ```
-10-PROJECTS/research/my-great-idea/
+10_projects/research/my-great-idea/
 ```
 
 ❌ **Keeping everything in INBOX**
 ```
-00-INBOX/note1.md
-00-INBOX/note2.md
+00_inbox/note1.md
+00_inbox/note2.md
 ... (hundreds of files)
 ```
 ✅ **Process inbox regularly**
 ```
-00-INBOX/  (< 10 files at any time)
+00_inbox/  (< 10 files at any time)
 ```
 
 ---
@@ -435,13 +435,13 @@ If you have an unorganized vault:
 
 Use this to verify vault structure:
 
-- [ ] All 7 main folders exist (00-INBOX through _SYSTEM)
+- [ ] All 7 main folders exist (00_inbox through _system)
 - [ ] Each main folder has correct subfolders
 - [ ] No spaces in folder or file names
 - [ ] No nested PARA structures
-- [ ] 00-INBOX has < 20 unprocessed items
+- [ ] 00_inbox has < 20 unprocessed items
 - [ ] _master-dashboard.md exists and renders
-- [ ] Templates exist in 30-RESOURCES/templates/
+- [ ] Templates exist in 30_resources/templates/
 - [ ] Daily notes use YYYY-MM-DD format
 
 ---

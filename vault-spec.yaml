@@ -2,27 +2,59 @@ version: "1.0"
 description: "PARA-based Obsidian vault structure for academic researchers"
 
 required_folders:
-  - path: "00-INBOX"
+  - path: "00_inbox"
     description: "Capture inbox for unprocessed notes"
-  - path: "10-PROJECTS"
+  - path: "10_projects"
     description: "Active research projects and manuscripts"
-  - path: "20-AREAS"
+  - path: "20_areas"
     description: "Ongoing responsibilities (courses, committees)"
-  - path: "30-RESOURCES"
+  - path: "30_resources"
     description: "Reference materials, literature notes"
-  - path: "40-ARCHIVE"
+  - path: "40_archive"
     description: "Completed or inactive items"
 
 optional_folders:
-  - path: "_SYSTEM"
+  - path: "_system"
     description: "Templates, plugins, config (not PARA content)"
-  - path: "_SYSTEM/templates"
+  - path: "_system/templates"
     description: "Note templates"
 
 system_files:
-  - path: "_SYSTEM/templates/literature-note.md"
+  - path: "_system/templates/literature-note.md"
     description: "Template for literature notes"
-  - path: "_SYSTEM/templates/project-note.md"
+  - path: "_system/templates/project-note.md"
     description: "Template for project notes"
-  - path: "_SYSTEM/templates/daily-note.md"
+  - path: "_system/templates/daily-note.md"
     description: "Template for daily notes"
+
+# ---------------------------------------------------------------------------
+# Deployed convention (reconciled 2026-06-19 with the live vaults)
+# The abstract folders above (NN-SECTION, hyphenated) are the conceptual PARA
+# spec. The actual deployed vaults use NN_snake_case top-level domains with
+# snake_case subfolders. See VAULT-ALIGNMENT-2026-06-19.md.
+# ---------------------------------------------------------------------------
+naming_convention:
+  top_level: "NN_snake_case"      # e.g. 00_meta, 10_incubator, 20_projects
+  subfolders: "snake_case"       # e.g. 04_notes_and_ideas, causal_inference_course
+  pinned_meta_prefix: "_"        # underscore only for pinned meta (e.g. _PromptLibrary)
+
+deployed_instances:
+  - vault: "Research"
+    purpose: "Active research workspace (manuscripts, packages, backlog)"
+    folders:
+      - "00_meta"        # dashboards, templates  (~ _system + AREAS-meta)
+      - "10_incubator"   # PARA INBOX/PROJECTS workspace (00_inbox/01_literature/04_notes_and_ideas/...)
+      - "20_projects"    # manuscripts + R packages   (~ 10_projects)
+      - "30_backlog"     # candidate manuscripts      (~ resources/ideas)
+      - "90_archive"     # retired                    (~ 40_archive)
+  - vault: "Knowledge_Base"
+    purpose: "Reference knowledge, organized by domain"
+    folders:
+      - "00_meta"        # templates
+      - "10_inbox"       # capture                    (~ 00_inbox)
+      - "20_statistics"  # domain (~ 30_resources, by subject)
+      - "30_math"
+      - "40_programming"
+      - "50_teaching"
+      - "90_archive"     # (~ 40_archive)
+      - "_PromptLibrary" # pinned prompt store (canonical; referenced by skills/tasks)

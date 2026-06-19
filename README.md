@@ -67,14 +67,14 @@ nexus/
 │   ├── _master-dashboard.md     # Main control panel
 │   ├── _getting-started.md      # Usage guide
 │   ├── _vault-guide.md          # Complete reference
-│   ├── 00-INBOX/               # Quick capture
-│   ├── 10-PROJECTS/            # Active work (research/teaching/packages)
-│   ├── 20-AREAS/               # Ongoing domains
-│   ├── 30-RESOURCES/           # Templates, literature, code snippets
-│   ├── 40-ARCHIVE/             # Completed work
-│   ├── 50-DAILY/               # Daily notes
-│   ├── 60-TASKS/               # Task management
-│   ├── _SYSTEM/                # Configuration & QuickAdd
+│   ├── 00_inbox/               # Quick capture
+│   ├── 10_projects/            # Active work (research/teaching/packages)
+│   ├── 20_areas/               # Ongoing domains
+│   ├── 30_resources/           # Templates, literature, code snippets
+│   ├── 40_archive/             # Completed work
+│   ├── 50_daily/               # Daily notes
+│   ├── 60_tasks/               # Task management
+│   ├── _system/                # Configuration & QuickAdd
 │   └── .obsidian/              # Obsidian settings
 │
 ├── integrations/                # 🔌 Future integrations
@@ -160,7 +160,7 @@ Nexus is a complete knowledge management architecture that turns **Obsidian** in
 git clone https://github.com/data-wise/nexus-vault.git ~/Obsidian/Nexus
 
 # Or create manually
-mkdir -p ~/Obsidian/Nexus/{00-INBOX,10-PROJECTS,20-AREAS,30-RESOURCES,40-ARCHIVE,50-DAILY,60-TASKS}
+mkdir -p ~/Obsidian/Nexus/{00_inbox,10_projects,20_areas,30_resources,40_archive,50_daily,60_tasks}
 ```
 
 ### 2. Install Required Plugins
@@ -179,11 +179,11 @@ Add to Claude settings or system prompt:
 
 ```markdown
 You have access to my Nexus vault. Structure:
-- 00-INBOX: Unprocessed captures
-- 10-PROJECTS: Active research, teaching, packages
-- 20-AREAS: Ongoing domains
-- 30-RESOURCES: Literature, templates, snippets
-- 60-TASKS: Task management
+- 00_inbox: Unprocessed captures
+- 10_projects: Active research, teaching, packages
+- 20_areas: Ongoing domains
+- 30_resources: Literature, templates, snippets
+- 60_tasks: Task management
 
 Proactively search vault. Create links. Surface connections.
 ```
@@ -203,28 +203,28 @@ Weekly:    Review progress → Process inbox → Plan ahead
 
 ```
 📁 Nexus/
-├── 📁 00-INBOX/                    # Quick capture
-│   ├── fleeting-notes/             # Raw thoughts
-│   └── literature-inbox/           # Papers to process
+├── 📁 00_inbox/                    # Quick capture
+│   ├── fleeting_notes/             # Raw thoughts
+│   └── literature_inbox/           # Papers to process
 │
-├── 📁 10-PROJECTS/                 # Active work
+├── 📁 10_projects/                 # Active work
 │   ├── research/                   # Papers in progress
 │   ├── teaching/                   # Courses
 │   └── packages/                   # Software
 │
-├── 📁 20-AREAS/                    # Ongoing domains
+├── 📁 20_areas/                    # Ongoing domains
 │   ├── causal-inference/
 │   ├── sensitivity-analysis/
 │   └── mediation-theory/
 │
-├── 📁 30-RESOURCES/                # Reference
+├── 📁 30_resources/                # Reference
 │   ├── literature/                 # Paper notes
 │   ├── templates/                  # Reusable structures
-│   └── code-snippets/              # R/Python fragments
+│   └── code_snippets/              # R/Python fragments
 │
-├── 📁 40-ARCHIVE/                  # Completed
-├── 📁 50-DAILY/                    # Daily notes
-├── 📁 60-TASKS/                    # Task hub
+├── 📁 40_archive/                  # Completed
+├── 📁 50_daily/                    # Daily notes
+├── 📁 60_tasks/                    # Task hub
 └── 📄 _dashboard.md                # Command center
 ```
 
@@ -237,7 +237,7 @@ Weekly:    Review progress → Process inbox → Plan ahead
 ```
 Found paper → Create literature note → Link to projects → Add to index
      ↓              ↓                        ↓               ↓
-  00-INBOX    30-RESOURCES/lit         10-PROJECTS      _lit-index.md
+  00_inbox    30_resources/lit         10_projects      _lit-index.md
 ```
 
 ### 🔬 Research → Teaching
@@ -245,7 +245,7 @@ Found paper → Create literature note → Link to projects → Add to index
 ```
 Research note → Extract core ideas → Generate lecture → Create lab
       ↓                ↓                   ↓              ↓
-  20-AREAS      Pedagogical frame    Quarto slides    R script
+  20_areas      Pedagogical frame    Quarto slides    R script
 ```
 
 ### 💻 Idea → Code
@@ -253,7 +253,7 @@ Research note → Extract core ideas → Generate lecture → Create lab
 ```
 Concept note → Algorithm design → Implementation → Documentation
       ↓               ↓                ↓               ↓
-  00-INBOX      20-AREAS/theory    ~/repos/pkg/R/   Vault + roxygen
+  00_inbox      20_areas/theory    ~/repos/pkg/R/   Vault + roxygen
 ```
 
 ---
@@ -287,10 +287,10 @@ Concept note → Algorithm design → Implementation → Documentation
 
 | Package | Nexus Connection |
 |---------|------------------|
-| RMediation | `20-AREAS/mediation-theory/confidence-intervals.md` |
-| probmed | `10-PROJECTS/research/P_med-manuscript/` |
-| medrobust | `20-AREAS/sensitivity-analysis/` |
-| medsim | `30-RESOURCES/code-snippets/R/simulation/` |
+| RMediation | `20_areas/mediation-theory/confidence-intervals.md` |
+| probmed | `10_projects/research/P_med-manuscript/` |
+| medrobust | `20_areas/sensitivity-analysis/` |
+| medsim | `30_resources/code_snippets/R/simulation/` |
 
 ### With Claude Skills
 
@@ -341,7 +341,7 @@ The complete, ready-to-use Obsidian vault is in **`vault-template/`**
 4. **Start using**:
    - Open `_master-dashboard.md`
    - Read `_getting-started.md`
-   - Set up QuickAdd shortcuts (see `_SYSTEM/QUICKADD-SETUP.md`)
+   - Set up QuickAdd shortcuts (see `_system/QUICKADD-SETUP.md`)
 
 ### What's Included
 
@@ -359,7 +359,7 @@ The complete, ready-to-use Obsidian vault is in **`vault-template/`**
 | **`vault-template/README.md`** | Setup instructions & troubleshooting |
 | **`vault-template/_getting-started.md`** | ADHD-friendly usage guide |
 | **`vault-template/_vault-guide.md`** | Complete reference (all templates, queries, shortcuts) |
-| **`vault-template/_SYSTEM/QUICKADD-SETUP.md`** | Quick capture configuration |
+| **`vault-template/_system/QUICKADD-SETUP.md`** | Quick capture configuration |
 
 ---
 

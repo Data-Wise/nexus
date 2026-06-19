@@ -1,7 +1,7 @@
 status: complete
 priority: 1
 progress: 100
-next: Integration Phase 1 COMPLETE. Added critical bug fix (v0.9.1) and comprehensive Obsidian test suite. Project at stable checkpoint.
+next: 📐 CONVENTION (2026-06-19): vault-template propagated to the NN_snake_case convention (00_inbox/10_projects/20_areas/30_resources/40_archive/50_daily/60_tasks/_system); vault-spec.yaml gained naming_convention + deployed_instances; VAULT-ALIGNMENT-2026-06-19.md added (reconciles the spec with the live Research/Knowledge_Base vaults). — Prior: Integration Phase 1 complete; project at stable checkpoint.
 type: dev
 checkpoint: ✅ Integration Phase 1 COMPLETE + Bug Fix + Test Suite! statistical-research MCP v0.9.1 released with 134+ tests (90% pass rate). All 21 tools functional. Clean checkpoint achieved 2025-01-12.
 
